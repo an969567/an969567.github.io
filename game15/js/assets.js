@@ -1,0 +1,23 @@
+//ładowanie plików
+var girlImg = new Image();
+girlImg.src = "pics/idle.png";
+var jumpImg = new Image();
+jumpImg.src = "pics/jump.png";
+var spikesImg = new Image();
+spikesImg.src = "pics/spikes.png";
+var backgroundImg = new Image();
+backgroundImg.src = "pics/background.jpg";
+var background2Img = new Image();
+background2Img.src = "pics/background2.jpg";
+var teleporterImg = new Image();
+teleporterImg.src = "pics/teleporter.png";
+var background3Img = new Image();
+background3Img.src = "pics/background3.jpg";
+var monsterImg = new Image();
+monsterImg.src = "pics/monster.png";
+var background4Img = new Image();
+background4Img.src = "pics/background4.jpg";
+var background5Img = new Image();
+background5Img.src = "pics/background5.jpg";
+var monster2Img = new Image();
+monster2Img.src = "pics/monster2.png";
