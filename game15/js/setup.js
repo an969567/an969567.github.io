@@ -34,7 +34,8 @@ var player = {
 	velX: 0,
 	velY: 0,
 	jumping: false,
-	grounded: false
+	grounded: false,
+	direction: "right"
 };
 
 // dimensions

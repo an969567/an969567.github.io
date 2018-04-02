@@ -1,4 +1,4 @@
-//Game13 = dodajemy potwory
+//Game15 = lewo, prawo
 
 function colCheck(shapeA, shapeB) { //jeden z shapów to zawsze player //shapeA to player
 	// get the vectors to check against  //bierze dwa kształty, jeden platforma, drugi gracz

@@ -21,3 +21,7 @@ var background5Img = new Image();
 background5Img.src = "pics/background5.jpg";
 var monster2Img = new Image();
 monster2Img.src = "pics/monster2.png";
+var leftImg = new Image();
+leftImg.src = "pics/left.png";
+var jumpLeftImg = new Image();
+jumpLeftImg.src = "pics/jumpLeft.png";

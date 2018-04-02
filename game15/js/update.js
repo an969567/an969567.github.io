@@ -13,12 +13,14 @@ function update() {
 		// right arrow
 		if (player.velX < player.speed) {
 			player.velX++;
+			player.direction = "right";
 		}
 	}
 	if (keys[37] || keys[65]) { // o jest tutaj
 		// left arrow
 		if (player.velX > -player.speed) {
 			player.velX--;
+			player.direction = "left";
 		}
 	}
 
@@ -172,10 +174,20 @@ function update() {
 	ctx.fillStyle = "red";
 	ctx.fillText("Welcome in Mental Asylum",70,70);
 	if (player.jumping == false){
-		ctx.drawImage(girlImg, width/2, height/2, player.width, player.height);
+		if (player.direction == "right"){
+			ctx.drawImage(girlImg, width/2, height/2, player.width, player.height);
+		}
+		else {
+			ctx.drawImage(leftImg, width/2, height/2, player.width, player.height);
+		}
 	}
 	else {
-		ctx.drawImage(jumpImg, width/2, height/2, player.width, player.height);
+		if(player.direction == "right"){
+			ctx.drawImage(jumpImg, width/2, height/2, player.width, player.height);
+		}
+		else {
+			ctx.drawImage(jumpLeftImg, width/2, height/2, player.width, player.height);
+		}
 	}
 	if (alive == true){
 		requestAnimationFrame(update); //siebie przywołuje?

@@ -42,5 +42,5 @@ var monster2 = {
 	y: map.height - 50,
 	width: 40,
 	height: 50,
-	fall: function (){this.y+=200}
+	fall: function (){this.y+=500}
 };
