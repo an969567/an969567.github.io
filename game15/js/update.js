@@ -4,10 +4,10 @@ function update() {
 	// check keys
 	frameCount++;
 	
-	if (frameCount % 500 == 0) {
+	/*if (frameCount % 500 == 0) {
 		console.log(frameCount);
 		keys[39] = false;
-	}
+	}*/
 	
 	
 	
@@ -75,9 +75,8 @@ function update() {
 			ctx.fill();
 			//ctx.beginPath();
 			//ctx.fillStyle = "green";
-			ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 			//ctx.fill(); //inna technika
-			var dir = colCheck(player, boxes[i]); //przypisuje "l", "r", "b" lub "t"
+			var dir = colCheck(player, boxes[i]); //przypisuje "l", "r", "b" lub "t" //trzeba sprawdzać wszystkie w pętli
 
 			if (dir === "l" || dir === "r") { //l lub r
 				player.velX = 0; //zatrzymuje się w poziomie
@@ -88,8 +87,9 @@ function update() {
 			} else if (dir === "t") {
 				player.velY *= -1;
 			}
-			collision(teleporter);
 		}
+		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
+		collision(teleporter);
 	}
 	
 	if (level == 2){
@@ -98,8 +98,6 @@ function update() {
 			ctx.fillStyle = "black"
 			ctx.rect(boxes2[i].x - player.x + width/2, boxes2[i].y - player.y + height/2, boxes2[i].width, boxes2[i].height);
 			ctx.fill();
-			ctx.drawImage(spikesImg, spikes.x - player.x + width/2, spikes.y - player.y + height/2, spikes.width, spikes.height);
-			ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 			var dir = colCheck(player, boxes2[i]);
 
 			if (dir === "l" || dir === "r") {
@@ -111,9 +109,11 @@ function update() {
 			} else if (dir === "t") {
 				player.velY *= -1;
 			}
-			kill(spikes); //dodać obiekt czerwony klocek //albo kolce // to działa :)))))
-			collision2(teleporter2);
     	}
+		ctx.drawImage(spikesImg, spikes.x - player.x + width/2, spikes.y - player.y + height/2, spikes.width, spikes.height);
+		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
+		kill(spikes); //dodać obiekt czerwony klocek //albo kolce // to działa :)))))
+		collision2(teleporter2);
 		
 	}
 	if (level == 3){
@@ -122,7 +122,6 @@ function update() {
 			ctx.fillStyle = "black"
 			ctx.rect(boxes3[i].x - player.x + width/2, boxes3[i].y - player.y + height/2, boxes3[i].width, boxes3[i].height);
 			ctx.fill();
-			ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 			var dir = colCheck(player, boxes3[i]);
 
 			if (dir === "l" || dir === "r") {
@@ -134,8 +133,8 @@ function update() {
 			} else if (dir === "t") {
 				player.velY *= -1;
 			}
-			kill(monster);
     	}
+		kill(monster);
 		if(monster.x < monster.maxX && monster.direction == "right") monster.x++;
 		if(monster.x >= monster.maxX) { monster.x--; monster.direction = "left"; }
 		if(monster.direction == "left" && monster.x > monster.minX) monster.x--;
@@ -145,6 +144,7 @@ function update() {
 		}
 		else
 			ctx.drawImage(monsterRightImg, monster.x - player.x + width/2, monster.y - player.y + height/2, monster.width, monster.height);
+		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 		collision3(teleporter3);
 	}
 	if (level == 4){
@@ -153,7 +153,6 @@ function update() {
 			ctx.fillStyle = "black"
 			ctx.rect(boxes4[i].x - player.x + width/2, boxes4[i].y - player.y + height/2, boxes4[i].width, boxes4[i].height);
 			ctx.fill();
-			ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 			var dir = colCheck(player, boxes4[i]);
 
 			if (dir === "l" || dir === "r") {
@@ -165,8 +164,9 @@ function update() {
 			} else if (dir === "t") {
 				player.velY *= -1;
 			}
-			kill2(monster2);
     	}
+		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
+		kill2(monster2);
 		ctx.drawImage(monster2Img, monster2.x - player.x + width/2, monster2.y - player.y + height/2, monster2.width, monster2.height);
 		collision4(teleporter4);
 	}
@@ -176,7 +176,6 @@ function update() {
 			ctx.fillStyle = "black"
 			ctx.rect(boxes5[i].x - player.x + width/2, boxes5[i].y - player.y + height/2, boxes5[i].width, boxes5[i].height);
 			ctx.fill();
-			ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 			var dir = colCheck(player, boxes5[i]);
 
 			if (dir === "l" || dir === "r") {
@@ -188,8 +187,8 @@ function update() {
 			} else if (dir === "t") {
 				player.velY *= -1;
 			}
-			kill2(monster3);
     	}
+		kill2(monster3);
 		if(monster3.x < monster3.maxX && monster3.direction == "right") monster3.x++;
 		if(monster3.x >= monster3.maxX) { monster3.x--; monster3.direction = "left"; }
 		if(monster3.direction == "left" && monster3.x > monster.minX) monster3.x--;
@@ -199,6 +198,7 @@ function update() {
 		}
 		else
 			ctx.drawImage(monster2rightImg, monster3.x - player.x + width/2, monster3.y - player.y + height/2, monster3.width, monster3.height);
+		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 		collision5(teleporter5);
 	}
 		if (level == 6){
@@ -207,7 +207,6 @@ function update() {
 			ctx.fillStyle = "black"
 			ctx.rect(boxes6[i].x - player.x + width/2, boxes6[i].y - player.y + height/2, boxes6[i].width, boxes6[i].height);
 			ctx.fill();
-			ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 			var dir = colCheck(player, boxes6[i]);
 
 			if (dir === "l" || dir === "r") {
@@ -220,17 +219,18 @@ function update() {
 				player.velY *= -1;
 			}
     	}
-			kill2(loszka);
-			for(i=0;i<bullets.length;i++) colCheck2(bullets[i], loszka);
+		kill2(loszka);
+		for(i=0;i<bullets.length;i++) colCheck2(bullets[i], loszka);
 		//if(monster3.x < monster3.maxX && monster3.direction == "right") monster3.x++;
 		//if(monster3.x >= monster3.maxX) { monster3.x--; monster3.direction = "left"; }
 		//if(monster3.direction == "left" && monster3.x > monster.minX) monster3.x--;
 		//if(monster3.x <= monster.minX) { monster3.direction = "right"; monster3.x++;}
 		//if (monster3.direction == "left"){
-			ctx.drawImage(loszkaImg, loszka.x - player.x + width/2, loszka.y - player.y + height/2, loszka.width, loszka.height);
+		ctx.drawImage(loszkaImg, loszka.x - player.x + width/2, loszka.y - player.y + height/2, loszka.width, loszka.height);
 		//}
 		//else
 		//	ctx.drawImage(monster2rightImg, monster3.x - player.x + width/2, monster3.y - player.y + height/2, monster3.width, monster3.height);
+		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 		collision5(teleporter5);
 	}
 	
