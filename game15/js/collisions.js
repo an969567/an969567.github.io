@@ -144,3 +144,33 @@ function collision4(shapeB) { //zmieniamy na funkcję jednego argumentu
 		player.y = basePlayer.y;
 	}
 }
+
+function collision5(shapeB) { //zmieniamy na funkcję jednego argumentu
+	var vX = (player.x + (player.width / 2)) - (shapeB.x + (shapeB.width / 2)), 
+		vY = (player.y + (player.height / 2)) - (shapeB.y + (shapeB.height / 2)),
+		hWidths = (player.width / 2) + (shapeB.width / 2),
+		hHeights = (player.height / 2) + (shapeB.height / 2),
+		colDir = null;
+
+	// if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
+	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) { //jeżeli ten if to wystąpiła kolizja
+		level = 6; //w przyszłości zrobimy level++
+		player.x = basePlayer.x;
+		player.y = basePlayer.y;
+	}
+}
+
+function colCheck2(shapeA, shapeB) { //jeden z shapów to zawsze player //shapeA to player //teraz będzie bullet + potworo loszka //shapeB - potworoloszka //shapeA - bullet
+	// get the vectors to check against  //bierze dwa kształty, jeden platforma, drugi gracz
+	var vX = (shapeA.x + (shapeA.width / 2)) - (shapeB.x + (shapeB.width / 2)), //tylko x i y się różnią  //może to lepiej zrozumieć //nawiasy dla ułatwienia czytania, drugi nawias jest ważny //width jest brane pod uwagę przy x //składowa wektoru x czyli jestesmy przy leweym końcu i dodajemy pół szerokości. potem odejmujemy środek szerokości kształtuB //czyli odległość pomiędzy nimi dwoma
+		vY = (shapeA.y + (shapeA.height / 2)) - (shapeB.y + (shapeB.height / 2)), //dałoby się zmienić na player ale może nie warto
+		// add the half widths and half heights of the objects //to jest dobrze opisane na jego stronie //analogicznie
+		hWidths = (shapeA.width / 2) + (shapeB.width / 2), // minimalna odległość między dwoma
+		hHeights = (shapeA.height / 2) + (shapeB.height / 2);
+
+	// if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
+	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) { // a tu nie powinno być OR ? //obecnie bierze pod uwagę oba równocześnie
+		// figures out on which side we are colliding (top, bottom, left, or right)
+		shapeB.fall();
+	}
+}

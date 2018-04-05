@@ -9,7 +9,12 @@ var canvas = document.getElementById("canvas"),
 	alive = true, //śmierć
 	right = true; //do kierunków
 
-var level = 3; //zaczynamy od pierwszego
+var frameCount = 0;
+var licznik = 0; //do strzelania
+var keys2=[]; //do keypress
+var spacePressed2 = false;
+
+var level = 1; //zaczynamy od pierwszego
 
 //potem zrobimy assets.js
 
@@ -82,7 +87,7 @@ boxes.push({ //cztery pudełka, ostatnie mniejsze
 	width: 40,
 	height: 40
 }); //teraz jakieś pośrodku
-boxes.push({
+boxes.push({ //bezimienny obiekt
 	x: 400,
 	y: map.height - 250,
 	width: 100,
@@ -97,3 +102,18 @@ var teleporter = { //podoba mi się ten design, oryginalny
 
 canvas.width = width;
 canvas.height = height;
+
+var bullets = []; //na amunicję
+class Bullet {
+	constructor() {
+		this.baseX = player.x + player.width/2; //tam gdzie player się znajduje
+		this.baseY = player.y + player.height/2; //potem to wykalibrujemy by leciało nie z lewego górnego rogu laseczki
+		this.x = this.baseX;
+		this.y = this.baseY;
+		this.width = 10;
+		this.height = 10; //chyba tyle //ewentualnie jeszcze speed //gdzieś musi być bullet.x++ ... //razem z każdym frejmem. a nie z wciśniętą spacją //jeszcze mają być niezliczone //ewentualnie można dać limit tych bulletów //ale co. strzelisz trzy i koniec? //tak samo z rysowaniem //gdzieś musi sprawdzać czy obiekt istnieje //bullet.push?
+		this.direction = player.direction;
+	}
+}
+
+//var spacePressed = false;
