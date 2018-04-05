@@ -54,38 +54,32 @@ function update() {
 		//spacePressed = true;
 	}
 	
-   //a bo jest pod backgroundem
-	player.velX *= friction; //zmniejsza się
-	player.velY += gravity; //dodaje się w dół
+	player.velX *= friction;
+	player.velY += gravity;
 	player.grounded = false;
 
 	ctx.clearRect(0, 0, width, height);
-	ctx.fillStyle = "black"; //rysowane
-	ctx.beginPath(); //?????? new path ale czy potrzebne //działa bez tego, ale sporo wolniej
-
-	//gdzieś tutaj musi być przesunięcie o wektor // może o przesunięcie playera //czyli na początku by ruszał wszyskim, bez inteligentej kamery przy krawędziach
+	ctx.fillStyle = "black";
+	ctx.beginPath();
 	if (level == 1) {
 		ctx.drawImage(backgroundImg, - player.x + width/2, - player.y + height/2, map.width, map.height);
-		for (var i = 0; i < boxes.length; i++) { //rysowanie boxów
-		/// ctx.fillStyle = boxes[i].color; //rysowane
-		//ctx.beginPath(); //?????? new path ale czy potrzebne //działa bez tego, ale sporo wolniej
+		for (var i = 0; i < boxes.length; i++) {
 			ctx.fillStyle= "black";
 			ctx.beginPath();
-			ctx.rect(boxes[i].x - player.x + width/2, boxes[i].y - player.y + height/2, boxes[i].width, boxes[i].height); //odwoływanie się do obiektów, tutaj same kwadraty, ale nie muszą to być kwadraty //więc użyłem prostokątów. //ctx.rect() //width i height nie zmieniają sie o wektor //czyli w tej wersji czerwony prostokąt byłby ciągle w tym samym miejscu //player.x player.y ? tak
+			ctx.rect(boxes[i].x - player.x + width/2, boxes[i].y - player.y + height/2, boxes[i].width, boxes[i].height);
 			ctx.fill();
-			//ctx.beginPath();
-			//ctx.fillStyle = "green";
-			//ctx.fill(); //inna technika
-			var dir = colCheck(player, boxes[i]); //przypisuje "l", "r", "b" lub "t" //trzeba sprawdzać wszystkie w pętli
+			var dir = colCheck(player, boxes[i]);
 
-			if (dir === "l" || dir === "r") { //l lub r
-				player.velX = 0; //zatrzymuje się w poziomie
-				//  player.jumping = false; //czy to potrzebne?? wydaje się, że nie
+			if (dir === "l" || dir === "r") {
+				player.velX = 0;
 			} else if (dir === "b") { 
 				player.grounded = true;
 				player.jumping = false;
 			} else if (dir === "t") {
 				player.velY *= -1;
+			}
+			for (j=0;j<bullets.length;j++) {
+				if (colCheck3(boxes[i], bullets[j]) == true) bullets[j] = 0;
 			}
 		}
 		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
@@ -284,8 +278,8 @@ function update() {
 		}
 	}
 	for(var i=0; i < bullets.length; i++){
-		if (bullets[i].direction == "right") bullets[i].x+=40;
-		else bullets[i].x-=40;
+		if (bullets[i].direction == "right") bullets[i].x+=20;
+		else bullets[i].x-=20;
 		ctx.drawImage(bulletImg, bullets[i].x - player.x + width/2, bullets[i].y - player.y + height/2, 20, 20);		//tymczasowo runImg //może rysuje je gdzieś w chuj gdzie indziej
 	} //na wierzchu bullets
 	if (alive == true){
