@@ -45,13 +45,14 @@ function update() {
 		spacePressed = true;
 	} */
 	
+	spacePressed = false; //do sprajtu
 	if (spacePressed2 == true) {
 		//console.log("space");
 		var b = new Bullet();
 		bullets.push(b);  //SMART!!!!!!!!!
 		//console.log(bullets.length);
 		spacePressed2 = false; //!!!
-		//spacePressed = true;
+		spacePressed = true; //do sprajtu
 	}
 	
 	player.velX *= friction;
@@ -103,6 +104,9 @@ function update() {
 			} else if (dir === "t") {
 				player.velY *= -1;
 			}
+			for (j=0;j<bullets.length;j++) {
+					if (colCheck3(boxes2[i], bullets[j]) == true) bullets[j] = 0;
+			}
     	}
 		ctx.drawImage(spikesImg, spikes.x - player.x + width/2, spikes.y - player.y + height/2, spikes.width, spikes.height);
 		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
@@ -126,6 +130,9 @@ function update() {
 				player.jumping = false;
 			} else if (dir === "t") {
 				player.velY *= -1;
+			}
+			for (j=0;j<bullets.length;j++) {
+				if (colCheck3(boxes3[i], bullets[j]) == true) bullets[j] = 0;
 			}
     	}
 		kill(monster);
@@ -158,6 +165,9 @@ function update() {
 			} else if (dir === "t") {
 				player.velY *= -1;
 			}
+			for (j=0;j<bullets.length;j++) {
+				if (colCheck3(boxes4[i], bullets[j]) == true) bullets[j] = 0;
+			}
     	}
 		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
 		kill2(monster2);
@@ -180,6 +190,9 @@ function update() {
 				player.jumping = false;
 			} else if (dir === "t") {
 				player.velY *= -1;
+			}
+			for (j=0;j<bullets.length;j++) {
+				if (colCheck3(boxes5[i], bullets[j]) == true) bullets[j] = 0;
 			}
     	}
 		kill2(monster3);
@@ -211,6 +224,9 @@ function update() {
 				player.jumping = false;
 			} else if (dir === "t") {
 				player.velY *= -1;
+			}
+			for (j=0;j<bullets.length;j++) {
+				if (colCheck3(boxes6[i], bullets[j]) == true) bullets[j] = 0;
 			}
     	}
 		kill2(loszka);
@@ -247,7 +263,7 @@ function update() {
 	if (player.jumping == false){
 		if (player.direction == "right"){
 			if(player.velX == 0) {
-				if (spacePressed2 == false) { //nie ma spacji //powinno zaczynać od false przecież
+				if (spacePressed == false) { //nie ma spacji //powinno zaczynać od false przecież
 					ctx.drawImage(girlImg, width/2, height/2, player.width, player.height);
 				}
 				else {
@@ -259,7 +275,7 @@ function update() {
 		}
 		else {
 			if(player.velX == 0) {
-				if (spacePressed2 == false) {
+				if (spacePressed == false) {
 					ctx.drawImage(leftImg, width/2, height/2, player.width, player.height);
 				}
 				else {
@@ -283,6 +299,6 @@ function update() {
 		ctx.drawImage(bulletImg, bullets[i].x - player.x + width/2, bullets[i].y - player.y + height/2, 20, 20);		//tymczasowo runImg //może rysuje je gdzieś w chuj gdzie indziej
 	} //na wierzchu bullets
 	if (alive == true){
-		requestAnimationFrame(update); //siebie przywołuje?
+		window.requestAnimationFrame(update); //siebie przywołuje?
 	}
 }
