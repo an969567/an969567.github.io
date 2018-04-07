@@ -1,0 +1,28 @@
+{
+	"name": "Gunslugs",
+	"description": "Chaotic run and gun gaming in retro style",
+	"version": "1.1.1",
+	"manifest_version": 2,
+	"minimum_chrome_version": "29",
+	"icons": { "128": "icon128x128.png" },
+	"app": {
+		"background": {
+	  		"scripts": ["background.js"],
+	  		"persistent": false
+		}
+	},
+	"permissions": [
+		"storage",
+		"identity",
+		"https://www.googleapis.com/"
+	],
+	"oauth2": {
+    	"client_id": "640810171527-f5028sdkkhjjj2u1o9abradci9k3ei5r.apps.googleusercontent.com",
+    	"scopes": [
+      		"https://www.googleapis.com/auth/plus.login",
+      		"https://www.googleapis.com/auth/chromewebstore.readonly"
+      	]
+    },
+    	
+	"offline_enabled":true	
+}
