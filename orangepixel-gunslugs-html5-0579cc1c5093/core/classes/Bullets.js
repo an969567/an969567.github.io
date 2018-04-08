@@ -1,6 +1,6 @@
 function Bullets() {
 
-	Bullets.bBULLET = 1,
+	Bullets.bBULLET = 11, //zamieniliśmy //nic się nie stało //to co to za numerki? Kolejność rysowania?
 	Bullets.bTRILASER = 2,
 	Bullets.bROCKET = 3,
 	Bullets.bEXPLOSION = 4,
@@ -10,7 +10,7 @@ function Bullets() {
 	Bullets.bBOSSSPIKE = 8,
 	Bullets.bELECTRO = 9,
 	Bullets.bBIGFLAME = 10,
-	Bullets.bTRIPLEFLAME = 11,
+	Bullets.bTRIPLEFLAME = 1,
 	Bullets.bTRIPLEFLAMEMINI = 12,
 	Bullets.bTRILASERSMALL = 13,
 	Bullets.bMEGAWORM = 14,
@@ -23,7 +23,7 @@ function Bullets() {
 		// Bullet owner types
 	Bullets.OWNER_PLAYER = 0,
 	Bullets.OWNER_PLAYER2 = 1,
-	Bullets.OWNER_MONSTER = 2,
+	Bullets.OWNER_MONSTER = 5,
 	Bullets.OWNER_ANYONE = 3;
 
 	

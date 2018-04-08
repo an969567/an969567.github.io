@@ -6894,7 +6894,7 @@ function initSounds() {
 			if (isMonsterFree(tx,ty)) {
 				monsterAdd(Monster.mCHICKEN, tx,ty, 12, 0);
 			}
-			tx+=2+getRandom(64);
+			tx+=2+getRandom(64); //jak działa getRandom? //zdefiniowane w arcadecanvas.js //zwracaliczby od 0 do 63. całkowite.
 		}
 		
 		// add random crates all over
@@ -6908,7 +6908,7 @@ function initSounds() {
 			
 			
 			// make sure there are no other objects placed here
-			if (isMonsterFree(tx,ty)) {
+			if (isMonsterFree(tx,ty)) { //tile x, tile y chyba
 				// make sure it's not making the jump higher as 2 tiles (so check on left + down1)
 				if (myWorld.isSolid(tx-1,ty+2) || myWorld.isSolid(tx-1,ty+1)) {
 					monsterAdd(Monster.mCRATE, tx,ty, 12, 0);

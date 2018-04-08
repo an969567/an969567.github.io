@@ -6,7 +6,7 @@ function PlayerProfile() {
 
 	
 	// audio?
-	this.useMusic=false;
+	//this.useMusic=false;
 
 	// audio?
 	this.useMusic=true;
@@ -286,8 +286,16 @@ function PlayerProfile() {
 
 	
 
-		this.unlockedCharacters[1]=true; // j rumble
+		this.unlockedCharacters[1]=true;
+		this.unlockedCharacters[2]=true;
+		this.unlockedCharacters[3]=true;
+		this.unlockedCharacters[5]=true// j rumble
 		this.unlockedCharacters[4]=true;	// gunchick
+		this.unlockedCharacters[6]=true;
+		this.unlockedCharacters[7]=true;
+		this.unlockedCharacters[8]=true;
+		this.unlockedCharacters[9]=true;
+		this.unlockedCharacters[10]=true;
 		
 		if (this.stickX[0]==null) {
 			for (var i=4; --i>=0;) {

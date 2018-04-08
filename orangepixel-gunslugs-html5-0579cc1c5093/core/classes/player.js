@@ -129,9 +129,9 @@ function Player(myid) {
 	
 	
 	this.gameReset=function() {
-		this.maxLives=256;
-		this.maxAmmo=128;
-		this.weapon=1;
+		this.maxLives=155000;
+		this.maxAmmo=35000;
+		this.weapon=3;
 		this.inDoor=false;
 		this.atDoor=false;
 		this.doorLoadRoom=false;
@@ -140,15 +140,15 @@ function Player(myid) {
 		this.lives=this.maxLives;
 		this.ammo=this.maxAmmo;
 		
-		this.hasArmor=false;
+		this.hasArmor=true;
 		
 		this.Died=false;
 		this.diedCounter=0;
 		
-		this.hasSpecialDrink=false;
+		this.hasSpecialDrink=true;
 		
-		this.skullCount=0;
-		this.hellTankCount=0;
+		this.skullCount=3;
+		this.hellTankCount=3;
 	}
 	
 	
@@ -470,17 +470,17 @@ function Player(myid) {
 			
 
 			case 3: // electro
-				if (this.myDirection<0) {
+				if (this.myDirection<0) { //Player.myDirection
 					bulletAdd(Bullets.OWNER_PLAYER, Bullets.bELECTRO, this.x-8, this.y+4+getRandom(3)+coverOffset, this.myDirection);
 				} else {
 					bulletAdd(Bullets.OWNER_PLAYER, Bullets.bELECTRO, this.x+12, this.y+4+getRandom(3)+coverOffset, this.myDirection);
 				}
 				
 				this.ammo-=16;
-				if (this.ammo<0) this.ammo=0;
+				if (this.ammo<0) this.ammo=0; //!!
 				
-				this.doShootSound=true;
-				this.actionDelay=8<<4;				
+				this.doShootSound=true; //!!!
+				this.actionDelay=8<<4;		//to jest przecież stała wartość		
 			break;
 			
 			
@@ -629,7 +629,7 @@ function Player(myid) {
  * @param myWorld An World object, contains the map which we will check for collisions
  */
 
-	this.update=function(myWorld, displayW) {
+	this.update=function(myWorld, displayW) { //Player.update
 		var tx;
 		var ty;
 		var ty2;
