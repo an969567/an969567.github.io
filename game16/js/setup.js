@@ -5,7 +5,7 @@ var canvas = document.getElementById("canvas"),
 	height = 800,
 	keys = [], //? wciśnięte klawisze chyba
 	friction = 0.95,
-	gravity = 0.1,
+	gravity = 0.6,
 	alive = true, //śmierć
 	right = true; //do kierunków
 
@@ -35,7 +35,7 @@ var player = {
 	y: basePlayer.y,  //potem ustawimy, że bardziej z lewego brzegu
 	width: 100,
 	height: 150,
-	speed: 3,
+	speed: 10,
 	velX: 0,
 	velY: 0,
 	jumping: false,
