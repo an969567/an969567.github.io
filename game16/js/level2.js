@@ -70,7 +70,11 @@ var spikes = {
 	x: map2.width - 800, //prawa platforma //kolce
 	y: map2.height - 40,
 	width: 160,
-	height: 40
+	height: 40,
+	HBx: map2.width - 770, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
+	HBy: map2.height - 25, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
+	HBwidth: 100, //Hit Box
+	HBheight: 25
 };
 var teleporter2 = {
 	x: map.width - 70 - 160, //prawa platforma //ważniejsza, będzie teleporterem

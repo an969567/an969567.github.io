@@ -110,7 +110,7 @@ function update() {
     	}
 		ctx.drawImage(spikesImg, spikes.x - player.x + width/2, spikes.y - player.y + height/2, spikes.width, spikes.height);
 		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y - player.y + height/2, teleporter.width, teleporter.height);
-		kill(spikes); //dodać obiekt czerwony klocek //albo kolce // to działa :)))))
+		kill3(spikes); // to działa :)))))
 		collision2(teleporter2);
 		
 	}
@@ -135,11 +135,11 @@ function update() {
 				if (colCheck3(boxes3[i], bullets[j]) == true) bullets[j] = 0;
 			}
     	}
-		kill(monster);
-		if(monster.x < monster.maxX && monster.direction == "right") monster.x++;
-		if(monster.x >= monster.maxX) { monster.x--; monster.direction = "left"; }
-		if(monster.direction == "left" && monster.x > monster.minX) monster.x--;
-		if(monster.x <= monster.minX) { monster.direction = "right"; monster.x++;}
+		kill3(monster);
+		if(monster.x < monster.maxX && monster.direction == "right") { monster.x++; monster.HBx++; }
+		if(monster.x >= monster.maxX) { monster.x--; monster.direction = "left"; monster.HBx--; }
+		if(monster.direction == "left" && monster.x > monster.minX) { monster.x--; monster.HBx--; }
+		if(monster.x <= monster.minX) { monster.direction = "right"; monster.x++; monster.HBx++; }
 		if (monster.direction == "left"){
 			ctx.drawImage(monsterImg, monster.x - player.x + width/2, monster.y - player.y + height/2, monster.width, monster.height);
 		}

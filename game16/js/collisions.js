@@ -34,13 +34,12 @@ function colCheck(shapeA, shapeB) { //jeden z shapów to zawsze player //shapeA 
 	}
 	return colDir; //zwracal null jeśli się nie dotykają
 }
-
+//teleporter 1
 function collision(shapeB) { //zmieniamy na funkcję jednego argumentu
 	var vX = (player.x + (player.width / 2)) - (shapeB.x + (shapeB.width / 2)), 
 		vY = (player.y + (player.height / 2)) - (shapeB.y + (shapeB.height / 2)),
 		hWidths = (player.width / 2) + (shapeB.width / 2),
-		hHeights = (player.height / 2) + (shapeB.height / 2),
-		colDir = null;
+		hHeights = (player.height / 2) + (shapeB.height / 2);
 
 	// if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
 	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) { //jeżeli ten if to wystąpiła kolizja
@@ -49,13 +48,12 @@ function collision(shapeB) { //zmieniamy na funkcję jednego argumentu
 		player.y = basePlayer.y;
 	}
 }
-
+//spikes
 function kill(shapeB) { //zmieniamy na funkcję jednego argumentu //zabijanie
 	var vX = (player.x + (player.width / 2)) - (shapeB.x + (shapeB.width / 2)), 
 		vY = (player.y + (player.height / 2)) - (shapeB.y + (shapeB.height / 2)),
 		hWidths = (player.width / 2) + (shapeB.width / 2),
-		hHeights = (player.height / 2) + (shapeB.height / 2),
-		colDir = null;
+		hHeights = (player.height / 2) + (shapeB.height / 2);
 
 	// if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
 	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) { //jeżeli ten if to wystąpiła kolizja
@@ -190,3 +188,18 @@ function colCheck3(shapeA, shapeB) { //shapeA - blok //shapeB - pocisk
 	}
 	return false; //else jest niepotrzebne
 } //taka generalna bardzo funkcja
+
+function kill3(shapeB) { //zmieniamy na funkcję jednego argumentu //zabijanie
+	var vX = (player.x + (player.width / 2)) - (shapeB.HBx + (shapeB.HBwidth / 2)), 
+		vY = (player.y + (player.height / 2)) - (shapeB.HBy + (shapeB.HBheight / 2)),
+		hWidths = (player.width / 2) + (shapeB.HBwidth / 2),
+		hHeights = (player.height / 2) + (shapeB.HBheight / 2);
+
+	// if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
+	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) { //jeżeli ten if to wystąpiła kolizja
+		ctx.font = "30px Arial";
+		ctx.fillStyle = "red";
+		ctx.fillText("You died",70,150);
+		alive = false;
+	}
+}

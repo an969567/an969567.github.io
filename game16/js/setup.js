@@ -14,7 +14,7 @@ var licznik = 0; //do strzelania
 var keys2=[]; //do keypress
 var spacePressed2 = false;
 
-var level = 1; //zaczynamy od pierwszego
+var level = 4; //zaczynamy od pierwszego
 
 //potem zrobimy assets.js
 
