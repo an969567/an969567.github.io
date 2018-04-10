@@ -47,7 +47,7 @@ var monster = {
 	direction: "right",
 	HBx: map.width*0.5-60, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 	HBy: map.height - 50, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
-	HBwidth: 50, //Hit Box
+	HBwidth: 22, //Hit Box
 	HBheight: 50
 	//speed
 };
