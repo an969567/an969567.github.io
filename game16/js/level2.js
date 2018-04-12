@@ -1,8 +1,11 @@
 var boxes2 = [];
 
 var map2 = {
+	x: 0,
+	y: 0,
 	width: width + 500,
-	height: height
+	height: height,
+	img: "background2Img"
 };
 boxes2.push({ //lewa grannica
 	x: -10,
@@ -74,10 +77,11 @@ var spikes = {
 	HBx: map2.width - 770, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 	HBy: map2.height - 25, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 	HBwidth: 100, //Hit Box
-	HBheight: 25
+	HBheight: 25,
+	img: "spikesImg"
 };
 var teleporter2 = {
-	x: map2.width - 70 - 160, //prawa platforma //ważniejsza, będzie teleporterem
+	x: map2.width - 70 - 160,
 	y: map2.height - 200,
 	width: 80,
 	height: 200

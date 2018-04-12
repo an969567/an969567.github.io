@@ -1,8 +1,11 @@
 var boxes3 = [];
 
 var map3 = {
+	x: 0,
+	y: 0,
 	width: width + 500,
-	height: height
+	height: height,
+	img: "background3Img"
 };
 
 //na razie takie samo //ale warto to zmienić
@@ -48,6 +51,7 @@ var monster = {
 	HBx: map3.width*0.5-60, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 	HBy: map3.height - 50, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 	HBwidth: 22, //Hit Box
-	HBheight: 50
+	HBheight: 50,
+	img: "monsterImg"
 	//speed
 };

@@ -13,13 +13,16 @@ var licznik = 0; //do strzelania
 var keys2=[]; //do keypress
 var spacePressed2 = false;
 
-var level = 5; //zaczynamy od pierwszego
+var level = 1; //zaczynamy od pierwszego
 
 var boxes = []; //robimy pustą listę
 
 var map = { //nowe ważne
+	x: 0,
+	y: 0,
 	width: width + 500,
-	height: height
+	height: height,
+	img: "background1Img"
 };
 
 var basePlayer = {
@@ -94,7 +97,8 @@ var teleporter = {
 	x: map.width - 70 - 160,
 	y: map.height - 200,
 	width: 80,
-	height: 200
+	height: 200,
+	img: "teleporterImg"
 };
 
 canvas.width = width;

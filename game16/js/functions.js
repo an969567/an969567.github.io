@@ -67,7 +67,7 @@ function drawPlayer() {
 }
 
 function level1(){
-		if (player.x < width/2 ) ctx.drawImage(background1Img, 0, 0, map.width, map.height); 
+		if (player.x < width/2 ) myDraw(map); 
 		else ctx.drawImage(background1Img, width/2 - player.x /* wtedy jest w połowie*/, 0, map.width, map.height);
 		for (var i = 0; i < boxes.length; i++) {
 			ctx.fillStyle= "black";
@@ -94,7 +94,7 @@ function level1(){
 }
 
 function level2(){
-	if(player.x < width/2 ) ctx.drawImage(background2Img, 0, 0, map2.width, map2.height);
+	if(player.x < width/2 ) myDraw(map2);
 	else ctx.drawImage(background2Img, width/2 - player.x, 0, map2.width, map2.height);
 		for (var i = 0; i < boxes2.length; i++) {
 			ctx.fillStyle = "black"
@@ -116,15 +116,15 @@ function level2(){
 					if (colCheck3(boxes2[i], bullets[j]) == true) bullets[j] = 0;
 			}
     	}
-		if (player.x < width/2 ) ctx.drawImage(spikesImg, spikes.x, spikes.y, spikes.width, spikes.height);
+		if (player.x < width/2 ) myDraw(spikes);
 		else ctx.drawImage(spikesImg, spikes.x - player.x + width/2, spikes.y/* - player.y + height/2*/, spikes.width, spikes.height);
 		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y, teleporter.width, teleporter.height);
-		kill3(spikes); // to działa :)))))
+		kill3(spikes);
 		collision2(teleporter2);
 }
 
 function level3(){
-	if(player.x < width/2 ) ctx.drawImage(background3Img, 0, 0, map3.width, map3.height);
+	if(player.x < width/2 ) myDraw(map3);
 	else ctx.drawImage(background3Img, width/2 - player.x, 0, map3.width, map3.height);
 		for (var i = 0; i < boxes3.length; i++) {
 			ctx.fillStyle = "black"
@@ -152,7 +152,7 @@ function level3(){
 		if(monster.direction == "left" && monster.x > monster.minX) { monster.x--; monster.HBx--; }
 		if(monster.x <= monster.minX) { monster.direction = "right"; monster.x++; monster.HBx++; }
 		if (monster.direction == "left"){
-			if (player.x < width/2 ) ctx.drawImage(monsterImg, monster.x, monster.y, monster.width, monster.height);
+			if (player.x < width/2 ) myDraw(monster);
 			else ctx.drawImage(monsterImg, monster.x - player.x + width/2, monster.y, monster.width, monster.height);
 		}
 		else
@@ -267,4 +267,8 @@ function level6(){
 		//	ctx.drawImage(monster2rightImg, monster3.x - player.x + width/2, monster3.y - player.y + height/2, monster3.width, monster3.height);
 		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y, teleporter.width, teleporter.height);
 		collision5(teleporter5);
+}
+
+function myDraw(myObject){
+	ctx.drawImage(eval(myObject.img),myObject.x , myObject.y, myObject.width, myObject.height);
 }
