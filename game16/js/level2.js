@@ -77,8 +77,8 @@ var spikes = {
 	HBheight: 25
 };
 var teleporter2 = {
-	x: map.width - 70 - 160, //prawa platforma //ważniejsza, będzie teleporterem
-	y: map.height - 200,
+	x: map2.width - 70 - 160, //prawa platforma //ważniejsza, będzie teleporterem
+	y: map2.height - 200,
 	width: 80,
 	height: 200
 };

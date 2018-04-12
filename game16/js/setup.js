@@ -1,9 +1,8 @@
-//wersja 10 zmienione spacje na tabsy
 var canvas = document.getElementById("canvas"),
-	ctx = canvas.getContext("2d"), //czy ctx to teraz obiekt? //chyba tak
-	width = 1500,
-	height = 800,
-	keys = [], //? wciśnięte klawisze chyba
+	ctx = canvas.getContext("2d"), //ctx to teraz obiekt
+	width = 1366,
+	height = 584,
+	keys = [], //wciśnięte klawisze
 	friction = 0.95,
 	gravity = 0.6,
 	alive = true, //śmierć
@@ -14,9 +13,7 @@ var licznik = 0; //do strzelania
 var keys2=[]; //do keypress
 var spacePressed2 = false;
 
-var level = 1; //zaczynamy od pierwszego
-
-//potem zrobimy assets.js
+var level = 5; //zaczynamy od pierwszego
 
 var boxes = []; //robimy pustą listę
 
@@ -32,7 +29,7 @@ var basePlayer = {
 
 var player = {
 	x: basePlayer.x, 
-	y: basePlayer.y,  //potem ustawimy, że bardziej z lewego brzegu
+	y: basePlayer.y,
 	width: 100,
 	height: 150,
 	speed: 10,
@@ -93,8 +90,8 @@ boxes.push({ //bezimienny obiekt
 	width: 100,
 	height: 40
 });
-var teleporter = { //podoba mi się ten design, oryginalny
-	x: map.width - 70 - 160, //prawa platforma //ważniejsza, będzie teleporterem
+var teleporter = {
+	x: map.width - 70 - 160,
 	y: map.height - 200,
 	width: 80,
 	height: 200
@@ -110,8 +107,8 @@ class Bullet {
 		this.baseY = player.y + player.height/2; //potem to wykalibrujemy by leciało nie z lewego górnego rogu laseczki
 		this.x = this.baseX;
 		this.y = this.baseY;
-		this.width = 10;
-		this.height = 10; //chyba tyle //ewentualnie jeszcze speed //gdzieś musi być bullet.x++ ... //razem z każdym frejmem. a nie z wciśniętą spacją //jeszcze mają być niezliczone //ewentualnie można dać limit tych bulletów //ale co. strzelisz trzy i koniec? //tak samo z rysowaniem //gdzieś musi sprawdzać czy obiekt istnieje //bullet.push?
+		this.width = 20;
+		this.height = 20; //chyba tyle //ewentualnie jeszcze speed //gdzieś musi być bullet.x++ ... //razem z każdym frejmem. a nie z wciśniętą spacją //jeszcze mają być niezliczone //ewentualnie można dać limit tych bulletów //ale co. strzelisz trzy i koniec? //tak samo z rysowaniem //gdzieś musi sprawdzać czy obiekt istnieje //bullet.push?
 		this.direction = player.direction;
 	}
 }
