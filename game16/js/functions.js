@@ -68,7 +68,7 @@ function drawPlayer() {
 
 function level1(){
 		if (player.x < width/2 ) myDraw(map); 
-		else ctx.drawImage(background1Img, width/2 - player.x /* wtedy jest w połowie*/, 0, map.width, map.height);
+		else myDraw2(map);
 		for (var i = 0; i < boxes.length; i++) {
 			ctx.fillStyle= "black";
 			ctx.beginPath();
@@ -89,13 +89,13 @@ function level1(){
 				if (colCheck3(boxes[i], bullets[j]) == true) bullets[j] = 0;
 			}
 		}
-		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y , teleporter.width, teleporter.height);
+		myDraw2(teleporter);
 		collision(teleporter);
 }
 
 function level2(){
 	if(player.x < width/2 ) myDraw(map2);
-	else ctx.drawImage(background2Img, width/2 - player.x, 0, map2.width, map2.height);
+	else myDraw2(map2);
 		for (var i = 0; i < boxes2.length; i++) {
 			ctx.fillStyle = "black"
 			if (player.x < width/2) ctx.rect(boxes2[i].x, boxes2[i].y, boxes2[i].width, boxes2[i].height);
@@ -117,15 +117,15 @@ function level2(){
 			}
     	}
 		if (player.x < width/2 ) myDraw(spikes);
-		else ctx.drawImage(spikesImg, spikes.x - player.x + width/2, spikes.y/* - player.y + height/2*/, spikes.width, spikes.height);
-		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y, teleporter.width, teleporter.height);
+		else myDraw2(spikes);
+		myDraw2(teleporter);
 		kill3(spikes);
 		collision2(teleporter2);
 }
 
 function level3(){
 	if(player.x < width/2 ) myDraw(map3);
-	else ctx.drawImage(background3Img, width/2 - player.x, 0, map3.width, map3.height);
+	else myDraw2(map3);
 		for (var i = 0; i < boxes3.length; i++) {
 			ctx.fillStyle = "black"
 			if (player.x < width/2) ctx.rect(boxes3[i].x, boxes3[i].y, boxes3[i].width, boxes3[i].height);
@@ -153,18 +153,18 @@ function level3(){
 		if(monster.x <= monster.minX) { monster.direction = "right"; monster.x++; monster.HBx++; }
 		if (monster.direction == "left"){
 			if (player.x < width/2 ) myDraw(monster);
-			else ctx.drawImage(monsterImg, monster.x - player.x + width/2, monster.y, monster.width, monster.height);
+			else myDraw2(monster);
 		}
 		else
 			if (player.x < width/2 ) ctx.drawImage(monsterRightImg, monster.x, monster.y, monster.width, monster.height);
 			else ctx.drawImage(monsterRightImg, monster.x - player.x + width/2, monster.y, monster.width, monster.height);
-		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y, teleporter.width, teleporter.height);
+		myDraw2(teleporter);
 		collision3(teleporter3);
 }
 
 function level4(){
-	if(player.x < width/2 ) ctx.drawImage(background4Img, 0, 0, map4.width, map4.height);
-	else ctx.drawImage(background4Img, width/2 - player.x, 0, map4.width, map4.height);
+	if(player.x < width/2 ) myDraw(map4);
+	else myDraw2(map4);
 		for (var i = 0; i < boxes4.length; i++) {
 			ctx.fillStyle = "black"
 			if (player.x < width/2) ctx.rect(boxes4[i].x, boxes4[i].y, boxes4[i].width, boxes4[i].height);
@@ -185,16 +185,16 @@ function level4(){
 				if (colCheck3(boxes4[i], bullets[j]) == true) bullets[j] = 0;
 			}
     	}
-		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y, teleporter.width, teleporter.height);
+		myDraw2(teleporter);
 		kill2(monster2);
-		if (player.x < width/2 ) ctx.drawImage(monster2Img, monster2.x, monster2.y, monster2.width, monster2.height);
-		else ctx.drawImage(monster2Img, monster2.x - player.x + width/2, monster2.y, monster2.width, monster2.height);
+		if (player.x < width/2 ) myDraw(monster2);
+		else myDraw2(monster2);
 		collision4(teleporter4);
 }
 
 function level5(){
-	if(player.x < width/2 ) ctx.drawImage(background5Img, 0, 0, map5.width, map5.height);
-	else ctx.drawImage(background5Img, width/2 - player.x, 0, map5.width, map5.height);
+	if(player.x < width/2 ) myDraw(map5);
+	else myDraw2(map5);
 		for (var i = 0; i < boxes5.length; i++) {
 			ctx.fillStyle = "black"
 			if (player.x < width/2) ctx.rect(boxes5[i].x, boxes5[i].y, boxes5[i].width, boxes5[i].height);
@@ -216,23 +216,23 @@ function level5(){
 			}
     	}
 		kill2(monster3);
-		if(monster3.x < monster3.maxX && monster3.direction == "right") monster3.x++;
-		if(monster3.x >= monster3.maxX) { monster3.x--; monster3.direction = "left"; }
-		if(monster3.direction == "left" && monster3.x > monster.minX) monster3.x--;
-		if(monster3.x <= monster.minX) { monster3.direction = "right"; monster3.x++;}
+		if(monster3.x < monster3.maxX && monster3.direction == "right") { monster3.x++; monster3.HBx++;}
+		if(monster3.x >= monster3.maxX) { monster3.x--; monster3.direction = "left"; monster3.HBx--; }
+		if(monster3.direction == "left" && monster3.x > monster.minX) { monster3.x--; monster3.HBx--; }
+		if(monster3.x <= monster.minX) { monster3.direction = "right"; monster3.x++; monster3.HBx++; }
 		if (monster3.direction == "left"){
-			if (player.x < width/2 ) ctx.drawImage(monster2Img, monster3.x, monster3.y, monster3.width, monster3.height);
-			else ctx.drawImage(monster2Img, monster3.x - player.x + width/2, monster3.y, monster3.width, monster3.height);
+			if (player.x < width/2 ) myDraw(monster3);
+			else myDraw2(monster3);
 		}
 		else
 			if (player.x < width/2 ) ctx.drawImage(monster2rightImg, monster3.x, monster3.y, monster3.width, monster3.height);
 			else ctx.drawImage(monster2rightImg, monster3.x - player.x + width/2, monster3.y, monster3.width, monster3.height);
-		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y, teleporter.width, teleporter.height);
+		myDraw2(teleporter);
 		collision5(teleporter5);
 }
 function level6(){
-	if(player.x < width/2 ) ctx.drawImage(background6Img, 0, 0, map6.width, map6.height);
-	else ctx.drawImage(background6Img, width/2 - player.x, 0, map6.width, map6.height);
+	if(player.x < width/2 ) myDraw(map6);
+	else myDraw2(map6);
 		for (var i = 0; i < boxes6.length; i++) {
 			ctx.fillStyle = "black"
 			if (player.x < width/2) ctx.rect(boxes6[i].x, boxes6[i].y, boxes6[i].width, boxes6[i].height);
@@ -253,22 +253,26 @@ function level6(){
 				if (colCheck3(boxes6[i], bullets[j]) == true) bullets[j] = 0;
 			}
     	}
-		kill2(loszka);
+		kill3(loszka);
 		for(i=0;i<bullets.length;i++) colCheck2(bullets[i], loszka);
 		//if(monster3.x < monster3.maxX && monster3.direction == "right") monster3.x++;
 		//if(monster3.x >= monster3.maxX) { monster3.x--; monster3.direction = "left"; }
 		//if(monster3.direction == "left" && monster3.x > monster.minX) monster3.x--;
 		//if(monster3.x <= monster.minX) { monster3.direction = "right"; monster3.x++;}
 		//if (monster3.direction == "left"){
-		if (player.x < width/2 ) ctx.drawImage(loszkaImg, loszka.x, loszka.y, loszka.width, loszka.height);
-		else ctx.drawImage(loszkaImg, loszka.x - player.x + width/2, loszka.y, loszka.width, loszka.height);
+		if (player.x < width/2 ) myDraw(loszka);
+		else myDraw2(loszka);
 		//}
 		//else
 		//	ctx.drawImage(monster2rightImg, monster3.x - player.x + width/2, monster3.y - player.y + height/2, monster3.width, monster3.height);
-		ctx.drawImage(teleporterImg, teleporter.x - player.x + width/2, teleporter.y, teleporter.width, teleporter.height);
+		myDraw2(teleporter);
 		collision5(teleporter5);
 }
 
 function myDraw(myObject){
-	ctx.drawImage(eval(myObject.img),myObject.x , myObject.y, myObject.width, myObject.height);
+	ctx.drawImage(eval(myObject.img), myObject.x , myObject.y, myObject.width, myObject.height);
+}
+
+function myDraw2(myObject){
+	ctx.drawImage(eval(myObject.img), myObject.x - player.x + width/2 , myObject.y, myObject.width, myObject.height);
 }

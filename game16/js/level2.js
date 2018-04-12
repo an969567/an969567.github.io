@@ -76,7 +76,7 @@ var spikes = {
 	height: 40,
 	HBx: map2.width - 770, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 	HBy: map2.height - 25, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
-	HBwidth: 100, //Hit Box
+	HBwidth: 90, //Hit Box
 	HBheight: 25,
 	img: "spikesImg"
 };

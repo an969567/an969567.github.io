@@ -1,8 +1,11 @@
 var boxes6 = [];
 
 var map6 = {
+	x: 0,
+	y: 0,
 	width: width + 500,
-	height: height
+	height: height,
+	img: "background6Img" //jak byśmy zostawili bez cudzysłowów to by może działało. Obiekt jako property obiektu. Tylko potem musiała by być funkcja myDraw() bez eval.
 };
 
 //na razie takie samo //ale warto to zmienić
@@ -39,11 +42,16 @@ var teleporter6 = {
 };
 var loszka = {  //upioroloszka
 	x: map6.width*0.5-100,
-	y: map6.height - 120,
-	width: 70,
-	height: 120,
+	y: map6.height - 150,
+	width: 40,
+	height: 150,
 	//minX: map.width*0.5-200,
 	//maxX: map.width*0.5,
 	//direction: "right",
-	fall: function (){this.y+=500;}
+	fall: function (){this.y+=500; this.HBy+=500;},
+	img: "loszkaImg",
+	HBx: map6.width*0.5-71, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
+	HBy: map6.height - 140, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
+	HBwidth: 1, //Hit Box
+	HBheight: 140
 };
