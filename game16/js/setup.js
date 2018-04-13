@@ -22,7 +22,7 @@ var map = { //nowe ważne
 	y: 0,
 	width: width + 500,
 	height: height,
-	img: "background1Img"
+	img: background1Img
 };
 
 var basePlayer = {
@@ -98,7 +98,7 @@ var teleporter = {
 	y: map.height - 200,
 	width: 80,
 	height: 200,
-	img: "teleporterImg"
+	img: teleporterImg
 };
 
 canvas.width = width;

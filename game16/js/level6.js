@@ -5,7 +5,7 @@ var map6 = {
 	y: 0,
 	width: width + 500,
 	height: height,
-	img: "background6Img" //jak byśmy zostawili bez cudzysłowów to by może działało. Obiekt jako property obiektu. Tylko potem musiała by być funkcja myDraw() bez eval.
+	img: background6Img //jak byśmy zostawili bez cudzysłowów to by może działało. Obiekt jako property obiektu. Tylko potem musiała by być funkcja myDraw() bez eval.
 };
 
 //na razie takie samo //ale warto to zmienić
@@ -49,7 +49,7 @@ var loszka = {  //upioroloszka
 	//maxX: map.width*0.5,
 	//direction: "right",
 	fall: function (){this.y+=500; this.HBy+=500;},
-	img: "loszkaImg",
+	img: loszkaImg,
 	HBx: map6.width*0.5-71, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 	HBy: map6.height - 140, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 	HBwidth: 1, //Hit Box

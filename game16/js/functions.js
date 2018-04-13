@@ -270,9 +270,9 @@ function level6(){
 }
 
 function myDraw(myObject){
-	ctx.drawImage(eval(myObject.img), myObject.x , myObject.y, myObject.width, myObject.height);
+	ctx.drawImage(myObject.img, myObject.x , myObject.y, myObject.width, myObject.height);
 }
 
 function myDraw2(myObject){
-	ctx.drawImage(eval(myObject.img), myObject.x - player.x + width/2 , myObject.y, myObject.width, myObject.height);
+	ctx.drawImage(myObject.img, myObject.x - player.x + width/2 , myObject.y, myObject.width, myObject.height);
 }

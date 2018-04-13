@@ -45,7 +45,3 @@ for (var i=1; i<= 10; i++){
 	eval("var idle" + i + "Img = new Image();");
 	eval("idle" + i + "Img.src = 'pics/idle" + i + ".png';");
 }
-/*for (var i=1; i <=6; i++){
-	eval("var background" + i + "Img = new Image();");
-	eval("background" + i + "Img.src = 'pics/background" + i + ".jpg';");
-}*/

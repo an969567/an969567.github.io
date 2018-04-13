@@ -5,7 +5,7 @@ var map2 = {
 	y: 0,
 	width: width + 500,
 	height: height,
-	img: "background2Img"
+	img: background2Img
 };
 boxes2.push({ //lewa grannica
 	x: -10,
@@ -78,7 +78,7 @@ var spikes = {
 	HBy: map2.height - 25, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 	HBwidth: 90, //Hit Box
 	HBheight: 25,
-	img: "spikesImg"
+	img: spikesImg
 };
 var teleporter2 = {
 	x: map2.width - 70 - 160,

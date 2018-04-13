@@ -5,7 +5,7 @@ var map5 = {
 	y: 0,
 	width: width + 500,
 	height: height,
-	img: "background5Img"
+	img: background5Img
 };
 
 //na razie takie samo //ale warto to zmienić
@@ -49,7 +49,7 @@ var monster3 = {
 	maxX: map5.width*0.5,
 	direction: "right",
 	fall: function (){this.y+=500; this.HBy+=500; },
-	img: "monster2Img", //to nie jest błąd
+	img: monster2Img, //to nie jest błąd
 	HBx: map4.width*0.5-70, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 	HBy: map4.height - 100, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 	HBwidth: 35, //Hit Box
