@@ -34,7 +34,7 @@ function update() {
 		spacePressed2 = false; //!!!
 		spacePressed = true; //do sprajtu
 		/**********************************/
-		with(new AudioContext)for(i in D=[12,12])with(createOscillator())if(D[i])G=createGain(),connect(G),G.connect(destination),frequency.value=440*1.06**(13-D[i]),G.gain.value=10,type='square',start(i*.1),stop(i*.1+.1)
+		with(new AudioContext)for(i in D=[12])with(createOscillator())if(D[i])connect(destination),frequency.value=440*1.06**(13-D[i]),start(i*.1),stop(i*.1+.1)
 		/*********************************/
 	}
 	

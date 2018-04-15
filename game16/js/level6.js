@@ -35,7 +35,7 @@ boxes6.push({ //górna granica
 	height: 2
 });
 var teleporter6 = {
-	x: map6.width - 70 - 160,
+	x: map6.width - 230,
 	y: map6.height - 200,
 	width: 80,
 	height: 200

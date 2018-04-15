@@ -18,7 +18,7 @@ html, body {
     width: 100vw;
     height: 100vh;
     background-color: rgba(192, 192, 192, 0.5);
-    background-image: url("pics/loading.gif");
+    background-image: url("http://i.stack.imgur.com/MnyxU.gif");
     background-repeat: no-repeat;
     background-position: center;
 }

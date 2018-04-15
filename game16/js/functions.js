@@ -120,7 +120,7 @@ function level2(){
 		else myDraw2(spikes);
 		myDraw2(teleporter);
 		kill3(spikes);
-		collision2(teleporter2);
+		collision(teleporter2);
 }
 
 function level3(){
@@ -159,7 +159,7 @@ function level3(){
 			if (player.x < width/2 ) ctx.drawImage(monsterRightImg, monster.x, monster.y, monster.width, monster.height);
 			else ctx.drawImage(monsterRightImg, monster.x - player.x + width/2, monster.y, monster.width, monster.height);
 		myDraw2(teleporter);
-		collision3(teleporter3);
+		collision(teleporter3);
 }
 
 function level4(){
@@ -189,7 +189,7 @@ function level4(){
 		kill2(monster2);
 		if (player.x < width/2 ) myDraw(monster2);
 		else myDraw2(monster2);
-		collision4(teleporter4);
+		collision(teleporter4);
 }
 
 function level5(){
@@ -228,7 +228,7 @@ function level5(){
 			if (player.x < width/2 ) ctx.drawImage(monster2rightImg, monster3.x, monster3.y, monster3.width, monster3.height);
 			else ctx.drawImage(monster2rightImg, monster3.x - player.x + width/2, monster3.y, monster3.width, monster3.height);
 		myDraw2(teleporter);
-		collision5(teleporter5);
+		collision(teleporter5);
 }
 function level6(){
 	if(player.x < width/2 ) myDraw(map6);
@@ -266,7 +266,7 @@ function level6(){
 		//else
 		//	ctx.drawImage(monster2rightImg, monster3.x - player.x + width/2, monster3.y - player.y + height/2, monster3.width, monster3.height);
 		myDraw2(teleporter);
-		collision5(teleporter5);
+		collision(teleporter6);
 }
 
 function myDraw(myObject){
