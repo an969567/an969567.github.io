@@ -8,6 +8,10 @@ var canvas = document.getElementById("canvas"),
 	alive = true, //śmierć
 	right = true; //do kierunków
 
+const clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
+
+const viewport = {};		
+
 var frameCount = 0;
 var licznik = 0; //do strzelania
 var keys2=[]; //do keypress

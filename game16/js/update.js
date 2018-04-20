@@ -1,4 +1,11 @@
 function update() {
+	
+	viewport.x = clamp(-player.x + canvas.width / 2, //aha, czyli clamp jest do viewportu
+		canvas.width - map.width, 0 //0 to max
+	 );
+	  viewport.y = clamp(-player.y + canvas.height / 2,
+		canvas.height - map.height, 0
+	 );
 
 	frameCount++;	
 	
@@ -77,10 +84,10 @@ function update() {
 	for(var i=0; i < bullets.length; i++){
 		if (bullets[i].direction == "right") bullets[i].x+=20;
 		else bullets[i].x-=20;
-		if (player.x < width/2) ctx.drawImage(bulletImg, bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height);
-		else ctx.drawImage(bulletImg, bullets[i].x - player.x + width/2, bullets[i].y, bullets[i].width, bullets[i].height);
+		ctx.drawImage(bulletImg, bullets[i].x + viewport.x, bullets[i].y, bullets[i].width, bullets[i].height);
 	} //na wierzchu bullets
-	if (alive == true){
+	
+	if (alive){
 		window.requestAnimationFrame(update); //siebie przywołuje?
 	}
 }
