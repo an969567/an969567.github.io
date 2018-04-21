@@ -3,10 +3,13 @@ var canvas = document.getElementById("canvas"),
 	width = 1366,
 	height = 584,
 	keys = [], //wciśnięte klawisze
-	friction = 0.95,
+	friction = 0.9, //tym większe tym wolniej spowalnia (odwrotne niż w fizyce)
 	gravity = 0.6,
 	alive = true, //śmierć
 	right = true; //do kierunków
+
+var shooting = false;
+var nie = false;
 
 const clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
 
@@ -17,7 +20,7 @@ var licznik = 0; //do strzelania
 var keys2=[]; //do keypress
 var spacePressed2 = false;
 
-var level = 1; //zaczynamy od pierwszego
+var level = 4; //zaczynamy od pierwszego
 
 var boxes = []; //robimy pustą listę
 
@@ -31,7 +34,7 @@ var map = { //nowe ważne
 
 var basePlayer = {
 	x: 100,
-	y: map.height - 100
+	y: map.height - 150
 };
 
 var player = {
@@ -44,7 +47,11 @@ var player = {
 	velY: 0,
 	jumping: false,
 	grounded: false,
-	direction: "right"
+	direction: "right",
+	HBx: basePlayer.x + 10,
+	HBy: basePlayer.y + 10,
+	HBwidth: 80,
+	HBheight: 140
 };
 
 // dimensions

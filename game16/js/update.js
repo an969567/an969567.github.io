@@ -35,19 +35,15 @@ function update() {
 	spacePressed = false; //do sprajtu
 	if (spacePressed2 == true) {
 		//console.log("space");
-		var b = new Bullet();
-		bullets.push(b);  //SMART!!!!!!!!!
+		 //SMART!!!!!!!!!
 		//console.log(bullets.length);
 		spacePressed2 = false; //!!!
 		spacePressed = true; //do sprajtu
-		/**********************************/
-		with(new AudioContext)for(i in D=[12])with(createOscillator())if(D[i])connect(destination),frequency.value=440*1.06**(13-D[i]),start(i*.1),stop(i*.1+.1)
-		/*********************************/
 	}
 	
 	player.velX *= friction;
-	player.velY += gravity;
-	player.grounded = false;
+	if(player.grounded == false)player.velY += gravity;
+	//player.grounded = false;
 
 	ctx.clearRect(0, 0, width, height);
 	ctx.fillStyle = "black";
@@ -75,7 +71,7 @@ function update() {
 	
 	/*--------------------------------------------------------------------------------------------*/
 	
-	if(player.grounded){
+	if(player.grounded){ //does this happen
 		player.velY = 0;
 	}
 	

@@ -49,6 +49,6 @@ var monster2 = {
 	img: monster2Img,
 	HBx: map4.width*0.5-70, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 	HBy: map4.height - 100, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
-	HBwidth: 35, //Hit Box
+	HBwidth: 30, //Hit Box
 	HBheight: 100
 };
