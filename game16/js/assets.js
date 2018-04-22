@@ -11,8 +11,6 @@ var monster2Img = new Image();
 monster2Img.src = "pics/monster2.png";
 var monster2rightImg = new Image();
 monster2rightImg.src = "pics/monster2right.png";
-var runImg = new Image();
-runImg.src = "pics/Run (3).png";
 var bulletImg = new Image();
 bulletImg.src = "pics/bullet.png";
 var loszkaImg = new Image();
@@ -31,7 +29,13 @@ var background5Img = new Image();
 background5Img.src = "pics/background5.jpg";
 var background6Img = new Image();
 background6Img.src = "pics/background6.png";
+var runImg = new Image();
+runImg.src = "pics/Run (3).png";
 for (var i=1; i<= 10; i++){
 	eval("var idle" + i + "Img = new Image();");
 	eval("idle" + i + "Img.src = 'pics/Idle (" + i + ").png';");
+}
+for (var i=1; i<= 8; i++){
+	eval("var run" + i + "Img = new Image();");
+	eval("run" + i + "Img.src = 'pics/Run (" + i + ").png';");
 }

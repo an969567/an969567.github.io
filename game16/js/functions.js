@@ -7,8 +7,8 @@ function drawPlayer() {
 	ctx.fillText("Welcome in Mental Asylum",70,70);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
 	if (!player.jumping && player.direction == "right" && !player.velX && !spacePressed && !shooting) {
-		var h = frameCount % 100;
-		myDraw2(eval('idle'+ (Math.floor(h/10)+1) +'Img'), player);
+		var h = frameCount % 40;
+		myDraw2(eval('idle'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
 	if (!player.jumping && player.direction == "left" && !player.velX && !spacePressed && !shooting) {
 		var h = frameCount % 40;
@@ -24,10 +24,14 @@ function drawPlayer() {
 		myDraw3(shootImg, player); //odbicie lustrzane
 	}
 	if (!player.jumping && player.velX > 0) {
-		myDraw2(runImg, player);
+		var h = frameCount % 32;
+		//myDraw2(runImg, player);
+		myDraw2(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
 	if (!player.jumping && player.velX < 0) {
-		myDraw3(runImg, player);
+		var h = frameCount % 32;
+		//myDraw3(runImg, player);
+		myDraw3(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
 	if (player.jumping && player.direction == "right") {
 		myDraw2(jumpImg, player);
