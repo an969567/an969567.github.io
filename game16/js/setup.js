@@ -34,14 +34,14 @@ var map = { //nowe ważne
 
 var basePlayer = {
 	x: 100,
-	y: map.height - 150
+	y: map.height - 180
 };
 
 var player = {
 	x: basePlayer.x, 
 	y: basePlayer.y,
-	width: 100,
-	height: 150,
+	width: 150,
+	height: 180,
 	speed: 10,
 	velX: 0,
 	velY: 0,
@@ -50,8 +50,8 @@ var player = {
 	direction: "right",
 	HBx: basePlayer.x + 10,
 	HBy: basePlayer.y + 10,
-	HBwidth: 80,
-	HBheight: 140
+	HBwidth: 130,
+	HBheight: 170
 };
 
 // dimensions
