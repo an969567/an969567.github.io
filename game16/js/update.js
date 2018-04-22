@@ -48,24 +48,31 @@ function update() {
 	ctx.fillStyle = "black";
 	ctx.beginPath();
 	
-	if (level == 1) { //może warto zmienić na case
-		level1();
+	switch (level) {
+		case 1:
+			level1();
+			break;
+		case 2:
+			level2();
+			break;
+		case 3:
+			level3();
+			break;
+		case 4:
+			level4();
+			break;
+		case 5:
+			level5();
+			break;
+		case 6:
+			level6();
+			break;
+		default:
+			ctx.font = "30px Arial";
+			ctx.fillStyle = "red";
+			ctx.fillText("You won!",70,150);
 	}
-	if (level == 2){
-		level2();
-	}
-	if (level == 3){
-		level3();
-	}
-	if (level == 4){
-		level4();
-	}
-	if (level == 5){
-		level5();
-	}
-	if (level == 6){
-		level6();
-	}
+
 	if(player.grounded){ //does this happen
 		player.velY = 0;
 	} //czyli to powinno zostać zerem na koniec frejmu
