@@ -7,14 +7,15 @@ function update() {
 		canvas.height - map.height, 0
 	 );
 
-	frameCount++;	
+	frameCount++;
+		
 	
 	if (keys[38] || keys[87]) {
-		// up arrow or space or w
-		if (!player.jumping && player.grounded) {
+		// up arrow or w
+		if (!player.jumping/* && player.grounded*/) {
 			player.jumping = true;
 			player.grounded = false;
-			player.velY = -player.speed * 1.5;
+			player.velY = -player.speed * 1.5; //czyli nadaje raz prędkość, a potem już tylko grawitacja zmniejsza  //prędkość pionowa //a właściwie szybkość pionowa
 		}
 	}
 	if (keys[39] || keys[68]) {
@@ -42,14 +43,12 @@ function update() {
 	}
 	
 	player.velX *= friction;
-	if(player.grounded == false)player.velY += gravity;
-	//player.grounded = false;
 
 	ctx.clearRect(0, 0, width, height);
 	ctx.fillStyle = "black";
 	ctx.beginPath();
 	
-	if (level == 1) {
+	if (level == 1) { //może warto zmienić na case
 		level1();
 	}
 	if (level == 2){
@@ -67,13 +66,15 @@ function update() {
 	if (level == 6){
 		level6();
 	}
+	if(player.grounded){ //does this happen
+		player.velY = 0;
+	} //czyli to powinno zostać zerem na koniec frejmu
+
+	if(player.grounded == false)/*no zgadza się, aplikujemy wtedy jest grounded*//*if (player.velY!=0)*/player.velY += gravity;
+	player.grounded = false;  //tylko to jest głupie  //jeżeli nie jest grounded, to nie może skoczyć //AAAA skomplikowane
 	
 	
 	/*--------------------------------------------------------------------------------------------*/
-	
-	if(player.grounded){ //does this happen
-		player.velY = 0;
-	}
 	
 	drawPlayer();
 	
@@ -83,6 +84,15 @@ function update() {
 		ctx.drawImage(bulletImg, bullets[i].x + viewport.x, bullets[i].y, bullets[i].width, bullets[i].height);
 	} //na wierzchu bullets
 	
+	console.log(player.jumping);
+
+	if(player.velY == -0.6) player.velY = 0;
+
+	player.x += player.velX;
+	player.HBx += player.velX;
+	player.y += player.velY;
+	player.HBy += player.velY;
+
 	if (alive){
 		window.requestAnimationFrame(update); //siebie przywołuje?
 	}

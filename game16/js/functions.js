@@ -1,10 +1,7 @@
 function drawPlayer() {
 	console.log(player.velY);
 	console.log(player.grounded);
-	player.x += player.velX;
-	player.HBx += player.velX;
-	player.y += player.velY;
-	player.HBy += player.velY;
+
 	ctx.font = "30px Arial";
 	ctx.fillStyle = "red";
 	ctx.fillText("Welcome in Mental Asylum",70,70);
@@ -22,7 +19,7 @@ function drawPlayer() {
 	}
 	if (!player.jumping && player.direction == "left" && !player.velX && (spacePressed || shooting)) {
 		shoot();
-		myDraw3(shootImg, player);
+		myDraw3(shootImg, player); //odbicie lustrzane
 	}
 	if (!player.jumping && player.velX > 0) {
 		myDraw2(runImg, player);
@@ -163,9 +160,7 @@ function patrol(myMonster){
 function myDraw3(myImage, myObject){
 	ctx.translate(myObject.x + viewport.x + 100,0);  //przesuwa origin
  	ctx.scale(-1,1);
-	//myDraw2(leftImg, player);
 	ctx.drawImage(myImage, 0, myObject.y, myObject.width, myObject.height)
-	//myDraw2(idle1Img, player);
 	ctx.setTransform(1,0,0,1,0,0);
 }
 function playSound(){
