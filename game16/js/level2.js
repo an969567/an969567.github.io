@@ -53,14 +53,14 @@ boxes2.push({
 });
 boxes2.push({
 	x: 220,
-	y: map2.height - 330,
+	y: map2.height - 400,
 	width: 80,
 	height: 80
 });
 boxes2.push({ //cztery pudełka, ostatnie mniejsze
 	x: 270,
-	y: map2.height - 80,
-	width: 40,
+	y: map2.height - 120,
+	width: 100,
 	height: 40
 }); //teraz jakieś pośrodku
 boxes2.push({

@@ -20,7 +20,7 @@ var licznik = 0; //do strzelania
 var keys2=[]; //do keypress
 var spacePressed2 = false;
 
-var level = 1; //zaczynamy od pierwszego
+var level = 4; //zaczynamy od pierwszego
 
 var boxes = []; //robimy pustą listę
 
@@ -48,10 +48,10 @@ var player = {
 	jumping: false,
 	grounded: false,
 	direction: "right",
-	HBx: basePlayer.x + 10,
+	HBx: basePlayer.x + 30,
 	HBy: basePlayer.y + 10,
-	HBwidth: 130,
-	HBheight: 170
+	HBwidth: 70,
+	HBheight: 158
 };
 
 // dimensions
@@ -88,15 +88,15 @@ boxes.push({ //pierwsza platfroma
 });
 boxes.push({
 	x: 220,
-	y: map.height - 330,
+	y: map.height - 400,
 	width: 80,
 	height: 80
 });
 boxes.push({ //cztery pudełka, ostatnie mniejsze
 	x: 270,
-	y: map.height - 80,
-	width: 40,
-	height: 40
+	y: map.height - 100,
+	width: 100,
+	height: 30
 }); //teraz jakieś pośrodku
 boxes.push({ //bezimienny obiekt
 	x: 400,
