@@ -17,8 +17,7 @@ const viewport = {};
 
 var frameCount = 0;
 var licznik = 0; //do strzelania
-var keys2=[]; //do keypress
-var spacePressed2 = false;
+var spacePressed = false;
 
 var level = 1; //zaczynamy od pierwszego
 
@@ -45,8 +44,7 @@ var player = {
 	speed: 10,
 	velX: 0,
 	velY: 0,
-	jumping: false,
-	grounded: false,
+	inAir: true, //zaczyna inAir,
 	direction: "right",
 	HBx: basePlayer.x + 30,
 	HBy: basePlayer.y + 10,
@@ -127,5 +125,3 @@ class Bullet {
 		this.direction = player.direction;
 	}
 }
-
-//var spacePressed = false;

@@ -1,42 +1,37 @@
 function drawPlayer() {
-	console.log(player.velY);
-	console.log(player.grounded);
 
 	ctx.font = "30px Arial";
 	ctx.fillStyle = "red";
 	ctx.fillText("Welcome in Mental Asylum",70,70);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
-	if (!player.jumping && player.direction == "right" && !player.velX && !spacePressed && !shooting) {
+	if (!player.inAir && player.direction == "right" && !player.velX && !shooting) {
 		var h = frameCount % 40;
 		myDraw2(eval('idle'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
-	if (!player.jumping && player.direction == "left" && !player.velX && !spacePressed && !shooting) {
+	if (!player.inAir && player.direction == "left" && !player.velX && !shooting) {
 		var h = frameCount % 40;
 		myDraw3(eval('idle'+ (Math.floor(h/4)+1) +'Img'), player);
-		//myDraw3(idle1Img, player);
 	}
-	if (!player.jumping && player.direction == "right" && !player.velX && (spacePressed  || shooting)) {
+	if (!player.inAir && player.direction == "right" && !player.velX && shooting) {
 		shoot();
 		myDraw2(shootImg, player);
 	}
-	if (!player.jumping && player.direction == "left" && !player.velX && (spacePressed || shooting)) {
+	if (!player.inAir && player.direction == "left" && !player.velX && shooting) {
 		shoot();
 		myDraw3(shootImg, player); //odbicie lustrzane
 	}
-	if (!player.jumping && player.velX > 0) {
+	if (!player.inAir && player.velX > 0) {
 		var h = frameCount % 32;
-		//myDraw2(runImg, player);
 		myDraw2(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
-	if (!player.jumping && player.velX < 0) {
+	if (!player.inAir && player.velX < 0) {
 		var h = frameCount % 32;
-		//myDraw3(runImg, player);
 		myDraw3(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
-	if (player.jumping && player.direction == "right") {
+	if (player.inAir && player.direction == "right") {
 		myDraw2(jumpImg, player);
 	}
-	if (player.jumping && player.direction == "left") {
+	if (player.inAir && player.direction == "left") {
 		myDraw3(jumpImg, player);
 	}
 }
@@ -153,9 +148,8 @@ function setDir(myBox){
 	var dir = colCheck(player, myBox);
 	if (dir === "l" || dir === "r") player.velX = 0;
 	else if (dir === "b") { 
-		player.grounded = true;
-		player.jumping = false;
-	} else if (dir === "t")	player.velY *= -1;
+		player.inAir = false;
+	} else if (dir === "t")	player.velY *= -1; //odbija się od dołu platformy (uderzył topem charactera)
 }
 function patrol(myMonster){
 	if (myMonster.x < myMonster.maxX && myMonster.direction == "right") { myMonster.x++; myMonster.HBx++; }
@@ -173,13 +167,12 @@ function playSound(){
 	with(new AudioContext)for(i in D=[12])with(createOscillator())if(D[i])connect(destination),frequency.value=440*1.06**(13-D[i]),start(i*.1),stop(i*.1+.1)
 }
 function shoot(){
-	if (spacePressed && nie == false) {
-		spacePressed = false;
+	if (!nie) {
+		nie = true;
 		shooting = true;
 		licznik = 40;
 		var b = new Bullet();
 		bullets.push(b);
-		nie = true;
 		playSound();
 	}
 	if(licznik) licznik--;

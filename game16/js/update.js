@@ -10,13 +10,10 @@ function update() {
 	frameCount++;
 		
 	
-	if (keys[38] || keys[87]) {
-		// up arrow or w
-		if (!player.jumping/* && player.grounded*/) {
-			player.jumping = true;
-			player.grounded = false;
-			player.velY = -player.speed * 1.5; //czyli nadaje raz prędkość, a potem już tylko grawitacja zmniejsza  //prędkość pionowa //a właściwie szybkość pionowa
-		}
+	if ((keys[38] || keys[87]) && !player.inAir) {
+		// up arrow or w  //zapobiega jumpom w powietrzu //można zrobić w przyszłości double jump
+			player.inAir = true; //do sprajtu potrzebne
+			player.velY = -player.speed * 1.5;
 	}
 	if (keys[39] || keys[68]) {
 		// right arrow
@@ -33,13 +30,9 @@ function update() {
 		}
 	}
 	
-	spacePressed = false; //do sprajtu
-	if (spacePressed2 == true) {
-		//console.log("space");
-		 //SMART!!!!!!!!!
-		//console.log(bullets.length);
-		spacePressed2 = false; //!!!
-		spacePressed = true; //do sprajtu
+	if (spacePressed == true) {
+		spacePressed = false;
+		shooting = true;
 	}
 	
 	player.velX *= friction;
@@ -73,12 +66,9 @@ function update() {
 			ctx.fillText("You won!",70,150);
 	}
 
-	if(player.grounded){ //does this happen
-		player.velY = 0;
-	} //czyli to powinno zostać zerem na koniec frejmu
+	if(player.inAir) player.velY += gravity; //bez ifa zaczyna się kumulować
 
-	if(player.grounded == false)/*no zgadza się, aplikujemy wtedy jest grounded*//*if (player.velY!=0)*/player.velY += gravity;
-	player.grounded = false;  //tylko to jest głupie  //jeżeli nie jest grounded, to nie może skoczyć //AAAA skomplikowane
+	debugger;
 	
 	
 	/*--------------------------------------------------------------------------------------------*/
@@ -88,12 +78,8 @@ function update() {
 	for(var i=0; i < bullets.length; i++){
 		if (bullets[i].direction == "right") bullets[i].x+=20;
 		else bullets[i].x-=20;
-		ctx.drawImage(bulletImg, bullets[i].x + viewport.x, bullets[i].y, bullets[i].width, bullets[i].height);
+		myDraw2(bulletImg, bullets[i]);
 	} //na wierzchu bullets
-	
-	console.log(player.jumping);
-
-	if(player.velY == -0.6) player.velY = 0;
 
 	player.x += player.velX;
 	player.HBx += player.velX;
@@ -101,6 +87,6 @@ function update() {
 	player.HBy += player.velY;
 
 	if (alive){
-		window.requestAnimationFrame(update); //siebie przywołuje?
+		window.requestAnimationFrame(update); //siebie przywołuje
 	}
 }
