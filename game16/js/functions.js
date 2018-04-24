@@ -28,11 +28,17 @@ function drawPlayer() {
 		var h = frameCount % 32;
 		myDraw3(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
-	if (player.inAir && player.direction == "right") {
+	if (player.inAir && player.direction == "right" && player.velY < 0 /*leci w górę*/) {
 		myDraw2(jumpImg, player);
 	}
-	if (player.inAir && player.direction == "left") {
+	if (player.inAir && player.direction == "right" && player.velY >= 0 /*leci w dół*/) {
+		myDraw2(fallImg, player);
+	}
+	if (player.inAir && player.direction == "left" && player.velY < 0 /*leci w górę*/) {
 		myDraw3(jumpImg, player);
+	}
+	if (player.inAir && player.direction == "left" && player.velY >= 0 /*leci w górę*/) {
+		myDraw3(fallImg, player);
 	}
 }
 function level1(){

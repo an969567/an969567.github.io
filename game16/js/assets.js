@@ -1,6 +1,8 @@
 //ładowanie plików
 var jumpImg = new Image();
 jumpImg.src = "pics/Jump (2).png";
+var fallImg = new Image();
+fallImg.src = "pics/Jump (10).png";
 var spikesImg = new Image();
 spikesImg.src = "pics/spikes.png";
 var teleporterImg = new Image();

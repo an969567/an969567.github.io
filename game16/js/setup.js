@@ -116,7 +116,8 @@ var bullets = []; //na amunicję
 function Bullet() {
 		this.baseX = player.x + player.width/2; //tam gdzie player się znajduje
 		this.baseY = player.y + player.height/2; //potem to wykalibrujemy by leciało nie z lewego górnego rogu laseczki
-		this.x = this.baseX;
+		if(player.direction == "left") this.x = this.baseX - 60;
+		else this.x = this.baseX;
 		this.y = this.baseY;
 		this.width = 20;
 		this.height = 20;

@@ -66,7 +66,7 @@ function update() {
 
 	if(player.inAir) player.velY += gravity; //bez ifa zaczyna się kumulować
 
-	debugger;
+	//debugger;
 	
 	
 	/*--------------------------------------------------------------------------------------------*/
