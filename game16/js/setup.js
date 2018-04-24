@@ -9,7 +9,6 @@ var canvas = document.getElementById("canvas"),
 	right = true; //do kierunków
 
 var shooting = false;
-var nie = false;
 
 const clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
 
@@ -114,14 +113,12 @@ canvas.width = width;
 canvas.height = height;
 
 var bullets = []; //na amunicję
-class Bullet {
-	constructor() {
+function Bullet() {
 		this.baseX = player.x + player.width/2; //tam gdzie player się znajduje
 		this.baseY = player.y + player.height/2; //potem to wykalibrujemy by leciało nie z lewego górnego rogu laseczki
 		this.x = this.baseX;
 		this.y = this.baseY;
 		this.width = 20;
-		this.height = 20; //chyba tyle //ewentualnie jeszcze speed //gdzieś musi być bullet.x++ ... //razem z każdym frejmem. a nie z wciśniętą spacją //jeszcze mają być niezliczone //ewentualnie można dać limit tych bulletów //ale co. strzelisz trzy i koniec? //tak samo z rysowaniem //gdzieś musi sprawdzać czy obiekt istnieje //bullet.push?
+		this.height = 20;
 		this.direction = player.direction;
-	}
 }

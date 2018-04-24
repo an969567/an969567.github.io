@@ -4,7 +4,7 @@ function drawPlayer() {
 	ctx.fillStyle = "red";
 	ctx.fillText("Welcome in Mental Asylum",70,70);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
-	if (!player.inAir && player.direction == "right" && !player.velX && !shooting) {
+	if (!player.inAir && player.direction == "right" && !player.velX && !shooting) { //jeżeli licznik == 0 to można strzelać otherwise nie można //jeżeli licznik != 0 to jesteśmy w trakcie strzelania
 		var h = frameCount % 40;
 		myDraw2(eval('idle'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
@@ -167,14 +167,14 @@ function playSound(){
 	with(new AudioContext)for(i in D=[12])with(createOscillator())if(D[i])connect(destination),frequency.value=440*1.06**(13-D[i]),start(i*.1),stop(i*.1+.1)
 }
 function shoot(){
-	if (!nie) {
-		nie = true;
-		shooting = true;
-		licznik = 40;
+	if (!licznik) { 
+		shooting = true;  //jestesmy w trakcie strzelania
+		licznik = 40; //czy to nie nadaje ciągle czterdziestu? //jeżeli 0 to nadaje 40 i był rozkaz shoot
 		var b = new Bullet();
 		bullets.push(b);
 		playSound();
+		//dobrze jest, ja zawszę będę winna
 	}
 	if(licznik) licznik--;
-	if(!licznik) { shooting = false; nie = false; }
+	if(!licznik) shooting = false;
 }

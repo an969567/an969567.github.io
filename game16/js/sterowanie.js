@@ -1,5 +1,5 @@
 document.body.addEventListener("keydown", function (e) { //tylko tyle??
-	keys[e.keyCode] = true;
+	keys[e.keyCode] = true; //na strzałki keyCode i "keydown" //ale może to można bardziej uniwersalnie
 });  //metoda
 
 document.body.addEventListener("keypress", function (e) {

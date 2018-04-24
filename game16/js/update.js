@@ -9,12 +9,8 @@ function update() {
 
 	frameCount++;
 		
+	player.inAir = true; //do sprajtu potrzebne
 	
-	if ((keys[38] || keys[87]) && !player.inAir) {
-		// up arrow or w  //zapobiega jumpom w powietrzu //można zrobić w przyszłości double jump
-			player.inAir = true; //do sprajtu potrzebne
-			player.velY = -player.speed * 1.5;
-	}
 	if (keys[39] || keys[68]) {
 		// right arrow
 		if (player.velX < player.speed) {
@@ -30,10 +26,7 @@ function update() {
 		}
 	}
 	
-	if (spacePressed == true) {
-		spacePressed = false;
-		shooting = true;
-	}
+	if (spacePressed == true) shooting = true;
 	
 	player.velX *= friction;
 
@@ -64,6 +57,11 @@ function update() {
 			ctx.font = "30px Arial";
 			ctx.fillStyle = "red";
 			ctx.fillText("You won!",70,150);
+	}
+
+	if ((keys[38] || keys[87]) && !player.inAir) {
+		// up arrow or w  //zapobiega jumpom w powietrzu //można zrobić w przyszłości double jump
+			player.velY = -player.speed * 1.5;
 	}
 
 	if(player.inAir) player.velY += gravity; //bez ifa zaczyna się kumulować
