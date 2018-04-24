@@ -3,7 +3,7 @@ var boxes2 = [];
 var map2 = {
 	x: 0,
 	y: 0,
-	width: width + 500,
+	width: width + 800,
 	height: height,
 	img: background2Img
 };
@@ -47,7 +47,7 @@ boxes2.push({ //pierwsza platfroma
 });
 boxes2.push({
 	x: map2.width -230, //prawa platforma
-	y: map2.height - 450,
+	y: map2.height - 450, //najwyższa
 	width: 160,
 	height: 40
 });
@@ -59,12 +59,12 @@ boxes2.push({
 });
 boxes2.push({ //cztery pudełka, ostatnie mniejsze
 	x: 270,
-	y: map2.height - 120,
+	y: map2.height - 120, //najniższa
 	width: 100,
 	height: 40
 }); //teraz jakieś pośrodku
 boxes2.push({
-	x: 400,
+	x: 600,
 	y: map2.height - 250,
 	width: 100,
 	height: 40
@@ -81,8 +81,9 @@ var spikes = {
 	img: spikesImg
 };
 var teleporter2 = {
-	x: map2.width - 70 - 160,
+	x: map2.width - 400,
 	y: map2.height - 200,
 	width: 80,
-	height: 200
+	height: 200,
+	img: teleporterImg
 };

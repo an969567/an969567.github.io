@@ -75,7 +75,7 @@ function level2(){
 			}
     	}
 		myDraw(spikes);
-		myDraw(teleporter);
+		myDraw(teleporter2);
 		kill3(spikes);
 		collision(teleporter2);
 }
