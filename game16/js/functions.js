@@ -45,6 +45,7 @@ function drawPlayer() {
 	if (!alive){
 		player.velX = 0; player.velY = 0; player.y = basePlayer.y+20;
 		//10 frejmsów umierania jest na 120
+		if (!rozpocznij) snd.play();
 		if(rozpocznij < 120)	myDraw2(eval('dead'+ (Math.floor(rozpocznij++/12)+1) +'Img'), player);
 		else myDraw2(dead10Img, player);
 	}

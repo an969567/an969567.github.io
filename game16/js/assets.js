@@ -45,3 +45,4 @@ for (var i=1; i<= 3; i++){
 	eval("var shoot" + i + "Img = new Image();");
 	eval("shoot" + i + "Img.src = 'pics/Shoot (" + i + ").png';");
 }
+var snd = new Audio("music/scream.mp3");

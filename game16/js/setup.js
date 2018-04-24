@@ -22,7 +22,7 @@ var level = 3; //zaczynamy od pierwszego
 
 var boxes = []; //robimy pustą listę
 
-var rozpocznij = 1;
+var rozpocznij = 0;
 
 var map = { //nowe ważne
 	x: 0,
