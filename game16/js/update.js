@@ -11,14 +11,14 @@ function update() {
 		
 	player.inAir = true; //do sprajtu potrzebne
 	
-	if (keys[39] || keys[68]) {
+	if ((keys[39] || keys[68]) && alive) {
 		// right arrow
 		if (player.velX < player.speed) {
 			player.velX++;
 			player.direction = "right";
 		}
 	}
-	if (keys[37] || keys[65]) {
+	if ((keys[37] || keys[65]) && alive) {
 		// left arrow
 		if (player.velX > -player.speed) {
 			player.velX--;
@@ -26,7 +26,7 @@ function update() {
 		}
 	}
 	
-	if (spacePressed == true) shooting = true;
+	if (spacePressed == true && alive) shooting = true;
 	
 	player.velX *= friction;
 
@@ -59,7 +59,7 @@ function update() {
 			ctx.fillText("You won!",70,150);
 	}
 
-	if ((keys[38] || keys[87]) && !player.inAir) {
+	if ((keys[38] || keys[87]) && !player.inAir && alive) {
 		// up arrow or w  //zapobiega jumpom w powietrzu //można zrobić w przyszłości double jump
 			player.velY = -player.speed * 1.5;
 	}
@@ -84,7 +84,11 @@ function update() {
 	player.y += player.velY;
 	player.HBy += player.velY;
 
-	if (alive){
-		window.requestAnimationFrame(update); //siebie przywołuje
+	if(!alive){
+		ctx.font = "30px Arial";
+		ctx.fillStyle = "red";
+		ctx.fillText("You died",70,150);
 	}
+
+	window.requestAnimationFrame(update); //siebie przywołuje
 }

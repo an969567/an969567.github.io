@@ -18,9 +18,11 @@ var frameCount = 0;
 var licznik = 0; //do strzelania
 var spacePressed = false;
 
-var level = 1; //zaczynamy od pierwszego
+var level = 3; //zaczynamy od pierwszego
 
 var boxes = []; //robimy pustą listę
+
+var rozpocznij = 1;
 
 var map = { //nowe ważne
 	x: 0,
@@ -45,9 +47,9 @@ var player = {
 	velY: 0,
 	inAir: true, //zaczyna inAir,
 	direction: "right",
-	HBx: basePlayer.x + 30,
+	HBx: basePlayer.x + 35,
 	HBy: basePlayer.y + 10,
-	HBwidth: 70,
+	HBwidth: 65,
 	HBheight: 158
 };
 

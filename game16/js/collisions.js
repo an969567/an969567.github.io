@@ -84,9 +84,6 @@ function kill2(shapeB) { //na potwora co można na niego skoczyć
 			player.velY -= 20;
 		}
 		else {
-				ctx.font = "30px Arial";
-				ctx.fillStyle = "red";
-				ctx.fillText("You died",70,150);
 				alive = false;  //umiera od prawej i lewej
 		}
 	}

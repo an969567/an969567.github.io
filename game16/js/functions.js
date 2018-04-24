@@ -4,41 +4,49 @@ function drawPlayer() {
 	ctx.fillStyle = "red";
 	ctx.fillText("Welcome in Mental Asylum",70,70);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
-	if (!player.inAir && player.direction == "right" && !player.velX && !shooting) { //jeżeli licznik == 0 to można strzelać otherwise nie można //jeżeli licznik != 0 to jesteśmy w trakcie strzelania
+	if (!player.inAir && player.direction == "right" && !player.velX && !shooting && alive) {
 		var h = frameCount % 40;
 		myDraw2(eval('idle'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
-	if (!player.inAir && player.direction == "left" && !player.velX && !shooting) {
+	if (!player.inAir && player.direction == "left" && !player.velX && !shooting && alive) {
 		var h = frameCount % 40;
 		myDraw3(eval('idle'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
-	if (!player.inAir && player.direction == "right" && !player.velX && shooting) {
+	if (!player.inAir && player.direction == "right" && !player.velX && shooting && alive) {
 		shoot();
-		myDraw2(shootImg, player);
+		//korzystając z licznika
+		myDraw2(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
 	}
-	if (!player.inAir && player.direction == "left" && !player.velX && shooting) {
+	if (!player.inAir && player.direction == "left" && !player.velX && shooting && alive) {
 		shoot();
-		myDraw3(shootImg, player); //odbicie lustrzane
+		//myDraw3(shoot1Img, player); //odbicie lustrzane
+		myDraw3(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
 	}
-	if (!player.inAir && player.velX > 0) {
+	if (!player.inAir && player.velX > 0 && alive) {
 		var h = frameCount % 32;
 		myDraw2(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
-	if (!player.inAir && player.velX < 0) {
+	if (!player.inAir && player.velX < 0 && alive) {
 		var h = frameCount % 32;
 		myDraw3(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
 	}
-	if (player.inAir && player.direction == "right" && player.velY < 0 /*leci w górę*/) {
+	if (player.inAir && player.direction == "right" && player.velY < 0 /*leci w górę*/ && alive) {
 		myDraw2(jumpImg, player);
 	}
-	if (player.inAir && player.direction == "right" && player.velY >= 0 /*leci w dół*/) {
+	if (player.inAir && player.direction == "right" && player.velY >= 0 /*leci w dół*/ && alive) {
 		myDraw2(fallImg, player);
 	}
-	if (player.inAir && player.direction == "left" && player.velY < 0 /*leci w górę*/) {
+	if (player.inAir && player.direction == "left" && player.velY < 0 /*leci w górę*/ && alive) {
 		myDraw3(jumpImg, player);
 	}
-	if (player.inAir && player.direction == "left" && player.velY >= 0 /*leci w górę*/) {
+	if (player.inAir && player.direction == "left" && player.velY >= 0 /*leci w górę*/ && alive) {
 		myDraw3(fallImg, player);
+	}
+	if (!alive){
+		player.velX = 0; player.velY = 0; player.y = basePlayer.y+20;
+		//10 frejmsów umierania jest na 120
+		if(rozpocznij < 120)	myDraw2(eval('dead'+ (Math.floor(rozpocznij++/12)+1) +'Img'), player);
+		else myDraw2(dead10Img, player);
 	}
 }
 function level1(){
@@ -84,7 +92,7 @@ function level3(){
 		kill3(monster);
 		patrol(monster);
 		if (monster.direction == "left") myDraw(monster);
-		else myDraw3(monsterImg, monster);
+		else myDraw4(monsterImg, monster);
 		myDraw(teleporter);
 		collision(teleporter3);
 }
@@ -118,7 +126,7 @@ function level5(){
 	kill2(monster3);
 	patrol(monster3);
 	if (monster3.direction == "left") myDraw(monster3);
-	else myDraw3(monster2Img, monster3);
+	else myDraw4(monster2Img, monster3);
 		myDraw(teleporter);
 		collision(teleporter5);
 }
@@ -164,7 +172,7 @@ function patrol(myMonster){
 	if (myMonster.x <= myMonster.minX) { myMonster.direction = "right"; myMonster.x++; myMonster.HBx++; }
 }
 function myDraw3(myImage, myObject){
-	ctx.translate(myObject.x + viewport.x + 100,0);  //przesuwa origin
+	ctx.translate(myObject.x + viewport.x + 150,0);  //przesuwa origin
  	ctx.scale(-1,1);
 	ctx.drawImage(myImage, 0, myObject.y, myObject.width, myObject.height)
 	ctx.setTransform(1,0,0,1,0,0);
@@ -175,7 +183,7 @@ function playSound(){
 function shoot(){
 	if (!licznik) { 
 		shooting = true;  //jestesmy w trakcie strzelania
-		licznik = 40; //czy to nie nadaje ciągle czterdziestu? //jeżeli 0 to nadaje 40 i był rozkaz shoot
+		licznik = 36; //czy to nie nadaje ciągle czterdziestu? //jeżeli 0 to nadaje 36 i był rozkaz shoot
 		var b = new Bullet();
 		bullets.push(b);
 		playSound();
@@ -183,4 +191,10 @@ function shoot(){
 	}
 	if(licznik) licznik--;
 	if(!licznik) shooting = false;
+}
+function myDraw4(myImage, myObject){
+	ctx.translate(myObject.x + viewport.x + 100,0);  //przesuwa origin
+ 	ctx.scale(-1,1);
+	ctx.drawImage(myImage, 0, myObject.y, myObject.width, myObject.height)
+	ctx.setTransform(1,0,0,1,0,0);
 }
