@@ -28,7 +28,6 @@ function update() {
 	
 	if (spacePressed == true && alive) {
 		shooting = true;
-		snd.play();
 	}
 	
 	player.velX *= friction;
