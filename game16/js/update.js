@@ -26,7 +26,7 @@ function update() {
 		}
 	}
 	
-	if (spacePressed == true && alive) {
+	if (spacePressed && alive) {
 		shooting = true;
 	}
 	
@@ -75,10 +75,10 @@ function update() {
 	
 	drawPlayer();
 	
-	for(var i=0; i < bullets.length; i++){
-		if (bullets[i].direction == "right") bullets[i].x+=20;
-		else bullets[i].x-=20;
-		myDraw2(bulletImg, bullets[i]);
+	for(i of bullets){
+		if (i.direction == "right") i.x+=20;
+		else i.x-=20;
+		myDraw2(bulletImg, i);
 	} //na wierzchu bullets
 
 	player.x += player.velX;

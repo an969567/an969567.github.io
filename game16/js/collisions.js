@@ -81,7 +81,8 @@ function kill2(shapeB) { //na potwora co można na niego skoczyć
 			oY = hHeights - Math.abs(vY);  //dziwne, co jeżeli tylko z jednej strony uderzy
 		if (oX >= oY) {
 			shapeB.fall();
-			player.velY -= 20;
+			player.velY -= 20; //odbicie
+			bounce.play();
 		}
 		else {
 				alive = false;  //umiera od prawej i lewej
