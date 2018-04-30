@@ -6,20 +6,18 @@ function drawPlayer() {
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
 	if (!player.inAir && player.direction == "right" && !player.velX && !shooting && alive) {
 		var h = frameCount % 40;
-		myDraw2(eval('idle'+ (Math.floor(h/4)+1) +'Img'), player);
+		myDraw2(idleImg[Math.floor(h/4)], player);
 	}
 	if (!player.inAir && player.direction == "left" && !player.velX && !shooting && alive) {
 		var h = frameCount % 40;
-		myDraw3(eval('idle'+ (Math.floor(h/4)+1) +'Img'), player);
+		myDraw3(idleImg[Math.floor(h/4)], player);
 	}
 	if (!player.inAir && player.direction == "right" && !player.velX && shooting && alive) {
 		shoot();
-		//korzystając z licznika
 		myDraw2(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
 	}
 	if (!player.inAir && player.direction == "left" && !player.velX && shooting && alive) {
 		shoot();
-		//myDraw3(shoot1Img, player); //odbicie lustrzane
 		myDraw3(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
 	}
 	if (!player.inAir && player.velX > 0 && alive) {
@@ -147,17 +145,30 @@ function level6(){
 		collision(teleporter6);
 }
 
+function level7(){
+	myDraw(map7);
+		for (i of boxes7) {
+			myRect(i);
+			setDir(i);
+			for (var j=0;j<bullets.length;j++) {
+				if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+			}
+    	}
+		myDraw(teleporter7);
+		collision(teleporter7);
+}
+
 function myDraw(myObject){
-	ctx.drawImage(myObject.img, myObject.x + viewport.x, myObject.y, myObject.width, myObject.height);
+	ctx.drawImage(myObject.img, myObject.x + viewport.x, myObject.y + viewport.y, myObject.width, myObject.height);
 }
 function myRect(myBox){
 	ctx.fillStyle= "black";
 	ctx.beginPath();
-	ctx.rect( myBox.x + viewport.x, myBox.y, myBox.width, myBox.height);
+	ctx.rect( myBox.x + viewport.x, myBox.y + viewport.y, myBox.width, myBox.height);
 	ctx.fill();
 }
 function myDraw2(myImage, myObject){
-	ctx.drawImage(myImage, myObject.x + viewport.x, myObject.y, myObject.width, myObject.height);
+	ctx.drawImage(myImage, myObject.x + viewport.x, myObject.y + viewport.y, myObject.width, myObject.height);
 }
 function setDir(myBox){
 	var dir = colCheck(player, myBox);
@@ -175,7 +186,7 @@ function patrol(myMonster){
 function myDraw3(myImage, myObject){
 	ctx.translate(myObject.x + viewport.x + 150,0);  //przesuwa origin
  	ctx.scale(-1,1);
-	ctx.drawImage(myImage, 0, myObject.y, myObject.width, myObject.height)
+	ctx.drawImage(myImage, 0, myObject.y + viewport.y, myObject.width, myObject.height)
 	ctx.setTransform(1,0,0,1,0,0);
 }
 function playSound(){
@@ -184,18 +195,18 @@ function playSound(){
 function shoot(){
 	if (!licznik) { 
 		shooting = true;  //jestesmy w trakcie strzelania
-		licznik = 36; //czy to nie nadaje ciągle czterdziestu? //jeżeli 0 to nadaje 36 i był rozkaz shoot
+		licznik = 36; //jeżeli 0 to nadaje 36 i był rozkaz shoot
 		var b = new Bullet();
 		bullets.push(b);
 		playSound();
 		//dobrze jest, ja zawszę będę winna
 	}
-	if(licznik) licznik--;
+	if(licznik) licznik--; //czyli do funkcji trafia 35.
 	if(!licznik) shooting = false;
 }
 function myDraw4(myImage, myObject){
 	ctx.translate(myObject.x + viewport.x + 100,0);  //przesuwa origin
  	ctx.scale(-1,1);
-	ctx.drawImage(myImage, 0, myObject.y, myObject.width, myObject.height)
+	ctx.drawImage(myImage, 0, myObject.y + viewport.y, myObject.width, myObject.height)
 	ctx.setTransform(1,0,0,1,0,0);
 }

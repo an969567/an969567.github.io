@@ -4,7 +4,7 @@ var map4 = {
 	x: 0,
 	y: 0,
 	width: width + 500,
-	height: height,
+	height: height + 500,
 	img: background4Img
 };
 

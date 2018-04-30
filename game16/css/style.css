@@ -24,3 +24,11 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
 }
+@font-face {
+    font-family: sinsofrh;
+    src: url(sinsofrh.ttf);
+}
+
+div {
+    font-family: sinsofrh;
+}

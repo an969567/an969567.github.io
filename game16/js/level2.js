@@ -4,7 +4,7 @@ var map2 = {
 	x: 0,
 	y: 0,
 	width: width + 800,
-	height: height,
+	height: height + 500,
 	img: background2Img
 };
 boxes2.push({ //lewa grannica
@@ -34,9 +34,9 @@ boxes2.push({ //górna granica
 //wieża
 boxes2.push({
 	x: map2.width/2-200,
-	y: map2.height/2,
+	y: map2.height/2+300,
 	width: 200,
-	height: map2.height/2
+	height: map2.height/2 -300
 });
 
 boxes2.push({ //pierwsza platfroma

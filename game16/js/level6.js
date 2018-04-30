@@ -4,7 +4,7 @@ var map6 = {
 	x: 0,
 	y: 0,
 	width: width + 500,
-	height: height,
+	height: height + 500,
 	img: background6Img //jak byśmy zostawili bez cudzysłowów to by może działało. Obiekt jako property obiektu. Tylko potem musiała by być funkcja myDraw() bez eval.
 };
 

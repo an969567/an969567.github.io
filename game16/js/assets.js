@@ -11,8 +11,6 @@ var monsterImg = new Image();
 monsterImg.src = "pics/monster.png";
 var monster2Img = new Image();
 monster2Img.src = "pics/monster2.png";
-/*var monster2rightImg = new Image();
-monster2rightImg.src = "pics/monster2right.png";*/
 var bulletImg = new Image();
 bulletImg.src = "pics/bullet.png";
 var loszkaImg = new Image();
@@ -29,9 +27,12 @@ var background5Img = new Image();
 background5Img.src = "pics/background5.jpg";
 var background6Img = new Image();
 background6Img.src = "pics/background6.png";
-for (var i=1; i<= 10; i++){
-	eval("var idle" + i + "Img = new Image();");
-	eval("idle" + i + "Img.src = 'pics/Idle (" + i + ").png';");
+var background7Img = new Image();
+background7Img.src = "pics/background7.jpg";
+var idleImg = [];
+for (var i=0; i<= 9; i++){
+	idleImg[i] = new Image();
+	idleImg[i].src = "pics/Idle (" + (i + 1) + ").png";
 }
 for (var i=1; i<= 8; i++){
 	eval("var run" + i + "Img = new Image();");
@@ -45,5 +46,7 @@ for (var i=1; i<= 3; i++){
 	eval("var shoot" + i + "Img = new Image();");
 	eval("shoot" + i + "Img.src = 'pics/Shoot (" + i + ").png';");
 }
+var music = new Audio("music/music.mp3");
 var scream = new Audio("music/scream.mp3");
 var bounce = new Audio("music/bounce.flac");
+var win = new Audio("music/win.wav");

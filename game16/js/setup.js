@@ -18,17 +18,19 @@ var frameCount = 0;
 var licznik = 0; //do strzelania
 var spacePressed = false;
 
-var level = 1; //zaczynamy od pierwszego
+var level = 7; //zaczynamy od pierwszego
 
 var boxes = []; //robimy pustą listę
 
 var rozpocznij = 0;
 
+music.play();
+
 var map = { //nowe ważne
 	x: 0,
 	y: 0,
 	width: width + 500,
-	height: height,
+	height: height + 500,
 	img: background1Img
 };
 
