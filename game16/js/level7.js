@@ -34,11 +34,34 @@ boxes7.push({ //górna granica
 //wieża
 boxes7.push({
 	x: map7.width/2-200,
-	y: map7.height/2,
+	y: map7.height/2 + 200,
 	width: 200,
-	height: map2.height/2 -300
+	height: 4
 });
-
+boxes7.push({
+	x: map7.width/2+20,
+	y: map7.height/2 + 20,
+	width: 200,
+	height: 4
+});
+boxes7.push({
+	x: map7.width/2 + 360,
+	y: map7.height/2 - 80,
+	width: 200,
+	height: 4
+});
+boxes7.push({
+	x: map7.width/2 + 20,
+	y: map7.height/2 - 200,
+	width: 200,
+	height: 4
+});
+boxes7.push({
+	x: map7.width/2 - 210,
+	y: 200,
+	width: 200,
+	height: 4
+});
 boxes7.push({ //pierwsza platfroma
 	x: 70,
 	y: map7.height - 350,
@@ -70,8 +93,8 @@ boxes7.push({
 	height: 40
 });
 var teleporter7 = {
-	x: map7.width - 400,
-	y: map7.height - 200,
+	x: map7.width/2 - 210,
+	y: 0,
 	width: 80,
 	height: 200,
 	img: teleporterImg
