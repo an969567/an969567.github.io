@@ -18,7 +18,7 @@ var frameCount = 0;
 var licznik = 0; //do strzelania
 var spacePressed = false;
 
-var level = 3; //zaczynamy od pierwszego
+var level = 1; //zaczynamy od pierwszego
 
 var boxes = []; //robimy pustą listę
 
