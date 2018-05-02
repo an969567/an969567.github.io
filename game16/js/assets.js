@@ -38,7 +38,7 @@ for (var i=1; i<= 8; i++){
 	eval("var run" + i + "Img = new Image();");
 	eval("run" + i + "Img.src = 'pics/Run (" + i + ").png';");
 }
-for (var i=1; i<= 10; i++){
+for (var i=1; i<= 7; i++){
 	eval("var dead" + i + "Img = new Image();");
 	eval("dead" + i + "Img.src = 'pics/Dead (" + i + ").png';");
 }

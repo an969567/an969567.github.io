@@ -42,10 +42,10 @@ function drawPlayer() {
 	}
 	if (!alive){
 		player.velX = 0; player.velY = 0; player.y = basePlayer.y+20;
-		//10 frejmsów umierania jest na 120
+		//do siódmego //trzy ostatnie to to samo co siódme //7 * 12 = 84
 		if (!rozpocznij) scream.play();
-		if(rozpocznij < 120)	myDraw2(eval('dead'+ (Math.floor(rozpocznij++/12)+1) +'Img'), player);
-		else myDraw2(dead10Img, player);
+		if(rozpocznij < 84)	myDraw2(eval('dead'+ (Math.floor(rozpocznij++/12)+1) +'Img'), player);
+		else myDraw2(dead7Img, player);
 	}
 }
 function level1(){
