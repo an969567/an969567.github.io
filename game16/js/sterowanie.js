@@ -13,7 +13,7 @@ document.body.addEventListener("keyup", function (e) {
 	spacePressed = false; //mam nadzieję, że też odświeża 60 razy na sekundę
 });
 
-
+//czyli tutaj zaczyna się update
 window.addEventListener("load", function () {
 	update();
 });

@@ -1,10 +1,17 @@
 //ładowanie plików
-var jumpImg = new Image();
+var Manager = [];
+var ile = 0;
+function Ile(s){
+	ile++; console.log(ile, s);};
+Manager.push(["jumpImg","pics/Jump (2).png"]);
+/*var jumpImg = new Image();
 jumpImg.src = "pics/Jump (2).png";
-var fallImg = new Image();
-fallImg.src = "pics/Jump (10).png";
+jumpImg.onload = Ile("jumpImg");*/
+Manager.push(["fallImg","pics/Jump (10).png"]);
+Load1();
 var spikesImg = new Image();
 spikesImg.src = "pics/spikes.png";
+spikesImg.onload = Ile;
 console.log("33%");
 var teleporterImg = new Image();
 teleporterImg.src = "pics/teleporter.png";
@@ -55,3 +62,5 @@ var music = new Audio("music/music.mp3");
 var scream = new Audio("music/scream.mp3");
 var bounce = new Audio("music/bounce.flac");
 var win = new Audio("music/win.wav");
+
+//LoadManager();
