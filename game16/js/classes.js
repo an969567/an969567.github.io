@@ -157,7 +157,11 @@ function drawLoadingBar() {
 function przypisz() {
 	idle1Img = myLoadManager.getAsset('Idle (1).png');
 	jumpImg = myLoadManager.getAsset('Jump (2).png');
+	fallImg = myLoadManager.getAsset('Jump (10).png');
 	spikesImg = myLoadManager.getAsset('spikes.png');
+	/* tutaj wpiszemy*/
+	loadLevel2();
+	update();
 }
 
 function level0() {
