@@ -112,8 +112,5 @@ function loadSetup(){
 		img: teleporterImg
 	};
 
-	canvas.width = width;
-	canvas.height = height;
-
 	bullets = []; //na amunicję
 }
