@@ -2,7 +2,6 @@ function AssetManager() { //konstruktor //potem dodajemy już tylko metody //wsz
 	this.successCount = 0;
 	this.errorCount = 0;  
 	this.cache = {};
-	this.images = [];
 	this.downloadQueue = [];
 	this.resourceRoot=""; //co to
 }
@@ -11,13 +10,13 @@ AssetManager.prototype.queueDownload = function(path) {
     this.downloadQueue.push(path);
 }
 
-AssetManager.prototype.setRoot = function (res) {
+AssetManager.prototype.setRoot = function (res) { //res od resource
 	this.resourceRoot=res; //może root plików
 }
 
-AssetManager.prototype.downloadAll = function(downloadCallback) { //wysyła funkcję? //w sensie bierze jako argument funkcję
+AssetManager.prototype.downloadAll = function() { //wysyła funkcję? //w sensie bierze jako argument funkcję
 	if (this.downloadQueue.length === 0) {
-		downloadCallback();
+		
   	}
   	
     for (var i = 0; i < this.downloadQueue.length; i++) { //wygląda znajomo
@@ -28,18 +27,18 @@ AssetManager.prototype.downloadAll = function(downloadCallback) { //wysyła funk
         var that = this;
         img.addEventListener("load", function() { //przywoływana ta funkcja przy udaniu //kurwa czemu to pomarańczowemu działa kurwa mać //może jakieś prototypy zrobił
             that.successCount += 1;
-            console.log(img);
+            console.log(img); //może w momencie jak już wszystkie przeszły to tyle tylko zostaje
             console.log(that.successCount);
 
 			if (that.isDone()) {
-        		downloadCallback();
+        		
     		}            
         }, false);
         img.addEventListener("error", function() {
         	that.errorCount += 1;
         	console.log("Errors: ", that.errorCount);
 			if (that.isDone()) {
-        		downloadCallback();
+        		
     		}        	
     	}, false);
     	
@@ -47,7 +46,7 @@ AssetManager.prototype.downloadAll = function(downloadCallback) { //wysyła funk
 }
 
 AssetManager.prototype.getTotal = function() {
-	return this.downloadQueue.length-1; //hmm ten minus jeden trochę dziwny
+	return this.downloadQueue.length; //hmm ten minus jeden trochę dziwny //usuwamy go
 }
 
 AssetManager.prototype.getDone = function () {
@@ -123,9 +122,9 @@ function przypisz() {
 	for (var i=0; i<= 9; i++) {
 		idleImg[i] = myLoadManager.getAsset("Idle (" + (i + 1) + ").png");
 	}
-	/*for (var i=1; i<= 8; i++){
+	for (var i=1; i<= 8; i++){
 		eval("run" + i + "Img = myLoadManager.getAsset('Run (" + i + ").png');");
-	}*/
+	}
 	/* tutaj wpiszemy*/
 	console.log("a");
 	loadSetup();
@@ -141,7 +140,7 @@ function przypisz() {
 var tylko_raz = 0;
 function level0() {
 	if(tylko_raz == 0){
-		myLoadManager.downloadAll(function () {}); //aaa bo w pętli każemy mu pobierać
+		myLoadManager.downloadAll(); //aaa bo w pętli każemy mu pobierać
 		tylko_raz++;
 	}
 	drawLoadingBar();

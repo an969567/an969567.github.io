@@ -23,9 +23,9 @@ myLoadManager.queueDownload('background7.jpg');
 for (var i=0; i<= 9; i++){
 	myLoadManager.queueDownload("Idle (" + (i + 1) + ").png");
 }
-/*for (var i=1; i<= 8; i++){
+for (var i=1; i<= 8; i++){
 	eval("myLoadManager.queueDownload('Run (" + i + ").png');");
-}*/
+}
 level0();
 //background7Img.onload = function(){console.log("background7 loaded");};
 for (var i=1; i<= 7; i++){
