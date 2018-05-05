@@ -90,10 +90,10 @@ function drawLoadingBar() {
 	tx=64;
 	ty=32;
 	
-	//drawRect(tx,ty,tx+130,ty+3,makeRGBA(200,200,200,255)); // to jest loading bar
-	//tx++;
-	//ty++;
-	//drawRect(tx,ty,tx+128,ty+1,makeRGBA(255,255,255,255));
+	drawRect(tx,ty,130,3,makeRGBA(200,200,200,255)); // to jest loading bar
+	tx++;
+	ty++;
+	drawRect(tx,ty,128,1,makeRGBA(255,255,255,255));
 	
 	var total=myLoadManager.getTotal(); //to są dane do loading baru
 	var currentDone=myLoadManager.getDone();
