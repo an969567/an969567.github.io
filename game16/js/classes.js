@@ -1,6 +1,5 @@
 function AssetManager() { //konstruktor //potem dodajemy już tylko metody //wszystkie properties są tutaj zdefiniowane //Czyli sam asset Manager nie bierze żadnych arguemntów
-	this.successCount = 0;
-	this.errorCount = 0;  
+	this.successCount = 0; 
 	this.cache = {};
 	this.downloadQueue = [];
 	this.resourceRoot=""; //co to
@@ -15,10 +14,6 @@ AssetManager.prototype.setRoot = function (res) { //res od resource
 }
 
 AssetManager.prototype.downloadAll = function() { //wysyła funkcję? //w sensie bierze jako argument funkcję
-	if (this.downloadQueue.length === 0) {
-		
-  	}
-  	
     for (var i = 0; i < this.downloadQueue.length; i++) { //wygląda znajomo
         var path = this.downloadQueue[i];
         var img = new Image();
@@ -27,21 +22,9 @@ AssetManager.prototype.downloadAll = function() { //wysyła funkcję? //w sensie
         var that = this;
         img.addEventListener("load", function() { //przywoływana ta funkcja przy udaniu //kurwa czemu to pomarańczowemu działa kurwa mać //może jakieś prototypy zrobił
             that.successCount += 1;
-            console.log(img); //może w momencie jak już wszystkie przeszły to tyle tylko zostaje
-            console.log(that.successCount);
-
-			if (that.isDone()) {
-        		
-    		}            
+            //console.log(img); //może w momencie jak już wszystkie przeszły to tyle tylko zostaje
+            console.log(that.successCount);            
         }, false);
-        img.addEventListener("error", function() {
-        	that.errorCount += 1;
-        	console.log("Errors: ", that.errorCount);
-			if (that.isDone()) {
-        		
-    		}        	
-    	}, false);
-    	
     }
 }
 
@@ -50,11 +33,11 @@ AssetManager.prototype.getTotal = function() {
 }
 
 AssetManager.prototype.getDone = function () {
-	return (this.successCount + this.errorCount); //zwraca liczbę
+	return (this.successCount); //zwraca liczbę
 }
 
 AssetManager.prototype.isDone = function() {
-    return (this.downloadQueue.length <= this.successCount + this.errorCount); //zwraca fałsz jeżeli successCount + errorCount są mniejsze od długości kolejki
+    return (this.downloadQueue.length <= this.successCount); //zwraca fałsz jeżeli successCount + errorCount są mniejsze od długości kolejki
 }
 
 
@@ -89,15 +72,13 @@ function drawLoadingBar() {
 	tx=64;
 	ty=32;
 	
-	drawRect(tx,ty,130,3,makeRGBA(200,200,200,255)); // to jest loading bar
-	tx++;
-	ty++;
-	drawRect(tx,ty,128,1,makeRGBA(255,255,255,255));
+	drawRect(tx-1,ty-1,102,32,makeRGBA(200,666,200,255)); // to jest loading bar
+	//drawRect(tx,ty,128,1,makeRGBA(255,100,255,255));
 	
 	var total=myLoadManager.getTotal(); //to są dane do loading baru
 	var currentDone=myLoadManager.getDone();
 	var tz = (100.0/total /* to jest to */)*currentDone;
-	drawRect(tx,ty, tz, 30 ,makeRGBA(200,200,200,255));
+	drawRect(tx,ty, tz, 30 ,makeRGBA(200,200,400,255));
 	console.log(tz);
 }
 
