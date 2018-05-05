@@ -159,8 +159,16 @@ function przypisz() {
 	jumpImg = myLoadManager.getAsset('Jump (2).png');
 	fallImg = myLoadManager.getAsset('Jump (10).png');
 	spikesImg = myLoadManager.getAsset('spikes.png');
+	teleporterImg = myLoadManager.getAsset('teleporter.png');
+	monsterImg = myLoadManager.getAsset('monster.png');
 	/* tutaj wpiszemy*/
+	loadSetup();
 	loadLevel2();
+	loadLevel3();
+	loadLevel4();
+	loadLevel5();
+	loadLevel6();
+	loadLevel7();
 	update();
 }
 

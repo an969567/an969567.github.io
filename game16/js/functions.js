@@ -210,3 +210,14 @@ function myDraw4(myImage, myObject){
 	ctx.drawImage(myImage, 0, myObject.y + viewport.y, myObject.width, myObject.height)
 	ctx.setTransform(1,0,0,1,0,0);
 }
+
+function Bullet() {
+		this.baseX = player.x + player.width/2; //tam gdzie player się znajduje
+		this.baseY = player.y + player.height/2; //potem to wykalibrujemy by leciało nie z lewego górnego rogu laseczki
+		if(player.direction == "left") this.x = this.baseX - 60;
+		else this.x = this.baseX;
+		this.y = this.baseY;
+		this.width = 20;
+		this.height = 20;
+		this.direction = player.direction;
+}
