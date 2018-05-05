@@ -4,7 +4,7 @@ var myLoadManager = new AssetManager();
 myLoadManager.setRoot('pics'); //hmmmmm??????? //to jest jakaś zmienna //musi być zadeklerowana w którymś z poprzednich plików
 		
 		// preload our images
-myLoadManager.queueDownload('Idle (1).png');
+//myLoadManager.queueDownload('Idle (1).png');
 myLoadManager.queueDownload('Jump (2).png');
 myLoadManager.queueDownload('Jump (10).png');
 myLoadManager.queueDownload('spikes.png');

@@ -14,6 +14,6 @@ document.body.addEventListener("keyup", function (e) {
 });
 
 //czyli tutaj zaczyna się update
-/*window.addEventListener("load", function () {
+window.addEventListener("load", function () {
 	update();
-}); */
+});
