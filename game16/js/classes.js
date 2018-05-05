@@ -69,15 +69,15 @@ function drawLoadingBar() {
 	ctx.fillStyle = "#ffff00"; //całe białe.
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 	
-	tx=64;
-	ty=32;
+	tx=100;
+	ty=100;
 	
-	drawRect(tx-1,ty-1,102,32,makeRGBA(200,666,200,255)); // to jest loading bar
+	drawRect(tx-1,ty-1,202,32,makeRGBA(200,666,200,255)); // to jest loading bar
 	//drawRect(tx,ty,128,1,makeRGBA(255,100,255,255));
 	
 	var total=myLoadManager.getTotal(); //to są dane do loading baru
 	var currentDone=myLoadManager.getDone();
-	var tz = (100.0/total /* to jest to */)*currentDone;
+	var tz = (200.0/total /* to jest to */)*currentDone;
 	drawRect(tx,ty, tz, 30 ,makeRGBA(200,200,400,255));
 	console.log(tz);
 }
