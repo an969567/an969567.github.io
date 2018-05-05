@@ -23,9 +23,13 @@ AssetManager.prototype.downloadAll = function(downloadCallback) { //wysyła funk
     for (var i = 0; i < this.downloadQueue.length; i++) { //wygląda znajomo
         var path = this.downloadQueue[i];
         var img = new Image();
+        img.src = this.resourceRoot+"/"+path;
+        this.cache[path] = img;
         var that = this;
-        img.addEventListener("load", function() {
+        img.addEventListener("load", function() { //przywoływana ta funkcja przy udaniu //kurwa czemu to pomarańczowemu działa kurwa mać //może jakieś prototypy zrobił
             that.successCount += 1;
+            console.log(img);
+            console.log(that.successCount);
 
 			if (that.isDone()) {
         		downloadCallback();
@@ -33,13 +37,12 @@ AssetManager.prototype.downloadAll = function(downloadCallback) { //wysyła funk
         }, false);
         img.addEventListener("error", function() {
         	that.errorCount += 1;
+        	console.log("Errors: ", that.errorCount);
 			if (that.isDone()) {
         		downloadCallback();
     		}        	
     	}, false);
     	
-        img.src = this.resourceRoot+"/"+path;
-        this.cache[path] = img;
     }
 }
 
@@ -58,41 +61,6 @@ AssetManager.prototype.isDone = function() {
 
 AssetManager.prototype.getAsset = function(path) {
     return this.cache[path]; //czy on operuje na pamięci cache przeglądarki? //nie raczej
-}
-
-// resizer for pixelart (no aliasing)
-AssetManager.prototype.noalias = function(scale) { //nam niepotrzebne
-		for (var i= this.downloadQueue.length; --i>=0;) {
-			
-			var img=this.cache[this.downloadQueue[i]];
-			
-		    var src_canvas = document.createElement('canvas');
-		    src_canvas.width = img.width;
-		    src_canvas.height = img.height;
-		
-		    var src_ctx = src_canvas.getContext('2d');
-		    src_ctx.drawImage(img, 0,0);
-		    var src_data = src_ctx.getImageData(0, 0, img.width, img.height).data;
-		
-		    var dst_canvas = document.createElement('canvas'); //tworzy małe canvasy?
-		    dst_canvas.width = img.width * scale;
-		    dst_canvas.height = img.height * scale;
-		    var dst_ctx = dst_canvas.getContext('2d');
-		
-		    var offset = 0;
-		    for (var y = 0; y < img.height; ++y) {
-		        for (var x = 0; x < img.width; ++x) {
-		            var r = src_data[offset++];
-		            var g = src_data[offset++];
-		            var b = src_data[offset++];
-		            var a = src_data[offset++] / 100.0;
-		            dst_ctx.fillStyle = 'rgba(' + [r, g, b, a].join(',') + ')';
-		            dst_ctx.fillRect(x * scale, y * scale, scale, scale);
-		        }
-		    }
-		    
-		    img.src=dst_canvas.toDataURL("image/png"); //toDataUrl to jakieś API?
-		}
 }
 
 //do działania przed uruchomieniem update(). Musi przywołać update.
@@ -122,15 +90,16 @@ function drawLoadingBar() {
 	tx=64;
 	ty=32;
 	
-	drawRect(tx,ty,tx+130,ty+3,makeRGBA(200,200,200,255)); // to jest loading bar
-	tx++;
-	ty++;
-	drawRect(tx,ty,tx+128,ty+1,makeRGBA(255,255,255,255));
+	//drawRect(tx,ty,tx+130,ty+3,makeRGBA(200,200,200,255)); // to jest loading bar
+	//tx++;
+	//ty++;
+	//drawRect(tx,ty,tx+128,ty+1,makeRGBA(255,255,255,255));
 	
 	var total=myLoadManager.getTotal(); //to są dane do loading baru
 	var currentDone=myLoadManager.getDone();
-	
-	drawRect(tx,ty, tx+((100.0/total /* to jest to */)*currentDone), ty+1  ,makeRGBA(200,200,200,255));
+	var tz = (100.0/total /* to jest to */)*currentDone;
+	drawRect(tx,ty, tz, 30 ,makeRGBA(200,200,200,255));
+	console.log(tz);
 }
 
 function przypisz() {
@@ -154,9 +123,9 @@ function przypisz() {
 	for (var i=0; i<= 9; i++) {
 		idleImg[i] = myLoadManager.getAsset("Idle (" + (i + 1) + ").png");
 	}
-	for (var i=1; i<= 8; i++){
+	/*for (var i=1; i<= 8; i++){
 		eval("run" + i + "Img = myLoadManager.getAsset('Run (" + i + ").png');");
-	}
+	}*/
 	/* tutaj wpiszemy*/
 	console.log("a");
 	loadSetup();
@@ -169,9 +138,12 @@ function przypisz() {
 	console.log("c");
 	//update();
 }
-
+var tylko_raz = 0;
 function level0() {
-	myLoadManager.downloadAll(function () {});
+	if(tylko_raz == 0){
+		myLoadManager.downloadAll(function () {}); //aaa bo w pętli każemy mu pobierać
+		tylko_raz++;
+	}
 	drawLoadingBar();
 	console.log("b");
 	if(!myLoadManager.isDone()/*tutaj warunek, że jeszcze się ładuje*/)window.requestAnimationFrame(level0); //ważne
