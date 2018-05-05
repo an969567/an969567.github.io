@@ -87,6 +87,8 @@ player = {
 	HBheight: 158
 };
 
+frameCount = 0;
+
 function drawRect(x, y, w, h, fillColor) {
     ctx.fillStyle = fillColor;
     ctx.fillRect(x, y, w, h);

@@ -13,7 +13,6 @@ function loadSetup(){
 
 	viewport = {};
 
-	frameCount = 0;
 	licznik = 0; //do strzelania
 	spacePressed = false;
 
