@@ -32,7 +32,7 @@ function update() {
 	
 	player.velX *= friction;
 
-	ctx.clearRect(0, 0, width, height);
+	//ctx.clearRect(0, 0, width, height);
 	ctx.fillStyle = "black";
 	ctx.beginPath();
 	
