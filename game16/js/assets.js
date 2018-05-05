@@ -1,8 +1,8 @@
 //ładowanie plików
-var Manager = [];
-var ile = 0;
-function Ile(s){
-	ile++; console.log(ile, s);};
+//var Manager = [];
+//var ile = 0;
+//function Ile(s){
+//	ile++; console.log(ile, s);};
 //Manager.push(["jumpImg","pics/Jump (2).png"]);
 /*var jumpImg = new Image();
 jumpImg.src = "pics/Jump (2).png";
@@ -20,6 +20,10 @@ myLoadManager.queueDownload('Jump (10).png');
 myLoadManager.queueDownload('spikes.png');
 myLoadManager.queueDownload('teleporter.png');
 myLoadManager.queueDownload('monster.png');
+myLoadManager.queueDownload('monster2.png');
+myLoadManager.queueDownload('bullet.png');
+myLoadManager.queueDownload('loszka.png');
+myLoadManager.queueDownload('background1.jpg');
 //var spikesImg = new Image();
 //spikesImg.src = "pics/spikes.png";
 //spikesImg.onload = Ile;
@@ -30,16 +34,16 @@ level0();
 //teleporterImg.src = "pics/teleporter.png";
 //var monsterImg = new Image();
 //monsterImg.src = "pics/monster.png";
-var monster2Img = new Image();
-monster2Img.src = "pics/monster2.png";
+//var monster2Img = new Image();
+//monster2Img.src = "pics/monster2.png";
 //function log () {console.log("zaczęto odliczanie");};
 //setTimeout(log, 5000);
-var bulletImg = new Image();
-bulletImg.src = "pics/bullet.png";
-var loszkaImg = new Image();
-loszkaImg.src = "pics/loszka.png";
-var background1Img = new Image();
-background1Img.src = "pics/background1.jpg";
+//var bulletImg = new Image();
+//bulletImg.src = "pics/bullet.png";
+//var loszkaImg = new Image();
+//loszkaImg.src = "pics/loszka.png";
+//var background1Img = new Image();
+//background1Img.src = "pics/background1.jpg";
 var background2Img = new Image();
 background2Img.src = "pics/background2.jpg";
 var background3Img = new Image();
