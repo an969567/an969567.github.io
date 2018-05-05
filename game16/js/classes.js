@@ -89,6 +89,8 @@ player = {
 
 frameCount = 0;
 
+keys = [];//wciśnięte klawisze
+
 function drawRect(x, y, w, h, fillColor) {
     ctx.fillStyle = fillColor;
     ctx.fillRect(x, y, w, h);

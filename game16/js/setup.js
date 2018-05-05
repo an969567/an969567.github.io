@@ -1,7 +1,4 @@
 function loadSetup(){
-	width = 1366;
-	height = 584;
-	keys = []; //wciśnięte klawisze
 	friction = 0.9; //tym większe tym wolniej spowalnia (odwrotne niż w fizyce)
 	gravity = 0.6;
 	alive = true; //śmierć
