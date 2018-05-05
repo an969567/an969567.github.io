@@ -57,6 +57,8 @@ var canvas = document.getElementById("canvas"),
 
 viewport = {};
 
+clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
+
 function drawRect(x, y, w, h, fillColor) {
     ctx.fillStyle = fillColor;
     ctx.fillRect(x, y, w, h);
