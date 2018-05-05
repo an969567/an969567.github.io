@@ -165,6 +165,19 @@ function przypisz() {
 	bulletImg = myLoadManager.getAsset('bullet.png');
 	loszkaImg = myLoadManager.getAsset('loszka.png');
 	background1Img = myLoadManager.getAsset('background1.jpg');
+	background2Img = myLoadManager.getAsset('background2.jpg');
+	background3Img = myLoadManager.getAsset('background3.jpg');
+	background4Img = myLoadManager.getAsset('background4.jpg');
+	background5Img = myLoadManager.getAsset('background5.jpg');
+	background6Img = myLoadManager.getAsset('background6.png');
+	background7Img = myLoadManager.getAsset('background7.jpg');
+	idleImg = [];
+	for (var i=0; i<= 9; i++) {
+		idleImg[i] = myLoadManager.getAsset("Idle (" + (i + 1) + ").png");
+	}
+	for (var i=1; i<= 8; i++){
+		eval("run" + i + "Img = myLoadManager.getAsset('Run (" + i + ").png');");
+	}
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();
