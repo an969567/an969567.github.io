@@ -126,7 +126,6 @@ function przypisz() {
 		eval("run" + i + "Img = myLoadManager.getAsset('Run (" + i + ").png');");
 	}
 	/* tutaj wpiszemy*/
-	console.log("a");
 	loadSetup();
 	loadLevel2();
 	loadLevel3();
@@ -134,7 +133,6 @@ function przypisz() {
 	loadLevel5();
 	loadLevel6();
 	loadLevel7();
-	console.log("c");
 	//update();
 }
 var tylko_raz = 0;
@@ -144,7 +142,6 @@ function level0() {
 		tylko_raz++;
 	}
 	drawLoadingBar();
-	console.log("b");
 	if(!myLoadManager.isDone()/*tutaj warunek, że jeszcze się ładuje*/)window.requestAnimationFrame(level0); //ważne
 	//czyli co, on dalej się robi w kółko chyba
 	else /*przywołanie funkcji, która przypisze obiekty do menadżera*/ przypisz();
