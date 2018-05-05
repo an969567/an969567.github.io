@@ -3,7 +3,7 @@ var Manager = [];
 var ile = 0;
 function Ile(s){
 	ile++; console.log(ile, s);};
-Manager.push(["jumpImg","pics/Jump (2).png"]);
+//Manager.push(["jumpImg","pics/Jump (2).png"]);
 /*var jumpImg = new Image();
 jumpImg.src = "pics/Jump (2).png";
 jumpImg.onload = Ile("jumpImg");*/
@@ -16,6 +16,7 @@ myLoadManager.setRoot('pics'); //hmmmmm??????? //to jest jakaś zmienna //musi b
 		// preload our images
 myLoadManager.queueDownload('Idle (1).png');
 myLoadManager.queueDownload('Jump (2).png');
+myLoadManager.queueDownload('spikes.png');
 var spikesImg = new Image();
 spikesImg.src = "pics/spikes.png";
 spikesImg.onload = Ile;

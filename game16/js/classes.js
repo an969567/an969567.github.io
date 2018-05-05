@@ -154,8 +154,16 @@ function drawLoadingBar() {
 	drawRect(tx,ty, tx+((100.0/total /* to jest to */)*currentDone), ty+1  ,makeRGBA(200,200,200,255));
 }
 
+function przypisz() {
+	idle1Img = myLoadManager.getAsset('Idle (1).png');
+	jumpImg = myLoadManager.getAsset('Jump (2).png');
+	spikesImg = myLoadManager.getAsset('spikes.png');
+}
+
 function level0() {
 	myLoadManager.downloadAll(function () {});
 	drawLoadingBar();
-	window.requestAnimationFrame(level0); //ważne
+	if(!myLoadManager.isDone()/*tutaj warunek, że jeszcze się ładuje*/)window.requestAnimationFrame(level0); //ważne
+	//czyli co, on dalej się robi w kółko chyba
+	else /*przywołanie funkcji, która przypisze obiekty do menadżera*/ przypisz();
 }
