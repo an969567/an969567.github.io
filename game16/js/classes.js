@@ -193,6 +193,7 @@ function przypisz() {
 function level0() {
 	myLoadManager.downloadAll(function () {});
 	drawLoadingBar();
+	console.log("b");
 	if(!myLoadManager.isDone()/*tutaj warunek, że jeszcze się ładuje*/)window.requestAnimationFrame(level0); //ważne
 	//czyli co, on dalej się robi w kółko chyba
 	else /*przywołanie funkcji, która przypisze obiekty do menadżera*/ przypisz();
