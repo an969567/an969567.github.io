@@ -33,11 +33,6 @@ function loadSetup(){
 		img: background1Img
 	};
 
-	basePlayer = {
-		x: 100,
-		y: map.height - 180
-	};
-
 	// dimensions
 	boxes.push({ //lewa grannica
 		x: -10,

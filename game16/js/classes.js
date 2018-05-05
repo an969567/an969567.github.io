@@ -59,6 +59,11 @@ viewport = {};
 
 clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
 
+basePlayer = {
+	x: 100,
+	y: map.height - 180
+};
+
 player = {
 	x: basePlayer.x, 
 	y: basePlayer.y,
