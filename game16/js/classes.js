@@ -1,29 +1,3 @@
-function Sprite(url) { //klasa
-
-}
-var liczenie = 0;
-function LoadManager(){
-  for(var i=0;i<Manager.length;i++){
-    eval(Manager[i][0] + " = new Image();");
-    eval(Manager[i][0] + ".src = '" + Manager[i][1]+ "';");
-  }
-}
-
-function Load1 (){
-	console.log("Włączyliśmy Load1")
-	eval(Manager[liczenie][0] + " = new Image();");
-    eval(Manager[liczenie][0] + ".src = '" + Manager[liczenie][1]+ "';");
-    liczenie++;
-    if (liczenie < Manager.length){
-    	console.log(liczenie);
-    	eval(Manager[liczenie-1][0] + ".onload = Load1;");
-    }
-    else
-    	eval(Manager[liczenie-1][0] + ".onload = update;");
-}
-
-//console.log(spikesImg);
-
 function AssetManager() { //konstruktor //potem dodajemy już tylko metody //wszystkie properties są tutaj zdefiniowane //Czyli sam asset Manager nie bierze żadnych arguemntów
 	this.successCount = 0;
 	this.errorCount = 0;  
@@ -83,11 +57,11 @@ AssetManager.prototype.isDone = function() {
 
 
 AssetManager.prototype.getAsset = function(path) {
-    return this.cache[path]; //czy on operuje na pamięci cache przeglądarki?
+    return this.cache[path]; //czy on operuje na pamięci cache przeglądarki? //nie raczej
 }
 
 // resizer for pixelart (no aliasing)
-AssetManager.prototype.noalias = function(scale) {
+AssetManager.prototype.noalias = function(scale) { //nam niepotrzebne
 		for (var i= this.downloadQueue.length; --i>=0;) {
 			
 			var img=this.cache[this.downloadQueue[i]];
@@ -125,6 +99,11 @@ AssetManager.prototype.noalias = function(scale) {
 
 var canvas = document.getElementById("canvas"),
 	ctx = canvas.getContext("2d");
+	width = 1366;
+	height = 584;
+
+	canvas.width = width;
+	canvas.height = height;
 
 function drawRect(x, y, w, h, fillColor) {
     ctx.fillStyle = fillColor;
@@ -137,7 +116,7 @@ function makeRGBA(r, g, b, a) {
 }
 
 function drawLoadingBar() {
-	ctx.fillStyle = "#ffffff";
+	ctx.fillStyle = "#ffff00"; //całe białe.
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 	
 	tx=64;
