@@ -1,6 +1,4 @@
 function loadSetup(){
-	canvas = document.getElementById("canvas");
-	ctx = canvas.getContext("2d"); //ctx to teraz obiekt
 	width = 1366;
 	height = 584;
 	keys = []; //wciśnięte klawisze
