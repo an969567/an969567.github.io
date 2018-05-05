@@ -55,6 +55,8 @@ var canvas = document.getElementById("canvas"),
 	canvas.width = width;
 	canvas.height = height;
 
+viewport = {};
+
 function drawRect(x, y, w, h, fillColor) {
     ctx.fillStyle = fillColor;
     ctx.fillRect(x, y, w, h);

@@ -11,7 +11,7 @@ function loadSetup(){
 
 	clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
 
-	viewport = {};		
+	viewport = {};
 
 	frameCount = 0;
 	licznik = 0; //do strzelania
