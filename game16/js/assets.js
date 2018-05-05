@@ -8,11 +8,20 @@ Manager.push(["jumpImg","pics/Jump (2).png"]);
 jumpImg.src = "pics/Jump (2).png";
 jumpImg.onload = Ile("jumpImg");*/
 Manager.push(["fallImg","pics/Jump (10).png"]);
-Load1();
+Manager.push(["spikesImg","pics/spikes.png"]); //chyba za poźno się właduje
+var myLoadManager = new AssetManager();
+		// set image root
+myLoadManager.setRoot('pics'); //hmmmmm??????? //to jest jakaś zmienna //musi być zadeklerowana w którymś z poprzednich plików
+		
+		// preload our images
+myLoadManager.queueDownload('Idle (1).png');
+myLoadManager.queueDownload('Jump (2).png');
 var spikesImg = new Image();
 spikesImg.src = "pics/spikes.png";
 spikesImg.onload = Ile;
+Load1();
 console.log("33%");
+level0();
 var teleporterImg = new Image();
 teleporterImg.src = "pics/teleporter.png";
 var monsterImg = new Image();
