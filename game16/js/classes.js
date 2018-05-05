@@ -179,6 +179,7 @@ function przypisz() {
 		eval("run" + i + "Img = myLoadManager.getAsset('Run (" + i + ").png');");
 	}
 	/* tutaj wpiszemy*/
+	console.log("a");
 	loadSetup();
 	loadLevel2();
 	loadLevel3();
