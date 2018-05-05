@@ -38,22 +38,6 @@ function loadSetup(){
 		y: map.height - 180
 	};
 
-	player = {
-		x: basePlayer.x, 
-		y: basePlayer.y,
-		width: 150,
-		height: 180,
-		speed: 10,
-		velX: 0,
-		velY: 0,
-		inAir: true, //zaczyna inAir,
-		direction: "right",
-		HBx: basePlayer.x + 35,
-		HBy: basePlayer.y + 10,
-		HBwidth: 65,
-		HBheight: 158
-	};
-
 	// dimensions
 	boxes.push({ //lewa grannica
 		x: -10,

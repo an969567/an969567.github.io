@@ -59,6 +59,22 @@ viewport = {};
 
 clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
 
+player = {
+	x: basePlayer.x, 
+	y: basePlayer.y,
+	width: 150,
+	height: 180,
+	speed: 10,
+	velX: 0,
+	velY: 0,
+	inAir: true, //zaczyna inAir,
+	direction: "right",
+	HBx: basePlayer.x + 35,
+	HBy: basePlayer.y + 10,
+	HBwidth: 65,
+	HBheight: 158
+};
+
 function drawRect(x, y, w, h, fillColor) {
     ctx.fillStyle = fillColor;
     ctx.fillRect(x, y, w, h);
