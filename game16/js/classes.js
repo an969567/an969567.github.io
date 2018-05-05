@@ -106,6 +106,12 @@ function przypisz() {
 	for (var i=1; i<= 8; i++){
 		eval("run" + i + "Img = myLoadManager.getAsset('Run (" + i + ").png');");
 	}
+	for (var i=1; i<= 7; i++){
+		eval("dead" + i + "Img = myLoadManager.getAsset('Dead (" + i + ").png');");
+	}
+	for (var i=1; i<= 3; i++){
+		eval("shoot" + i + "Img = myLoadManager.getAsset('Shoot (" + i + ").png');");
+	}
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();
