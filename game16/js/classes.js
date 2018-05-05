@@ -187,6 +187,7 @@ function przypisz() {
 	loadLevel5();
 	loadLevel6();
 	loadLevel7();
+	console.log("c");
 	//update();
 }
 
