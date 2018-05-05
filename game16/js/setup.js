@@ -25,13 +25,7 @@ function loadSetup(){
 
 	music.play();
 
-	map = { //nowe ważne
-		x: 0,
-		y: 0,
-		width: width + 500,
-		height: height + 500,
-		img: background1Img
-	};
+	map.img = background1Img;
 
 	// dimensions
 	boxes.push({ //lewa grannica
