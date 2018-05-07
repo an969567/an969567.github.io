@@ -48,7 +48,13 @@ AssetManager.prototype.getAsset = function(path) {
 //do działania przed uruchomieniem update(). Musi przywołać update.
 
 var canvas = document.getElementById("canvas"),
-	ctx = canvas.getContext("2d");
+ctx = canvas.getContext("2d");
+
+width = 1366;
+height = 584;
+
+canvas.width = width;
+canvas.height = height;
 
 function drawRect(x, y, w, h, fillColor) {
     ctx.fillStyle = fillColor;

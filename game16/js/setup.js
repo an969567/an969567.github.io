@@ -1,11 +1,5 @@
 function loadSetup(){
 
-	width = 1366;
-	height = 584;
-
-	canvas.width = width;
-	canvas.height = height;
-
 viewport = {};
 
 clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
