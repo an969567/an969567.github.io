@@ -1,4 +1,48 @@
 function loadSetup(){
+
+	width = 1366;
+	height = 584;
+
+	canvas.width = width;
+	canvas.height = height;
+
+viewport = {};
+
+clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
+
+map = { //nowe ważne
+	x: 0,
+	y: 0,
+	width: width + 500,
+	height: height + 500,
+};
+
+basePlayer = {
+	x: 100,
+	y: map.height - 180
+};
+
+player = {
+	x: basePlayer.x, 
+	y: basePlayer.y,
+	width: 150,
+	height: 180,
+	speed: 10,
+	velX: 0,
+	velY: 0,
+	inAir: true, //zaczyna inAir,
+	direction: "right",
+	HBx: basePlayer.x + 35,
+	HBy: basePlayer.y + 10,
+	HBwidth: 65,
+	HBheight: 158
+};
+
+frameCount = 0;
+
+keys = [];//wciśnięte klawisze
+
+spacePressed = false;
 	friction = 0.9; //tym większe tym wolniej spowalnia (odwrotne niż w fizyce)
 	gravity = 0.6;
 	alive = true; //śmierć
@@ -6,12 +50,7 @@ function loadSetup(){
 
 	shooting = false;
 
-	clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
-
-	viewport = {};
-
 	licznik = 0; //do strzelania
-	spacePressed = false;
 
 	level = 1; //zaczynamy od pierwszego
 
