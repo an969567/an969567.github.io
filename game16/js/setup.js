@@ -46,7 +46,7 @@ spacePressed = false;
 
 	licznik = 0; //do strzelania
 
-	level = 1; //zaczynamy od pierwszego
+	level = 8; //zaczynamy od pierwszego
 
 	boxes = []; //robimy pustą listę
 

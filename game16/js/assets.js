@@ -20,6 +20,7 @@ myLoadManager.queueDownload('background4.jpg');
 myLoadManager.queueDownload('background5.jpg');
 myLoadManager.queueDownload('background6.png');
 myLoadManager.queueDownload('background7.jpg');
+myLoadManager.queueDownload('background8.jpg');
 for (var i=0; i<= 9; i++){
 	myLoadManager.queueDownload("Idle (" + (i + 1) + ").png");
 }
@@ -32,6 +33,7 @@ for (var i=1; i<= 7; i++){
 for (var i=1; i<= 3; i++){
 	eval("myLoadManager.queueDownload('Shoot (" + i + ").png');");
 }
+myLoadManager.queueDownload('fireball.png');
 level0();
 //background7Img.onload = function(){console.log("background7 loaded");};
 var music = new Audio("music/music.mp3");

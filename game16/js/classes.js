@@ -100,6 +100,7 @@ function przypisz() {
 	background5Img = myLoadManager.getAsset('background5.jpg');
 	background6Img = myLoadManager.getAsset('background6.png');
 	background7Img = myLoadManager.getAsset('background7.jpg');
+	background8Img = myLoadManager.getAsset('background8.jpg');
 	idleImg = [];
 	for (var i=0; i<= 9; i++) {
 		idleImg[i] = myLoadManager.getAsset("Idle (" + (i + 1) + ").png");
@@ -113,6 +114,7 @@ function przypisz() {
 	for (var i=1; i<= 3; i++){
 		eval("shoot" + i + "Img = myLoadManager.getAsset('Shoot (" + i + ").png');");
 	}
+	fireballImg = myLoadManager.getAsset('fireball.png');
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();
@@ -121,6 +123,7 @@ function przypisz() {
 	loadLevel5();
 	loadLevel6();
 	loadLevel7();
+	loadLevel8();
 	update();
 }
 var tylko_raz = 0;

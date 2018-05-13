@@ -158,6 +158,25 @@ function level7(){
 		collision(teleporter7);
 }
 
+function level8(){
+	myDraw(map8);
+		for (i of boxes8) {
+			myRect(i);
+			setDir(i);
+
+			for (var j=0;j<bullets.length;j++) {
+					if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+			}
+    	}
+		myDraw(spikes2);
+		myDraw(teleporter8);
+		kill3(spikes2);
+		collision(teleporter8);
+		patrol2(fireball);
+		myDraw(fireball);
+		kill3(fireball);
+}
+
 function myDraw(myObject){
 	ctx.drawImage(myObject.img, myObject.x + viewport.x, myObject.y + viewport.y, myObject.width, myObject.height);
 }
@@ -167,21 +186,27 @@ function myRect(myBox){
 	ctx.rect( myBox.x + viewport.x, myBox.y + viewport.y, myBox.width, myBox.height);
 	ctx.fill();
 }
-function myDraw2(myImage, myObject){
+function myDraw2(myImage, myObject) {
 	ctx.drawImage(myImage, myObject.x + viewport.x, myObject.y + viewport.y, myObject.width, myObject.height);
 }
-function setDir(myBox){
+function setDir(myBox) {
 	var dir = colCheck(player, myBox);
 	if (dir === "l" || dir === "r") player.velX = 0;
 	else if (dir === "b") { 
 		player.inAir = false;
 	} else if (dir === "t")	player.velY *= -1; //odbija się od dołu platformy (uderzył topem charactera)
 }
-function patrol(myMonster){
+function patrol(myMonster) {
 	if (myMonster.x < myMonster.maxX && myMonster.direction == "right") { myMonster.x++; myMonster.HBx++; }
 	if (myMonster.x >= myMonster.maxX) { myMonster.x--; myMonster.direction = "left"; myMonster.HBx--; }
 	if (myMonster.direction == "left" && myMonster.x > myMonster.minX) { myMonster.x--; myMonster.HBx--; }
 	if (myMonster.x <= myMonster.minX) { myMonster.direction = "right"; myMonster.x++; myMonster.HBx++; }
+}
+function patrol2(myMonster) {
+	if (myMonster.x < myMonster.maxX && myMonster.direction == "right") { myMonster.x++; myMonster.HBx++; myMonster.y++; myMonster.HBy++; }
+	if (myMonster.x >= myMonster.maxX) { myMonster.x--; myMonster.direction = "left"; myMonster.HBx--; myMonster.y--; myMonster.HBy--; }
+	if (myMonster.direction == "left" && myMonster.x > myMonster.minX) { myMonster.x--; myMonster.HBx--; myMonster.y--; myMonster.HBy--; }
+	if (myMonster.x <= myMonster.minX) { myMonster.direction = "right"; myMonster.x++; myMonster.HBx++; myMonster.y++; myMonster.HBy++; }
 }
 function myDraw3(myImage, myObject){
 	ctx.translate(myObject.x + viewport.x + 150,0);  //przesuwa origin

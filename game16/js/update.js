@@ -58,6 +58,9 @@ function update() {
 		case 7:
 			level7();
 			break;
+		case 8:
+			level8();
+			break;
 		default:
 			ctx.font = "30px Arial";
 			ctx.fillStyle = "red";
