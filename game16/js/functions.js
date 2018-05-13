@@ -12,11 +12,11 @@ function drawPlayer() {
 		var h = frameCount % 40;
 		myDraw3(idleImg[Math.floor(h/4)], player);
 	}
-	if (!player.inAir && player.direction == "right" && !player.velX && shooting && alive) {
+	if (!player.inAir && player.direction == "right" && !player.velX && shooting && alive) { //strzelanie
 		shoot();
 		myDraw2(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
 	}
-	if (!player.inAir && player.direction == "left" && !player.velX && shooting && alive) {
+	if (!player.inAir && player.direction == "left" && !player.velX && shooting && alive) { //strzelanie
 		shoot();
 		myDraw3(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
 	}
