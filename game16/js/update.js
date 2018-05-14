@@ -27,12 +27,11 @@ function update() {
 	}
 	
 	if (spacePressed && alive) {
-		shooting = true;
+		if(!licznik) licznik = 36;
 	}
 	
 	player.velX *= friction;
 
-	//ctx.clearRect(0, 0, width, height);
 	ctx.fillStyle = "black";
 	ctx.beginPath();
 	
@@ -65,21 +64,13 @@ function update() {
 			ctx.font = "30px Arial";
 			ctx.fillStyle = "red";
 			ctx.fillText("You won!",70,150);
-			//music.pause();
-			//win.play(); //wykomentowujemy, bo się w pętli powtarza
 	}
 
 	if ((keys[38] || keys[87]) && !player.inAir && alive) {
-		// up arrow or w  //zapobiega jumpom w powietrzu //można zrobić w przyszłości double jump
 			player.velY = -player.speed * 1.5;
 	}
 
-	if(player.inAir) player.velY += gravity; //bez ifa zaczyna się kumulować
-
-	//debugger;
-	
-	
-	/*--------------------------------------------------------------------------------------------*/
+	if(player.inAir) player.velY += gravity;	
 	
 	drawPlayer();
 	
@@ -87,7 +78,7 @@ function update() {
 		if (i.direction == "right") i.x+=20;
 		else i.x-=20;
 		myDraw2(bulletImg, i);
-	} //na wierzchu bullets
+	}
 
 	player.x += player.velX;
 	player.HBx += player.velX;
@@ -100,7 +91,5 @@ function update() {
 		ctx.fillText("You died",70,150);
 	}
 
-	//if(licznik) licznik--;
-
-	window.requestAnimationFrame(update); //siebie przywołuje
+	window.requestAnimationFrame(update);
 }

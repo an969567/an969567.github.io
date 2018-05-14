@@ -4,19 +4,19 @@ function drawPlayer() {
 	ctx.fillStyle = "red";
 	ctx.fillText("Welcome in Mental Asylum",70,70);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
-	if (!player.inAir && player.direction == "right" && !player.velX && !shooting && alive) {
+	if (!player.inAir && player.direction == "right" && !player.velX && !licznik && alive) {
 		var h = frameCount % 40;
 		myDraw2(idleImg[Math.floor(h/4)], player);
 	}
-	if (!player.inAir && player.direction == "left" && !player.velX && !shooting && alive) {
+	if (!player.inAir && player.direction == "left" && !player.velX && !licznik && alive) {
 		var h = frameCount % 40;
 		myDraw3(idleImg[Math.floor(h/4)], player);
 	}
-	if (!player.inAir && player.direction == "right" && !player.velX && shooting && alive) { //strzelanie
+	if (!player.inAir && player.direction == "right" && !player.velX && licznik && alive) { //strzelanie
 		shoot();
 		myDraw2(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
 	}
-	if (!player.inAir && player.direction == "left" && !player.velX && shooting && alive) { //strzelanie
+	if (!player.inAir && player.direction == "left" && !player.velX && licznik && alive) { //strzelanie
 		shoot();
 		myDraw3(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
 	}
@@ -218,16 +218,12 @@ function playSound(){
 	with(new AudioContext)for(i in D=[12])with(createOscillator())if(D[i])connect(destination),frequency.value=440*1.06**(13-D[i]),start(i*.1),stop(i*.1+.1)
 }
 function shoot(){
-	if (!licznik) { 
-		shooting = true;  //jestesmy w trakcie strzelania
-		licznik = 36; //jeżeli 0 to nadaje 36 i był rozkaz shoot
+	if (licznik == 36) { 
 		var b = new Bullet();
 		bullets.push(b);
 		playSound();
-		//dobrze jest, ja zawszę będę winna
 	}
-	if(licznik) licznik--; //czyli do funkcji trafia 35.
-	if(!licznik) shooting = false;
+	if(licznik) licznik--;
 }
 function myDraw4(myImage, myObject){
 	ctx.translate(myObject.x + viewport.x + 100,0);  //przesuwa origin
