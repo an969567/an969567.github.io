@@ -11,14 +11,14 @@ function update() {
 		
 	player.inAir = true; //do sprajtu potrzebne
 	
-	if ((keys[39] || keys[68]) && alive) {
+	if (keys[39] || keys[68]) {
 		// right arrow
 		if (player.velX < player.speed) {
 			player.velX++;
 			player.direction = "right";
 		}
 	}
-	if ((keys[37] || keys[65]) && alive) {
+	if (keys[37] || keys[65]) {
 		// left arrow
 		if (player.velX > -player.speed) {
 			player.velX--;
@@ -26,7 +26,7 @@ function update() {
 		}
 	}
 	
-	if (spacePressed && alive) {
+	if (spacePressed) {
 		if(!licznik) licznik = 36;
 	}
 	
@@ -66,7 +66,7 @@ function update() {
 			ctx.fillText("You won!",70,150);
 	}
 
-	if ((keys[38] || keys[87]) && !player.inAir && alive) {
+	if ((keys[38] || keys[87]) && !player.inAir) {
 			player.velY = -player.speed * 1.5;
 	}
 
