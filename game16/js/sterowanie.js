@@ -9,12 +9,6 @@ document.body.addEventListener("keydown", function (e) {
 	}
 });
 
-/*document.body.addEventListener("keypress", function (e) {
-	if(e.key == " "){
-		spacePressed = true;
-	}
-});*/ 
-
 document.body.addEventListener("keyup", function (e) {
 	keys[e.keyCode] = false;
 	spacePressed = false;
