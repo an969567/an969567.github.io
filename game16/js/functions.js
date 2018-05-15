@@ -242,3 +242,7 @@ function Bullet() {
 		this.height = 20;
 		this.direction = player.direction;
 }
+
+function myDraw5(myObject){
+	ctx.drawImage(myObject.img, myObject.x, myObject.y, myObject.width, myObject.height);
+}

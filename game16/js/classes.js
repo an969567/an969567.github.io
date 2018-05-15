@@ -23,7 +23,7 @@ AssetManager.prototype.downloadAll = function() { //wysyła funkcję? //w sensie
         img.addEventListener("load", function() { //przywoływana ta funkcja przy udaniu //kurwa czemu to pomarańczowemu działa kurwa mać //może jakieś prototypy zrobił
             that.successCount += 1;
             //console.log(img); //może w momencie jak już wszystkie przeszły to tyle tylko zostaje
-            console.log(that.successCount);            
+            //console.log(that.successCount);            
         }, false);
     }
 }
@@ -117,6 +117,7 @@ function przypisz() {
 		shootImg[i] = myLoadManager.getAsset("Shoot (" + i + ").png");
 	}
 	fireballImg = myLoadManager.getAsset('fireball.png');
+	speakerImg = myLoadManager.getAsset('speaker.png');
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();

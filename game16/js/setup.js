@@ -52,7 +52,7 @@ spacePressed = false;
 
 	rozpocznij = 0;
 
-	music.play();
+	//music.play();
 
 	map.img = background1Img;
 
@@ -115,4 +115,12 @@ spacePressed = false;
 	};
 
 	bullets = []; //na amunicję
+
+	speaker = {
+		x: canvas.width - 90, //canvas.width = 1366
+		y: 20,
+		width: 60,
+		height: 45,
+		img: speakerImg
+	};
 }

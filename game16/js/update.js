@@ -81,6 +81,8 @@ function update() {
 		else i.x-=20;
 		myDraw2(bulletImg, i);
 	}
+	/* draw speaker */
+	myDraw5(speaker);
 
 	player.x += player.velX;
 	player.HBx += player.velX;
