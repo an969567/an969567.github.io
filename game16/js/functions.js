@@ -14,19 +14,19 @@ function drawPlayer() {
 	}
 	if (!player.inAir && player.direction == "right" && !player.velX && licznik && alive) { //strzelanie
 		shoot();
-		myDraw2(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
+		myDraw2(shootImg[Math.ceil((36-licznik)/12)], player);
 	}
 	if (!player.inAir && player.direction == "left" && !player.velX && licznik && alive) { //strzelanie
 		shoot();
-		myDraw3(eval('shoot' + (Math.ceil((36-licznik)/12)) + 'Img'), player);
+		myDraw3(shootImg[Math.ceil((36-licznik)/12)], player);
 	}
 	if (!player.inAir && player.velX > 0 && alive) {
 		var h = frameCount % 32;
-		myDraw2(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
+		myDraw2(runImg[Math.floor(h/4)+1], player);
 	}
 	if (!player.inAir && player.velX < 0 && alive) {
 		var h = frameCount % 32;
-		myDraw3(eval('run'+ (Math.floor(h/4)+1) +'Img'), player);
+		myDraw3(runImg[Math.floor(h/4)+1], player);
 	}
 	if (player.inAir && player.direction == "right" && player.velY < 0 /*leci w górę*/ && alive) {
 		myDraw2(jumpImg, player);
@@ -44,8 +44,8 @@ function drawPlayer() {
 		player.velX = 0; player.velY = 0; player.y = basePlayer.y+20;
 		//do siódmego //trzy ostatnie to to samo co siódme //7 * 12 = 84
 		if (!rozpocznij) scream.play();
-		if(rozpocznij < 84)	myDraw2(eval('dead'+ (Math.floor(rozpocznij++/12)+1) +'Img'), player);
-		else myDraw2(dead7Img, player);
+		if(rozpocznij < 84)	myDraw2(deadImg[Math.floor(rozpocznij++/12)+1], player);
+		else myDraw2(deadImg[7], player);
 	}
 }
 function level1(){

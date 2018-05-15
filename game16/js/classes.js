@@ -67,14 +67,13 @@ function makeRGBA(r, g, b, a) {
 }
 
 function drawLoadingBar() {
-	ctx.fillStyle = "#ffff00"; //całe białe.
+	ctx.fillStyle = "#ffff00";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 	
 	tx=100;
 	ty=100;
 	
-	drawRect(tx-1,ty-1,202,32,makeRGBA(200,666,200,255)); // to jest loading bar
-	//drawRect(tx,ty,128,1,makeRGBA(255,100,255,255));
+	drawRect(tx-1,ty-1,202,32,makeRGBA(200,666,200,255));
 	
 	var total=myLoadManager.getTotal(); //to są dane do loading baru
 	var currentDone=myLoadManager.getDone();
@@ -102,17 +101,20 @@ function przypisz() {
 	background7Img = myLoadManager.getAsset('background7.jpg');
 	background8Img = myLoadManager.getAsset('background8.jpg');
 	idleImg = [];
-	for (var i=0; i<= 9; i++) {
+	for (var i=0; i<= 9; i++){
 		idleImg[i] = myLoadManager.getAsset("Idle (" + (i + 1) + ").png");
 	}
+	runImg = [];
 	for (var i=1; i<= 8; i++){
-		eval("run" + i + "Img = myLoadManager.getAsset('Run (" + i + ").png');");
+		runImg[i] = myLoadManager.getAsset("Run (" + i + ").png");
 	}
+	deadImg = [];
 	for (var i=1; i<= 7; i++){
-		eval("dead" + i + "Img = myLoadManager.getAsset('Dead (" + i + ").png');");
+		deadImg[i] = myLoadManager.getAsset("Dead (" + i + ").png");
 	}
+	shootImg = [];
 	for (var i=1; i<= 3; i++){
-		eval("shoot" + i + "Img = myLoadManager.getAsset('Shoot (" + i + ").png');");
+		shootImg[i] = myLoadManager.getAsset("Shoot (" + i + ").png");
 	}
 	fireballImg = myLoadManager.getAsset('fireball.png');
 	/* tutaj wpiszemy*/
@@ -126,7 +128,9 @@ function przypisz() {
 	loadLevel8();
 	update();
 }
-var tylko_raz = 0;
+
+var tylko_raz = 0; //globalne
+
 function level0() {
 	if(tylko_raz == 0){
 		myLoadManager.downloadAll(); //aaa bo w pętli każemy mu pobierać

@@ -21,17 +21,17 @@ myLoadManager.queueDownload('background5.jpg');
 myLoadManager.queueDownload('background6.png');
 myLoadManager.queueDownload('background7.jpg');
 myLoadManager.queueDownload('background8.jpg');
-for (var i=0; i<= 9; i++){
-	myLoadManager.queueDownload("Idle (" + (i + 1) + ").png");
+for (var i=1; i<= 10; i++){
+	myLoadManager.queueDownload("Idle (" + i + ").png");
 }
 for (var i=1; i<= 8; i++){
-	eval("myLoadManager.queueDownload('Run (" + i + ").png');");
+	myLoadManager.queueDownload("Run (" + i + ").png");
 }
 for (var i=1; i<= 7; i++){
-	eval("myLoadManager.queueDownload('Dead (" + i + ").png');");
+	myLoadManager.queueDownload("Dead (" + i + ").png");
 }
 for (var i=1; i<= 3; i++){
-	eval("myLoadManager.queueDownload('Shoot (" + i + ").png');");
+	myLoadManager.queueDownload("Shoot (" + i + ").png");
 }
 myLoadManager.queueDownload('fireball.png');
 level0();

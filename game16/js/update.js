@@ -26,7 +26,8 @@ function update() {
 		}
 	}
 	
-	if (spacePressed) {
+	if (keys[32]) {
+		// space
 		if(!licznik) licznik = 36;
 	}
 	
@@ -67,6 +68,7 @@ function update() {
 	}
 
 	if ((keys[38] || keys[87]) && !player.inAir) {
+		// up arrow
 			player.velY = -player.speed * 1.5;
 	}
 
