@@ -16,7 +16,7 @@ function update() {
 		alive = true;
 		player.x = basePlayer.x;
 		player.y = basePlayer.y;
-		player.HBx = basePlayer.x + 10;
+		player.HBx = basePlayer.x + 35;
 		player.HBy = basePlayer.y + 10;
 	}
 	

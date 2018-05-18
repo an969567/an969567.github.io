@@ -26,7 +26,7 @@ player = {
 	velY: 0,
 	inAir: true, //zaczyna inAir,
 	direction: "right",
-	HBx: basePlayer.x + 35, //dziwna niespójność
+	HBx: basePlayer.x + 35, //dziwna niespójność //zmieniamy z 35 na 10, żeby było tak jak przy teleporcie. //35 oznacza, że rysowany jest później, czyli uderzanie bloku z prawej strony to... Ech, ciężko wydedukować. //Oznacza, to że... wystaje bardziej z prawej strony. Czyli niby powinien być odstęp większy przy uderzaniu z prawej strony. Zgadza się. Zmieniamy z powrotem na 35 i w innych miejscach też dajemy 35.
 	HBy: basePlayer.y + 10,
 	HBwidth: 65,
 	HBheight: 158
