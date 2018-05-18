@@ -118,6 +118,7 @@ function przypisz() {
 	}
 	fireballImg = myLoadManager.getAsset('fireball.png');
 	speakerImg = myLoadManager.getAsset('speaker.png');
+	coinImg = myLoadManager.getAsset('coin.png');
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();
@@ -141,4 +142,11 @@ function level0() {
 	if(!myLoadManager.isDone()/*tutaj warunek, że jeszcze się ładuje*/)window.requestAnimationFrame(level0); //ważne
 	//czyli co, on dalej się robi w kółko chyba
 	else /*przywołanie funkcji, która przypisze obiekty do menadżera*/ przypisz();
+}
+
+function Coin(){
+	this.fall = function() { score++; this.y += 3000; coinSnd.play(); };
+	this.img = coinImg;
+	this.width = 40;
+	this.height = 41;
 }

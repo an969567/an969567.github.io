@@ -18,7 +18,7 @@ var rect = {
 
 function getMousePos(canvas, event) {
 	var rect = canvas.getBoundingClientRect();
-	return {
+	return { //hmm zwraca obiekt?
 		x: event.clientX - rect.left,
 		y: event.clientY - rect.top
 	};

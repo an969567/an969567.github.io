@@ -41,19 +41,28 @@ function loadLevel6(){
 		width: 80,
 		height: 200
 	};
-	 loszka = {  //upioroloszka
+	 loszka = {
 		x: map6.width*0.5-100,
 		y: map6.height - 150,
 		width: 40,
 		height: 150,
-		//minX: map.width*0.5-200,
-		//maxX: map.width*0.5,
-		//direction: "right",
-		fall: function (){this.y+=500; this.HBy+=500;},
+		fall: function (){this.y+=500; this.HBy+=500; score += 40;},
 		img: loszkaImg,
 		HBx: map6.width*0.5-71, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 		HBy: map6.height - 140, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 		HBwidth: 1, //Hit Box
 		HBheight: 140
 	};
+
+	coins6 = [];
+
+	coin = new Coin();
+	coin.x = map6.width/2 - 400;
+	coin.y = map6.height - 60;
+	coins6.push(coin);
+
+	coin = new Coin();
+	coin.x = map6.width/2 + 200;
+	coin.y = map6.height - 60;
+	coins6.push(coin);
 }

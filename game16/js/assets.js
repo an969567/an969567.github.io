@@ -35,11 +35,13 @@ for (var i=1; i<= 3; i++){
 }
 myLoadManager.queueDownload('fireball.png');
 myLoadManager.queueDownload('speaker.png');
+myLoadManager.queueDownload('coin.png');
 level0();
 //background7Img.onload = function(){console.log("background7 loaded");};
 var music = new Audio("music/music.mp3");
 var scream = new Audio("music/scream.mp3");
 var bounce = new Audio("music/bounce.flac");
 var win = new Audio("music/win.wav");
+coinSnd = new Audio("music/coin.mp3");
 
 //LoadManager();

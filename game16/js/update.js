@@ -10,6 +10,15 @@ function update() {
 	frameCount++;
 		
 	player.inAir = true; //do sprajtu potrzebne
+
+	if (keys[82]) {
+		// R
+		alive = true;
+		player.x = basePlayer.x;
+		player.y = basePlayer.y;
+		player.HBx = basePlayer.x + 10;
+		player.HBy = basePlayer.y + 10;
+	}
 	
 	if (keys[39] || keys[68]) {
 		// right arrow

@@ -26,7 +26,7 @@ player = {
 	velY: 0,
 	inAir: true, //zaczyna inAir,
 	direction: "right",
-	HBx: basePlayer.x + 35,
+	HBx: basePlayer.x + 35, //dziwna niespójność
 	HBy: basePlayer.y + 10,
 	HBwidth: 65,
 	HBheight: 158
@@ -46,11 +46,13 @@ spacePressed = false;
 
 	licznik = 0; //do strzelania
 
-	level = 8; //zaczynamy od pierwszego
+	level = 1; //zaczynamy od pierwszego
 
 	boxes = []; //robimy pustą listę
 
 	rozpocznij = 0;
+
+	score = 0;
 
 	//music.play();
 
@@ -123,4 +125,21 @@ spacePressed = false;
 		height: 45,
 		img: speakerImg
 	};
+
+	coins = [];
+
+	coin = new Coin();
+	coin.x = map.width/2 - 200;
+	coin.y = map.height - 60;
+	coins.push(coin); //oby nazwa była tracona
+
+	coin = new Coin();
+	coin.x = map.width/2 + 200;
+	coin.y = map.height - 60;
+	coins.push(coin);
+
+	coin = new Coin();
+	coin.x = 92;
+	coin.y = map.height/2 + 130;
+	coins.push(coin);
 }

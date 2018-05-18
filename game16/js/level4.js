@@ -46,11 +46,23 @@ function loadLevel4(){
 		y: map4.height - 100,
 		width: 90,
 		height: 100,
-		fall: function (){this.y+=500; this.HBy+=500;},
+		fall: function (){this.y+=500; this.HBy+=500; score+=20;},
 		img: monster2Img,
 		HBx: map4.width*0.5-70, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
 		HBy: map4.height - 100, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 		HBwidth: 30, //Hit Box
 		HBheight: 100
 	};
+
+	coins4 = [];
+
+	coin = new Coin();
+	coin.x = 10;
+	coin.y = map3.height - 60;
+	coins4.push(coin);
+
+	coin = new Coin();
+	coin.x = map3.width/2 - 80;
+	coin.y = map3.height - 150;
+	coins4.push(coin);
 }

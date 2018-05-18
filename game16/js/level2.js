@@ -88,4 +88,26 @@ function loadLevel2() {
 		height: 200,
 		img: teleporterImg
 	};
+
+	coins2 = [];
+
+	coin = new Coin();
+	coin.x = map2.width/2 - 250;
+	coin.y = map2.height - 60;
+	coins2.push(coin);
+
+	coin = new Coin();
+	coin.x = map2.width/2 + 200;
+	coin.y = map2.height - 60;
+	coins2.push(coin);
+
+	coin = new Coin();
+	coin.x = 92;
+	coin.y = map2.height/2 + 130;
+	coins2.push(coin);
+
+	coin = new Coin();
+	coin.x = map2.width - 480;
+	coin.y = map2.height - 60;
+	coins2.push(coin);
 }

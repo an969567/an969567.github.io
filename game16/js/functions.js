@@ -2,7 +2,9 @@ function drawPlayer() {
 
 	ctx.font = "30px Titan one";
 	ctx.fillStyle = "red";
-	ctx.fillText("Welcome in Mental Asylum",70,70);
+	ctx.fillText("Welcome in Mental Asylum", 70, 70);
+	ctx.fillText("Score", 70, 100);
+	ctx.fillText(score, 250, 100);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
 	if (!player.inAir && player.direction == "right" && !player.velX && !licznik && alive) {
 		var h = frameCount % 40;
@@ -42,74 +44,87 @@ function drawPlayer() {
 	}
 	if (!alive){
 		player.velX = 0; player.velY = 0; player.y = basePlayer.y+20;
-		//do siódmego //trzy ostatnie to to samo co siódme //7 * 12 = 84
 		if (!rozpocznij) scream.play();
 		if(rozpocznij < 84)	myDraw2(deadImg[Math.floor(rozpocznij++/12)+1], player);
 		else myDraw2(deadImg[7], player);
 	}
 }
 function level1(){
-		myDraw(map);
-		for (i of boxes) {
-			myRect(i);
-			setDir(i);
-			
-			for (var j=0;j<bullets.length;j++) {
-				if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1); //to się pewnie da ulepszyć
-			}
+	myDraw(map);
+	for (i of boxes) {
+		myRect(i);
+		setDir(i);
+		
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1); //to się pewnie da ulepszyć
 		}
-		myDraw(teleporter);
-		collision(teleporter);
+	}
+	myDraw(teleporter);
+	collision(teleporter);
+	for (c of coins)	{
+		myDraw6(c);
+		collision2(c);
+	}
 }
 
 function level2(){
 	myDraw(map2);
-		for (i of boxes2) {
-			myRect(i);
-			setDir(i);
+	for (i of boxes2) {
+		myRect(i);
+		setDir(i);
 
-			for (var j=0;j<bullets.length;j++) {
-					if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
-			}
-    	}
-		myDraw(spikes);
-		myDraw(teleporter2);
-		kill3(spikes);
-		collision(teleporter2);
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+		}
+   	}
+	myDraw(spikes);
+	myDraw(teleporter2);
+	kill3(spikes);
+	collision(teleporter2);
+	for (c of coins2) {
+		myDraw6(c);
+		collision2(c);
+	}
 }
 
 function level3(){
 	myDraw(map3);
-		for (i of boxes3) {
-			myRect(i);
-			setDir(i);
-
-			for (var j=0;j<bullets.length;j++) {
-				if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
-			}
-    	}
-		kill3(monster);
-		patrol(monster);
-		if (monster.direction == "left") myDraw(monster);
-		else myDraw4(monsterImg, monster);
-		myDraw(teleporter);
-		collision(teleporter3);
+	for (i of boxes3) {
+		myRect(i);
+		setDir(i);
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+		}
+   	}
+	kill3(monster);
+	patrol(monster);
+	if (monster.direction == "left") myDraw(monster);
+	else myDraw4(monsterImg, monster);
+	myDraw(teleporter);
+	collision(teleporter3);
+	for (c of coins3) {
+		myDraw6(c);
+		collision2(c);
+	}
 }
 
 function level4(){
 	myDraw(map4);
-		for (i of boxes4) {
-			myRect(i);
-			setDir(i);
-
-			for (var j=0;j<bullets.length;j++) {
-				if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
-			}
-    	}
-		myDraw(teleporter);
-		kill2(monster2);
-		myDraw(monster2);
-		collision(teleporter4);
+	for (i of boxes4) {
+		myRect(i);
+		setDir(i);
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+		}
+   	}
+	myDraw(teleporter);
+	kill2(monster2);
+	myDraw(monster2);
+	collision(teleporter4);
+	for (c of coins4) {
+		myDraw6(c);
+		collision2(c);
+	}
 }
 
 function level5(){
@@ -126,55 +141,70 @@ function level5(){
 	patrol(monster3);
 	if (monster3.direction == "left") myDraw(monster3);
 	else myDraw4(monster2Img, monster3);
-		myDraw(teleporter);
-		collision(teleporter5);
+	myDraw(teleporter);
+	collision(teleporter5);
+	for (c of coins5) {
+		myDraw6(c);
+		collision2(c);
+	}
 }
 function level6(){
 	myDraw(map6);
-		for (i of boxes6) {
-			myRect(i);
-			setDir(i);
-			for (var j=0;j<bullets.length;j++) {
-				if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
-			}
-    	}
-		kill3(loszka);
-		for(i=0;i<bullets.length;i++) colCheck2(bullets[i], loszka);
-		myDraw(loszka);
-		myDraw(teleporter);
-		collision(teleporter6);
+	for (i of boxes6) {
+		myRect(i);
+		setDir(i);
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+		}
+    }
+	kill3(loszka);
+	for(i=0;i<bullets.length;i++) colCheck2(bullets[i], loszka);
+	myDraw(loszka);
+	myDraw(teleporter);
+	collision(teleporter6);
+	for (c of coins6) {
+		myDraw6(c);
+		collision2(c);
+	}
 }
 
 function level7(){
 	myDraw(map7);
-		for (i of boxes7) {
-			myRect(i);
-			setDir(i);
-			for (var j=0;j<bullets.length;j++) {
-				if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
-			}
-    	}
-		myDraw(teleporter7);
-		collision(teleporter7);
+	for (i of boxes7) {
+		myRect(i);
+		setDir(i);
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+		}
+    }
+	myDraw(teleporter7);
+	collision(teleporter7);
+	for (c of coins7) {
+		myDraw6(c);
+		collision2(c);
+	}
 }
 
 function level8(){
 	myDraw(map8);
-		for (i of boxes8) {
-			myRect(i);
-			setDir(i);
-
-			for (var j=0;j<bullets.length;j++) {
-					if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
-			}
-    	}
-		myDraw(spikes2);
-		myDraw(teleporter8);
-		kill3(spikes2);
-		collision(teleporter8);
-		patrol2(fireball);
-		myDraw(fireball);
-		kill3(fireball);
+	for (i of boxes8) {
+		myRect(i);
+		setDir(i);
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+		}
+   	}
+	myDraw(spikes2);
+	myDraw(teleporter8);
+	kill3(spikes2);
+	collision(teleporter8);
+	patrol2(fireball);
+	myDraw(fireball);
+	kill3(fireball);
+	for (c of coins8) {
+		myDraw6(c);
+		collision2(c);
+	}
 }
 
 function myDraw(myObject){
@@ -245,4 +275,9 @@ function Bullet() {
 
 function myDraw5(myObject){
 	ctx.drawImage(myObject.img, myObject.x, myObject.y, myObject.width, myObject.height);
+}
+
+//bez wielkości
+function myDraw6(myObject){
+	ctx.drawImage(myObject.img, myObject.x + viewport.x, myObject.y + viewport.y);
 }

@@ -56,4 +56,21 @@ function loadLevel3(){
 		img: monsterImg
 		//speed
 	};
+
+	coins3 = [];
+
+	coin = new Coin();
+	coin.x = map3.width/2 - 300;
+	coin.y = map3.height - 60;
+	coins3.push(coin);
+
+	coin = new Coin();
+	coin.x = map3.width/2 + 300;
+	coin.y = map3.height - 60;
+	coins3.push(coin);
+
+	coin = new Coin();
+	coin.x = 10;
+	coin.y = map3.height - 60;
+	coins3.push(coin);
 }

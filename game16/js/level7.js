@@ -100,4 +100,26 @@ function loadLevel7(){
 		height: 200,
 		img: teleporterImg
 	};
+
+	coins7 = [];
+
+	coin = new Coin(); //w ukryciu
+	coin.x = map7.width - 50;
+	coin.y = map7.height - 60;
+	coins7.push(coin);
+
+	coin = new Coin();
+	coin.x = map7.width/2 - 200;
+	coin.y = map7.height - 60;
+	coins7.push(coin);
+
+	coin = new Coin();
+	coin.x = map7.width/2 + 200;
+	coin.y = map7.height - 60;
+	coins7.push(coin);
+
+	coin = new Coin();
+	coin.x = map.width - 250;
+	coin.y = map7.height/2 - 140;
+	coins7.push(coin)
 }
