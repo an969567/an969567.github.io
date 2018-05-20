@@ -1,10 +1,10 @@
 function update() {
 
 	viewport.x = clamp(-player.x + canvas.width / 2, //aha, czyli clamp jest do viewportu
-		canvas.width - map.width, 0 //0 to max  //map.width - bierze dla pierwszego
+		canvas.width - map[level].width, 0 //0 to max  //map.width - bierze dla pierwszego
 	 );
 	  viewport.y = clamp(-player.y + canvas.height / 2,
-		canvas.height - map.height, 0
+		canvas.height - map[level].height, 0
 	 );
 
 	frameCount++;

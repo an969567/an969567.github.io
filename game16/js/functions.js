@@ -50,7 +50,7 @@ function drawPlayer() {
 	}
 }
 function level1(){
-	myDraw(map);
+	myDraw(map[1]);
 	for (i of boxes) {
 		myRect(i);
 		setDir(i);
@@ -68,7 +68,7 @@ function level1(){
 }
 
 function level2(){
-	myDraw(map2);
+	myDraw(map[2]);
 	for (i of boxes2) {
 		myRect(i);
 		setDir(i);
@@ -88,7 +88,7 @@ function level2(){
 }
 
 function level3(){
-	myDraw(map3);
+	myDraw(map[3]);
 	for (i of boxes3) {
 		myRect(i);
 		setDir(i);
@@ -109,7 +109,7 @@ function level3(){
 }
 
 function level4(){
-	myDraw(map4);
+	myDraw(map[4]);
 	for (i of boxes4) {
 		myRect(i);
 		setDir(i);
@@ -128,7 +128,7 @@ function level4(){
 }
 
 function level5(){
-	myDraw(map5);
+	myDraw(map[5]);
 	for (i of boxes5) {
 		myRect(i);
 		setDir(i);
@@ -149,7 +149,7 @@ function level5(){
 	}
 }
 function level6(){
-	myDraw(map6);
+	myDraw(map[6]);
 	for (i of boxes6) {
 		myRect(i);
 		setDir(i);
@@ -169,7 +169,7 @@ function level6(){
 }
 
 function level7(){
-	myDraw(map7);
+	myDraw(map[7]);
 	for (i of boxes7) {
 		myRect(i);
 		setDir(i);
@@ -186,7 +186,7 @@ function level7(){
 }
 
 function level8(){
-	myDraw(map8);
+	myDraw(map[8]);
 	for (i of boxes8) {
 		myRect(i);
 		setDir(i);
@@ -220,10 +220,11 @@ function myDraw2(myImage, myObject) {
 	ctx.drawImage(myImage, myObject.x + viewport.x, myObject.y + viewport.y, myObject.width, myObject.height);
 }
 function setDir(myBox) {
+	//console.log("setDir");
 	var dir = colCheck(player, myBox);
 	if (dir === "l" || dir === "r") player.velX = 0;
 	else if (dir === "b") { 
-		player.inAir = false;
+		player.inAir = false; //console.log("b");
 	} else if (dir === "t")	player.velY *= -1; //odbija się od dołu platformy (uderzył topem charactera)
 }
 function patrol(myMonster) {

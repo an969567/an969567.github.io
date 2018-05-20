@@ -1,7 +1,7 @@
 function loadLevel5(){
 	 boxes5 = [];
 
-	 map5 = {
+	 map[5] = {
 		x: 0,
 		y: 0,
 		width: width + 500,
@@ -15,44 +15,44 @@ function loadLevel5(){
 		x: -10,
 		y: -2, //żeby się stykało z górną granicą
 		width: 10,
-		height: map5.height + 22 //żeby się stykało z dolną granicą
+		height: map[5].height + 22 //żeby się stykało z dolną granicą
 	});
 	boxes5.push({ //dolna granica
 		x: -10,
-		y: map5.height,
-		width: map5.width + 20,
+		y: map[5].height,
+		width: map[5].width + 20,
 		height: 20 //grube, żeby nie znikał
 	});
 	boxes5.push({ //prawa granica
-		x: map5.width,
+		x: map[5].width,
 		y: -2,
 		width: 10,
-		height: map5.height + 22
+		height: map[5].height + 22
 	});
 	boxes5.push({ //górna granica
 		x: 0,
 		y: -2,
-		width: map5.width,
+		width: map[5].width,
 		height: 2
 	});
 	 teleporter5 = {
-		x: map5.width - 70 - 160,
-		y: map5.height - 200,
+		x: map[5].width - 70 - 160,
+		y: map[5].height - 200,
 		width: 80,
 		height: 200
 	};
 	 monster3 = {
-		x: map5.width*0.5-100,
-		y: map5.height - 100,
+		x: map[5].width*0.5-100,
+		y: map[5].height - 100,
 		width: 90,
 		height: 100,
-		minX: map5.width*0.5-200,
-		maxX: map5.width*0.5,
+		minX: map[5].width*0.5-200,
+		maxX: map[5].width*0.5,
 		direction: "right",
 		fall: function (){this.y+=500; this.HBy+=500; score+= 30;},
 		img: monster2Img, //to nie jest błąd
-		HBx: map4.width*0.5-70, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
-		HBy: map4.height - 100, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
+		HBx: map[5].width*0.5-70, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
+		HBy: map[5].height - 100, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 		HBwidth: 35, //Hit Box
 		HBheight: 100
 	};
@@ -60,17 +60,17 @@ function loadLevel5(){
 	coins5 = [];
 
 	coin = new Coin();
-	coin.x = map5.width/2 - 300;
-	coin.y = map5.height - 60;
+	coin.x = map[5].width/2 - 300;
+	coin.y = map[5].height - 60;
 	coins5.push(coin);
 
 	coin = new Coin();
-	coin.x = map5.width/2 + 300;
-	coin.y = map5.height - 60;
+	coin.x = map[5].width/2 + 300;
+	coin.y = map[5].height - 60;
 	coins5.push(coin);
 
 	coin = new Coin();
 	coin.x = 10;
-	coin.y = map5.height - 60;
+	coin.y = map[5].height - 60;
 	coins5.push(coin);
 }

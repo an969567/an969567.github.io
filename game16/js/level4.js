@@ -1,7 +1,7 @@
 function loadLevel4(){
 	 boxes4 = [];
 
-	 map4 = {
+	 map[4] = {
 		x: 0,
 		y: 0,
 		width: width + 500,
@@ -15,41 +15,41 @@ function loadLevel4(){
 		x: -10,
 		y: -2, //żeby się stykało z górną granicą
 		width: 10,
-		height: map4.height + 22 //żeby się stykało z dolną granicą
+		height: map[4].height + 22 //żeby się stykało z dolną granicą
 	});
 	boxes4.push({ //dolna granica
 		x: -10,
-		y: map4.height,
-		width: map4.width + 20,
+		y: map[4].height,
+		width: map[4].width + 20,
 		height: 20 //grube, żeby nie znikał
 	});
 	boxes4.push({ //prawa granica
-		x: map4.width,
+		x: map[4].width,
 		y: -2,
 		width: 10,
-		height: map4.height + 22
+		height: map[4].height + 22
 	});
 	boxes4.push({ //górna granica
 		x: 0,
 		y: -2,
-		width: map4.width,
+		width: map[4].width,
 		height: 2
 	});
 	 teleporter4 = {
-		x: map4.width - 70 - 160,
-		y: map4.height - 200,
+		x: map[4].width - 70 - 160,
+		y: map[4].height - 200,
 		width: 80,
 		height: 200
 	};
 	 monster2 = {
-		x: map4.width*0.5-100,
-		y: map4.height - 100,
+		x: map[4].width*0.5-100,
+		y: map[4].height - 100,
 		width: 90,
 		height: 100,
 		fall: function (){this.y+=500; this.HBy+=500; score+=20;},
 		img: monster2Img,
-		HBx: map4.width*0.5-70, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
-		HBy: map4.height - 100, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
+		HBx: map[4].width*0.5-70, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
+		HBy: map[4].height - 100, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 		HBwidth: 30, //Hit Box
 		HBheight: 100
 	};
@@ -58,11 +58,11 @@ function loadLevel4(){
 
 	coin = new Coin();
 	coin.x = 10;
-	coin.y = map3.height - 60;
+	coin.y = map[4].height - 60;
 	coins4.push(coin);
 
 	coin = new Coin();
-	coin.x = map3.width/2 - 80;
-	coin.y = map3.height - 150;
+	coin.x = map[4].width/2 - 80;
+	coin.y = map[4].height - 150;
 	coins4.push(coin);
 }

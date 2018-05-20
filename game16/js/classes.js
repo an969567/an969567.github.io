@@ -151,3 +151,5 @@ function Coin(){
 	this.width = 40;
 	this.height = 41;
 }
+
+keys = [];//wciśnięte klawisze

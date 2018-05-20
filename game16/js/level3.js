@@ -1,7 +1,7 @@
 function loadLevel3(){
 	 boxes3 = [];
 
-	 map3 = {
+	 map[3] = {
 		x: 0,
 		y: 0,
 		width: width + 500,
@@ -15,42 +15,42 @@ function loadLevel3(){
 		x: -10,
 		y: -2, //żeby się stykało z górną granicą
 		width: 10,
-		height: map3.height + 22 //żeby się stykało z dolną granicą
+		height: map[3].height + 22 //żeby się stykało z dolną granicą
 	});
 	boxes3.push({ //dolna granica
 		x: -10,
-		y: map3.height,
-		width: map3.width + 20,
+		y: map[3].height,
+		width: map[3].width + 20,
 		height: 20 //grube, żeby nie znikał
 	});
 	boxes3.push({ //prawa granica
-		x: map3.width,
+		x: map[3].width,
 		y: -2,
 		width: 10,
-		height: map3.height + 22
+		height: map[3].height + 22
 	});
 	boxes3.push({ //górna granica
 		x: 0,
 		y: -2,
-		width: map3.width,
+		width: map[3].width,
 		height: 2
 	});
 	 teleporter3 = {
-		x: map3.width - 70 - 160, //prawa platforma //ważniejsza, będzie teleporterem
-		y: map3.height - 200,
+		x: map[3].width - 70 - 160, //prawa platforma //ważniejsza, będzie teleporterem
+		y: map[3].height - 200,
 		width: 80,
 		height: 200
 	};
 	 monster = {
-		x: map3.width*0.5-100,
-		y: map3.height - 90,
+		x: map[3].width*0.5-100,
+		y: map[3].height - 90,
 		width: 100,
 		height: 90,
-		minX: map3.width*0.5-200,
-		maxX: map3.width*0.5,
+		minX: map[3].width*0.5-200,
+		maxX: map[3].width*0.5,
 		direction: "right",
-		HBx: map3.width*0.5-60, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
-		HBy: map3.height - 50, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
+		HBx: map[3].width*0.5-60, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
+		HBy: map[3].height - 50, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
 		HBwidth: 22, //Hit Box
 		HBheight: 50,
 		img: monsterImg
@@ -60,17 +60,17 @@ function loadLevel3(){
 	coins3 = [];
 
 	coin = new Coin();
-	coin.x = map3.width/2 - 300;
-	coin.y = map3.height - 60;
+	coin.x = map[3].width/2 - 300;
+	coin.y = map[3].height - 60;
 	coins3.push(coin);
 
 	coin = new Coin();
-	coin.x = map3.width/2 + 300;
-	coin.y = map3.height - 60;
+	coin.x = map[3].width/2 + 300;
+	coin.y = map[3].height - 60;
 	coins3.push(coin);
 
 	coin = new Coin();
 	coin.x = 10;
-	coin.y = map3.height - 60;
+	coin.y = map[3].height - 60;
 	coins3.push(coin);
 }

@@ -4,7 +4,9 @@ function loadSetup(){
 
 	clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
 
-	map = { //nowe ważne
+	map = [];
+
+	map[1] = { //nowe ważne
 		x: 0,
 		y: 0,
 		width: width + 500,
@@ -14,7 +16,7 @@ function loadSetup(){
 
 	basePlayer = {
 		x: 100,
-		y: map.height - 180
+		y: map[1].height - 180
 	};
 
 	player = {
@@ -35,18 +37,17 @@ function loadSetup(){
 
 	frameCount = 0;
 
-	keys = [];//wciśnięte klawisze
+	//keys = [];//wciśnięte klawisze
 
 	friction = 0.9; //tym większe tym wolniej spowalnia (odwrotne niż w fizyce)
 	gravity = 0.6;
 	alive = true; //śmierć
-	//right = true; //do kierunków //potrzebne jeszcze, czy już przeterminowane?
 
 	shooting = false;
 
 	licznik = 0; //do strzelania
 
-	level = 8; //zaczynamy od pierwszego
+	level = 1; //zaczynamy od pierwszego
 
 	rozpocznij = 0; //animacja dead
 
@@ -58,54 +59,54 @@ function loadSetup(){
 		x: -10,
 		y: -2, //żeby się stykało z górną granicą
 		width: 10,
-		height: map.height + 22 //żeby się stykało z dolną granicą
+		height: map[1].height + 22 //żeby się stykało z dolną granicą
 	});
 	boxes.push({ //dolna granica
 		x: -10,
-		y: map.height,
-		width: map.width + 20,
+		y: map[1].height,
+		width: map[1].width + 20,
 		height: 20 //grube, żeby nie znikał
 	});
 	boxes.push({ //prawa granica
-		x: map.width,
+		x: map[1].width,
 		y: -2,
 		width: 10,
-		height: map.height + 22
+		height: map[1].height + 22
 	});
 	boxes.push({ //górna granica
 		x: 0,
 		y: -2,
-		width: map.width,
+		width: map[1].width,
 		height: 2
 	});
 
 	boxes.push({ //pierwsza platfroma
 		x: 70,
-		y: map.height - 350,
+		y: map[1].height - 350,
 		width: 80,
 		height: 40
 	});
 	boxes.push({
 		x: 220,
-		y: map.height - 400,
+		y: map[1].height - 400,
 		width: 80,
 		height: 80
 	});
 	boxes.push({ //cztery pudełka, ostatnie mniejsze
 		x: 270,
-		y: map.height - 100,
+		y: map[1].height - 100,
 		width: 100,
 		height: 30
 	}); //teraz jakieś pośrodku
 	boxes.push({ //bezimienny obiekt
 		x: 400,
-		y: map.height - 250,
+		y: map[1].height - 250,
 		width: 100,
 		height: 40
 	});
 	teleporter = {
-		x: map.width - 70 - 160,
-		y: map.height - 200,
+		x: map[1].width - 70 - 160,
+		y: map[1].height - 200,
 		width: 80,
 		height: 200,
 		img: teleporterImg
@@ -124,18 +125,18 @@ function loadSetup(){
 	coins = [];
 
 	coin = new Coin();
-	coin.x = map.width/2 - 200;
-	coin.y = map.height - 60;
+	coin.x = map[1].width/2 - 200;
+	coin.y = map[1].height - 60;
 	coins.push(coin); //oby nazwa była tracona
 
 	coin = new Coin();
-	coin.x = map.width/2 + 200;
-	coin.y = map.height - 60;
+	coin.x = map[1].width/2 + 200;
+	coin.y = map[1].height - 60;
 	coins.push(coin);
 
 	coin = new Coin();
 	coin.x = 92;
-	coin.y = map.height/2 + 130;
+	coin.y = map[1].height/2 + 130;
 	coins.push(coin);
 
 	mute = {
