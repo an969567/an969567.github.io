@@ -1,11 +1,13 @@
 function update() {
 
-	viewport.x = clamp(-player.x + canvas.width / 2, //aha, czyli clamp jest do viewportu
+	if (level <= 8) {
+		viewport.x = clamp(-player.x + canvas.width / 2, //aha, czyli clamp jest do viewportu
 		canvas.width - map[level].width, 0 //0 to max  //map.width - bierze dla pierwszego
-	 );
-	  viewport.y = clamp(-player.y + canvas.height / 2,
+		);
+		viewport.y = clamp(-player.y + canvas.height / 2,
 		canvas.height - map[level].height, 0
-	 );
+		);
+	}
 
 	frameCount++;
 		
@@ -14,6 +16,7 @@ function update() {
 	if (keys[82]) {
 		// R
 		alive = true;
+		HP = 100;
 		player.x = basePlayer.x;
 		player.y = basePlayer.y;
 		player.HBx = basePlayer.x + 35;
@@ -73,7 +76,7 @@ function update() {
 		default:
 			ctx.font = "30px Arial";
 			ctx.fillStyle = "red";
-			ctx.fillText("You won!",70,150);
+			ctx.fillText("You won!", 70, 160);
 	}
 
 	if ((keys[38] || keys[87]) && !player.inAir) {
@@ -90,7 +93,7 @@ function update() {
 		else i.x-=20;
 		myDraw2(bulletImg, i);
 	}
-	/* draw speaker */
+
 	if (music_playing)
 		myDraw5(speaker);
 	else
@@ -101,10 +104,12 @@ function update() {
 	player.y += player.velY;
 	player.HBy += player.velY;
 
+	if (HP <= 0) alive = false;
+
 	if(!alive){
 		ctx.font = "30px Arial";
 		ctx.fillStyle = "red";
-		ctx.fillText("You died",70,150);
+		ctx.fillText("You died", 70, 160);
 	}
 
 	window.requestAnimationFrame(update);

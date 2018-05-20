@@ -47,20 +47,6 @@ function collision(shapeB) {
 		player.HBy = basePlayer.y + 10;
 	}
 }
-//dla kolców i monster1 i loszka
-function kill(shapeB) {
-	var vX = (player.HBx + (player.HBwidth / 2)) - (shapeB.x + (shapeB.width / 2)), 
-		vY = (player.HBy + (player.HBheight / 2)) - (shapeB.y + (shapeB.height / 2)),
-		hWidths = (player.HBwidth / 2) + (shapeB.width / 2),
-		hHeights = (player.HBheight / 2) + (shapeB.height / 2);
-
-	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-		ctx.font = "30px Arial";
-		ctx.fillStyle = "red";
-		ctx.fillText("You died",70,150);
-		alive = false;
-	}
-}
 
 //na potwora co można na niego skoczyć
 function kill2(shapeB) {
@@ -78,7 +64,7 @@ function kill2(shapeB) {
 			bounce.play();
 		}
 		else {
-				alive = false;
+				if(HP > 0) HP--;
 		}
 	}
 }
@@ -109,6 +95,7 @@ function colCheck3(shapeA, shapeB) {
 	return false; //else jest niepotrzebne
 } //taka generalna bardzo funkcja
 
+//do kolców, potworoloszki i monster1
 function kill3(shapeB) { //zmieniamy na funkcję jednego argumentu //zabijanie //z hitboxami
 	var vX = (player.HBx + (player.HBwidth / 2)) - (shapeB.HBx + (shapeB.HBwidth / 2)), 
 		vY = (player.HBy + (player.HBheight / 2)) - (shapeB.HBy + (shapeB.HBheight / 2)),
@@ -116,10 +103,7 @@ function kill3(shapeB) { //zmieniamy na funkcję jednego argumentu //zabijanie /
 		hHeights = (player.HBheight / 2) + (shapeB.HBheight / 2);
 
 	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-		ctx.font = "30px Arial";
-		ctx.fillStyle = "red";
-		ctx.fillText("You died",70,150);
-		alive = false;
+		if(HP > 0) HP--;
 	}
 }
 

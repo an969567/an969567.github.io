@@ -37,6 +37,8 @@ function loadSetup(){
 
 	frameCount = 0;
 
+	HP = 100;
+
 	//keys = [];//wciśnięte klawisze
 
 	friction = 0.9; //tym większe tym wolniej spowalnia (odwrotne niż w fizyce)
@@ -47,7 +49,7 @@ function loadSetup(){
 
 	licznik = 0; //do strzelania
 
-	level = 1; //zaczynamy od pierwszego
+	level = 2; //zaczynamy od pierwszego
 
 	rozpocznij = 0; //animacja dead
 

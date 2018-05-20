@@ -5,6 +5,8 @@ function drawPlayer() {
 	ctx.fillText("Welcome in Mental Asylum", 70, 70);
 	ctx.fillText("Score", 70, 100);
 	ctx.fillText(score, 250, 100);
+	ctx.fillText("Health", 70, 130);
+	ctx.fillText(HP, 250, 130);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
 	if (!player.inAir && player.direction == "right" && !player.velX && !licznik && alive) {
 		var h = frameCount % 40;
