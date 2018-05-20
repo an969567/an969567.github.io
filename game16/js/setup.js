@@ -49,7 +49,7 @@ function loadSetup(){
 
 	licznik = 0; //do strzelania
 
-	level = 2; //zaczynamy od pierwszego
+	level = 1; //zaczynamy od pierwszego
 
 	rozpocznij = 0; //animacja dead
 

@@ -47,6 +47,17 @@ function collision(shapeB) {
 		player.HBy = basePlayer.y + 10;
 	}
 }
+//do kolców, potworoloszki i monster1
+function kill(shapeB) { //zmieniamy na funkcję jednego argumentu //zabijanie //z hitboxami
+	var vX = (player.HBx + (player.HBwidth / 2)) - (shapeB.HBx + (shapeB.HBwidth / 2)), 
+		vY = (player.HBy + (player.HBheight / 2)) - (shapeB.HBy + (shapeB.HBheight / 2)),
+		hWidths = (player.HBwidth / 2) + (shapeB.HBwidth / 2),
+		hHeights = (player.HBheight / 2) + (shapeB.HBheight / 2);
+
+	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
+		if(HP > 0) HP--;
+	}
+}
 
 //na potwora co można na niego skoczyć
 function kill2(shapeB) {
@@ -94,18 +105,6 @@ function colCheck3(shapeA, shapeB) {
 	}
 	return false; //else jest niepotrzebne
 } //taka generalna bardzo funkcja
-
-//do kolców, potworoloszki i monster1
-function kill3(shapeB) { //zmieniamy na funkcję jednego argumentu //zabijanie //z hitboxami
-	var vX = (player.HBx + (player.HBwidth / 2)) - (shapeB.HBx + (shapeB.HBwidth / 2)), 
-		vY = (player.HBy + (player.HBheight / 2)) - (shapeB.HBy + (shapeB.HBheight / 2)),
-		hWidths = (player.HBwidth / 2) + (shapeB.HBwidth / 2),
-		hHeights = (player.HBheight / 2) + (shapeB.HBheight / 2);
-
-	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-		if(HP > 0) HP--;
-	}
-}
 
 //for coin
 //może korzystać z generalnej funkcji colCheck3(shapeA, shapeB)

@@ -81,7 +81,7 @@ function level2(){
    	}
 	myDraw(spikes);
 	myDraw(teleporter2);
-	kill3(spikes);
+	kill(spikes);
 	collision(teleporter2);
 	for (c of coins2) {
 		myDraw6(c);
@@ -98,7 +98,7 @@ function level3(){
 			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
 		}
    	}
-	kill3(monster);
+	kill(monster);
 	patrol(monster);
 	if (monster.direction == "left") myDraw(monster);
 	else myDraw4(monsterImg, monster);
@@ -159,7 +159,7 @@ function level6(){
 			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
 		}
     }
-	kill3(loszka);
+	kill(loszka);
 	for(i=0;i<bullets.length;i++) colCheck2(bullets[i], loszka);
 	myDraw(loszka);
 	myDraw(teleporter);
@@ -198,11 +198,11 @@ function level8(){
    	}
 	myDraw(spikes2);
 	myDraw(teleporter8);
-	kill3(spikes2);
+	kill(spikes2);
 	collision(teleporter8);
 	patrol2(fireball);
 	myDraw(fireball);
-	kill3(fireball);
+	kill(fireball);
 	for (c of coins8) {
 		myDraw6(c);
 		collision2(c);
