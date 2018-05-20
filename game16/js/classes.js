@@ -119,6 +119,7 @@ function przypisz() {
 	fireballImg = myLoadManager.getAsset('fireball.png');
 	speakerImg = myLoadManager.getAsset('speaker.png');
 	coinImg = myLoadManager.getAsset('coin.png');
+	muteImg = myLoadManager.getAsset('mute.png');
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();

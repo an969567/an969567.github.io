@@ -1,64 +1,59 @@
 function loadSetup(){
 
-viewport = {};
+	viewport = {};
 
-clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
+	clamp = (n, lo, hi) => n < lo ? lo : n > hi ? hi : n;
 
-map = { //nowe ważne
-	x: 0,
-	y: 0,
-	width: width + 500,
-	height: height + 500,
-};
+	map = { //nowe ważne
+		x: 0,
+		y: 0,
+		width: width + 500,
+		height: height + 500,
+		img: background1Img
+	};
 
-basePlayer = {
-	x: 100,
-	y: map.height - 180
-};
+	basePlayer = {
+		x: 100,
+		y: map.height - 180
+	};
 
-player = {
-	x: basePlayer.x, 
-	y: basePlayer.y,
-	width: 150,
-	height: 180,
-	speed: 10,
-	velX: 0,
-	velY: 0,
-	inAir: true, //zaczyna inAir,
-	direction: "right",
-	HBx: basePlayer.x + 35, //dziwna niespójność //zmieniamy z 35 na 10, żeby było tak jak przy teleporcie. //35 oznacza, że rysowany jest później, czyli uderzanie bloku z prawej strony to... Ech, ciężko wydedukować. //Oznacza, to że... wystaje bardziej z prawej strony. Czyli niby powinien być odstęp większy przy uderzaniu z prawej strony. Zgadza się. Zmieniamy z powrotem na 35 i w innych miejscach też dajemy 35.
-	HBy: basePlayer.y + 10,
-	HBwidth: 65,
-	HBheight: 158
-};
+	player = {
+		x: basePlayer.x, 
+		y: basePlayer.y,
+		width: 150,
+		height: 180,
+		speed: 10,
+		velX: 0,
+		velY: 0,
+		inAir: true, //zaczyna inAir,
+		direction: "right",
+		HBx: basePlayer.x + 35, //dziwna niespójność //zmieniamy z 35 na 10, żeby było tak jak przy teleporcie. //35 oznacza, że rysowany jest później, czyli uderzanie bloku z prawej strony to... Ech, ciężko wydedukować. //Oznacza, to że... wystaje bardziej z prawej strony. Czyli niby powinien być odstęp większy przy uderzaniu z prawej strony. Zgadza się. Zmieniamy z powrotem na 35 i w innych miejscach też dajemy 35.
+		HBy: basePlayer.y + 10,
+		HBwidth: 65,
+		HBheight: 158
+	};
 
-frameCount = 0;
+	frameCount = 0;
 
-keys = [];//wciśnięte klawisze
+	keys = [];//wciśnięte klawisze
 
-spacePressed = false;
 	friction = 0.9; //tym większe tym wolniej spowalnia (odwrotne niż w fizyce)
 	gravity = 0.6;
 	alive = true; //śmierć
-	right = true; //do kierunków
+	//right = true; //do kierunków //potrzebne jeszcze, czy już przeterminowane?
 
 	shooting = false;
 
 	licznik = 0; //do strzelania
 
-	level = 1; //zaczynamy od pierwszego
+	level = 8; //zaczynamy od pierwszego
 
-	boxes = []; //robimy pustą listę
-
-	rozpocznij = 0;
+	rozpocznij = 0; //animacja dead
 
 	score = 0;
 
-	//music.play();
+	boxes = []; //robimy pustą listę
 
-	map.img = background1Img;
-
-	// dimensions
 	boxes.push({ //lewa grannica
 		x: -10,
 		y: -2, //żeby się stykało z górną granicą
@@ -142,4 +137,13 @@ spacePressed = false;
 	coin.x = 92;
 	coin.y = map.height/2 + 130;
 	coins.push(coin);
+
+	mute = {
+		x: canvas.width - 90, //canvas.width = 1366
+		y: 20,
+		width: 60,
+		height: 45,
+		img: muteImg
+	};
+
 }

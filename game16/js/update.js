@@ -91,7 +91,10 @@ function update() {
 		myDraw2(bulletImg, i);
 	}
 	/* draw speaker */
-	myDraw5(speaker);
+	if (music_playing)
+		myDraw5(speaker);
+	else
+		myDraw5(mute);
 
 	player.x += player.velX;
 	player.HBx += player.velX;

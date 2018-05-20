@@ -18,7 +18,7 @@ var rect = {
 
 function getMousePos(canvas, event) {
 	var rect = canvas.getBoundingClientRect();
-	return { //hmm zwraca obiekt?
+	return { //zwraca obiekt
 		x: event.clientX - rect.left,
 		y: event.clientY - rect.top
 	};
@@ -27,11 +27,18 @@ function isInside(pos, rect){
 	return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.heigth && pos.y > rect.y
 }
 
+music_playing = false;
+
 canvas.addEventListener('click', function(evt) {
 	var mousePos = getMousePos(canvas, evt);
-    //debugger; //najs
 	if (isInside(mousePos,rect)) {
-		//alert('clicked inside rect');
-		music.play();
+		if(!music_playing){
+			music.play();
+			music_playing = true;
+		}
+		else {
+			music.pause();
+			music_playing = false;
+		}
     }
 }, false);
