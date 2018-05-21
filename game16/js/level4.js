@@ -48,9 +48,9 @@ function loadLevel4(){
 		height: 100,
 		fall: function (){this.y+=500; this.HBy+=500; score+=20;},
 		img: monster2Img,
-		HBx: map[4].width*0.5-70, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy. Czyli odejmowanie mniejsze.
+		HBx: map[4].width*0.5-80, //chcemy, żeby zaczynał rysować się wcześniej. Czyli HBx musi być mniejszy. Czyli odejmowanie większe.
 		HBy: map[4].height - 100, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
-		HBwidth: 30, //Hit Box
+		HBwidth: 40, //Hit Box
 		HBheight: 100
 	};
 
