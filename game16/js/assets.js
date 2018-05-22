@@ -37,6 +37,8 @@ myLoadManager.queueDownload('fireball.png');
 myLoadManager.queueDownload('speaker.png');
 myLoadManager.queueDownload('coin.png');
 myLoadManager.queueDownload('mute.png');
+myLoadManager.queueDownload('background9.jpg');
+myLoadManager.queueDownload('wisielec.png');
 level0();
 //background7Img.onload = function(){console.log("background7 loaded");};
 var music = new Audio("music/music.mp3");

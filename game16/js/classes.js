@@ -120,6 +120,8 @@ function przypisz() {
 	speakerImg = myLoadManager.getAsset('speaker.png');
 	coinImg = myLoadManager.getAsset('coin.png');
 	muteImg = myLoadManager.getAsset('mute.png');
+	background9Img = myLoadManager.getAsset('background9.jpg');
+	wisielecImg = myLoadManager.getAsset('wisielec.png');
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();
@@ -129,6 +131,7 @@ function przypisz() {
 	loadLevel6();
 	loadLevel7();
 	loadLevel8();
+	loadLevel9();
 	update();
 }
 

@@ -1,6 +1,6 @@
 function update() {
 
-	if (level <= 8) {
+	if (level <= map.length - 1) {
 		viewport.x = clamp(-player.x + canvas.width / 2, //aha, czyli clamp jest do viewportu
 		canvas.width - map[level].width, 0 //0 to max  //map.width - bierze dla pierwszego
 		);
@@ -73,6 +73,9 @@ function update() {
 		case 8:
 			level8();
 			break;
+		case 9:
+			level9();
+			break;
 		default:
 			ctx.font = "30px Arial";
 			ctx.fillStyle = "red";
@@ -88,7 +91,7 @@ function update() {
 	
 	drawPlayer();
 	
-	for(i of bullets){
+	for(i of bullets){ //tu są przesuwane bullety
 		if (i.direction == "right") i.x+=20;
 		else i.x-=20;
 		myDraw2(bulletImg, i);

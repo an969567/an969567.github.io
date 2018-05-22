@@ -80,7 +80,7 @@ function loadLevel8() {
 		img: teleporterImg
 	};
 
-	fireball = {
+	kula_ognista = {
 		x: 1200,//map[8].width - 800,
 		y: map[8].height - 300, //chcemy, żeby był wyżej, więc y musi byc mniejszy, czyli odejmujemy więcej.
 		width: 40,

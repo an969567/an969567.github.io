@@ -200,17 +200,63 @@ function level8(){
 	myDraw(teleporter8);
 	kill(spikes2);
 	collision(teleporter8);
-	patrol2(fireball);
-	myDraw(fireball);
-	kill(fireball);
+	patrol2(kula_ognista);
+	myDraw(kula_ognista);
+	kill(kula_ognista);
 	for (c of coins8) {
 		myDraw6(c);
 		collision2(c);
 	}
 }
 
+tylko_raz = true;
+wait = -1;
+
+function level9(){
+	myDraw(map[9]);
+	for (i of boxes9) {
+		myRect(i);
+		setDir(i);
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+			if (bullets[j].x > map[9].width - 500) {
+				bullets.splice(j,1);
+				boss.HP--;
+			}
+		}
+   	}
+	for (c of coins9) {
+		myDraw6(c);
+		collision2(c);
+	}
+	if(boss.HP <= 0) boss.alive = false;
+	if(boss.alive) {
+		myDraw(boss);
+		kill(boss);
+		for(var j=0;j<fireballs.length;j++){ //tu są przesuwane bullety
+			fireballs[j].x -= 1;
+			fireballs[j].HBx -= 1;
+			console.log("Hitbox: ",fireballs[j].HBx);
+			console.log("X: ",fireballs[j].x);
+			if(fireballs[j].x <= 500) {
+				fireballs[j].x = fireballs[j].baseX;
+				fireballs[j].HBx = fireballs[j].baseX;
+			}
+			myDraw(fireballs[j]);
+			kill(fireballs[j]);
+		}
+	}
+	if(tylko_raz && boss.alive == false){
+		tylko_raz = false;
+		wait = 100;
+	}
+	wait--;
+	if(wait == 0) level++;
+}
+
 function myDraw(myObject){
 	ctx.drawImage(myObject.img, myObject.x + viewport.x, myObject.y + viewport.y, myObject.width, myObject.height);
+	//console.log("myDraw");
 }
 function myRect(myBox){
 	ctx.fillStyle= "black";
