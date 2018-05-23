@@ -84,9 +84,16 @@ function update() {
 			ctx.fillText("You won!", 70, 160);
 	}
 
-	if ((keys[38] || keys[87]) && !player.inAir) { //!player.inAir nie pozwala mu skoczyć znowu
+	if ((keys[38] || keys[87]) && !player.inAir /*&& (skoczyl_juz == 0 || skoczyl_juz == 1)*/) { //!player.inAir nie pozwala mu skoczyć znowu
 		// up arrow
 			player.velY = -player.speed * 1.5;
+			//skoczyl_juz++;
+	}
+
+	if ((keys[38] || keys[87]) && skoczyl_juz == false && player.velY > 0) {
+		// up arrow
+			player.velY = -player.speed * 1.5;
+			skoczyl_juz = true;
 	}
 
 	if(player.inAir) player.velY += gravity;	

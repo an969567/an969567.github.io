@@ -318,6 +318,7 @@ function setDir(myBox) {
 	if (dir === "l" || dir === "r") player.velX = 0;
 	else if (dir === "b") { 
 		player.inAir = false; //console.log("b");
+		skoczyl_juz = false;
 	} else if (dir === "t")	player.velY *= -1; //odbija się od dołu platformy (uderzył topem charactera)
 }
 function patrol(myMonster) {
