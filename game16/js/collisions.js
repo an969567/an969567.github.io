@@ -55,7 +55,10 @@ function kill(shapeB) { //zmieniamy na funkcję jednego argumentu //zabijanie //
 		hHeights = (player.HBheight / 2) + (shapeB.HBheight / 2);
 
 	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-		if(HP > 0) HP--;
+		if(HP > 0) {
+			HP--;
+			hurting = true;
+		}
 	}
 }
 
@@ -75,7 +78,10 @@ function kill2(shapeB) {
 			bounce.play();
 		}
 		else {
-				if(HP > 0) HP--;
+				if(HP > 0) {
+					HP--;
+					hurting = true;
+				}
 		}
 	}
 }

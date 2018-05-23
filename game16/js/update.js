@@ -9,6 +9,8 @@ function update() {
 		);
 	}
 
+	hurting = false;
+
 	frameCount++;
 		
 	player.inAir = true; //do sprajtu potrzebne
@@ -82,7 +84,7 @@ function update() {
 			ctx.fillText("You won!", 70, 160);
 	}
 
-	if ((keys[38] || keys[87]) && !player.inAir) {
+	if ((keys[38] || keys[87]) && !player.inAir) { //!player.inAir nie pozwala mu skoczyć znowu
 		// up arrow
 			player.velY = -player.speed * 1.5;
 	}

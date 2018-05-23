@@ -8,42 +8,83 @@ function drawPlayer() {
 	ctx.fillText("Health", 70, 130);
 	ctx.fillText(HP, 250, 130);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
-	if (!player.inAir && player.direction == "right" && !player.velX && !licznik && alive) {
-		var h = frameCount % 40;
-		myDraw2(idleImg[Math.floor(h/4)], player);
+	if (hurting == false) {
+		if (!player.inAir && player.direction == "right" && !player.velX && !licznik && alive) {
+			var h = frameCount % 40;
+			myDraw2(idleImg[Math.floor(h/4)], player);
+		}
+		if (!player.inAir && player.direction == "left" && !player.velX && !licznik && alive) {
+			var h = frameCount % 40;
+			myDraw3(idleImg[Math.floor(h/4)], player);
+		}
+		if (!player.inAir && player.direction == "right" && !player.velX && licznik && alive) { //strzelanie
+			shoot();
+			myDraw2(shootImg[Math.ceil((36-licznik)/12)], player);
+		}
+		if (!player.inAir && player.direction == "left" && !player.velX && licznik && alive) { //strzelanie
+			shoot();
+			myDraw3(shootImg[Math.ceil((36-licznik)/12)], player);
+		}
+		if (!player.inAir && player.velX > 0 && alive) {
+			var h = frameCount % 32;
+			myDraw2(runImg[Math.floor(h/4)+1], player);
+		}
+		if (!player.inAir && player.velX < 0 && alive) {
+			var h = frameCount % 32;
+			myDraw3(runImg[Math.floor(h/4)+1], player);
+		}
+		if (player.inAir && player.direction == "right" && player.velY < 0 /*leci w górę*/ && alive) {
+			myDraw2(jumpImg, player);
+		}
+		if (player.inAir && player.direction == "right" && player.velY >= 0 /*leci w dół*/ && alive) {
+			myDraw2(fallImg, player);
+		}
+		if (player.inAir && player.direction == "left" && player.velY < 0 /*leci w górę*/ && alive) {
+			myDraw3(jumpImg, player);
+		}
+		if (player.inAir && player.direction == "left" && player.velY >= 0 /*leci w górę*/ && alive) {
+			myDraw3(fallImg, player);
+		}
 	}
-	if (!player.inAir && player.direction == "left" && !player.velX && !licznik && alive) {
-		var h = frameCount % 40;
-		myDraw3(idleImg[Math.floor(h/4)], player);
+	else {
+		if (!player.inAir && player.direction == "right" && !player.velX && !licznik && alive) {
+			var h = frameCount % 40;
+			myDraw2(idle2Img[Math.floor(h/4)], player);
+		}
+		if (!player.inAir && player.direction == "left" && !player.velX && !licznik && alive) {
+			var h = frameCount % 40;
+			myDraw3(idle2Img[Math.floor(h/4)], player);
+		}
+		if (!player.inAir && player.direction == "right" && !player.velX && licznik && alive) { //strzelanie
+			shoot();
+			myDraw2(shoot2Img[Math.ceil((36-licznik)/12)], player);
+		}
+		if (!player.inAir && player.direction == "left" && !player.velX && licznik && alive) { //strzelanie
+			shoot();
+			myDraw3(shoot2Img[Math.ceil((36-licznik)/12)], player);
+		}
+		if (!player.inAir && player.velX > 0 && alive) {
+			var h = frameCount % 32;
+			myDraw2(run2Img[Math.floor(h/4)+1], player);
+		}
+		if (!player.inAir && player.velX < 0 && alive) {
+			var h = frameCount % 32;
+			myDraw3(run2Img[Math.floor(h/4)+1], player);
+		}
+		if (player.inAir && player.direction == "right" && player.velY < 0 /*leci w górę*/ && alive) {
+			myDraw2(jump2Img, player);
+		}
+		if (player.inAir && player.direction == "right" && player.velY >= 0 /*leci w dół*/ && alive) {
+			myDraw2(fall2Img, player);
+		}
+		if (player.inAir && player.direction == "left" && player.velY < 0 /*leci w górę*/ && alive) {
+			myDraw3(jump2Img, player);
+		}
+		if (player.inAir && player.direction == "left" && player.velY >= 0 /*leci w górę*/ && alive) {
+			myDraw3(fall2Img, player);
+		}
 	}
-	if (!player.inAir && player.direction == "right" && !player.velX && licznik && alive) { //strzelanie
-		shoot();
-		myDraw2(shootImg[Math.ceil((36-licznik)/12)], player);
-	}
-	if (!player.inAir && player.direction == "left" && !player.velX && licznik && alive) { //strzelanie
-		shoot();
-		myDraw3(shootImg[Math.ceil((36-licznik)/12)], player);
-	}
-	if (!player.inAir && player.velX > 0 && alive) {
-		var h = frameCount % 32;
-		myDraw2(runImg[Math.floor(h/4)+1], player);
-	}
-	if (!player.inAir && player.velX < 0 && alive) {
-		var h = frameCount % 32;
-		myDraw3(runImg[Math.floor(h/4)+1], player);
-	}
-	if (player.inAir && player.direction == "right" && player.velY < 0 /*leci w górę*/ && alive) {
-		myDraw2(jumpImg, player);
-	}
-	if (player.inAir && player.direction == "right" && player.velY >= 0 /*leci w dół*/ && alive) {
-		myDraw2(fallImg, player);
-	}
-	if (player.inAir && player.direction == "left" && player.velY < 0 /*leci w górę*/ && alive) {
-		myDraw3(jumpImg, player);
-	}
-	if (player.inAir && player.direction == "left" && player.velY >= 0 /*leci w górę*/ && alive) {
-		myDraw3(fallImg, player);
-	}
+
 	if (!alive){
 		player.velX = 0; player.velY = 0; player.y = basePlayer.y+20;
 		if (!rozpocznij) scream.play();
@@ -214,6 +255,7 @@ wait = -1;
 
 function level9(){
 	myDraw(map[9]);
+	traci_zdrowie = false;
 	for (i of boxes9) {
 		myRect(i);
 		setDir(i);
@@ -222,6 +264,8 @@ function level9(){
 			if (bullets[j].x > map[9].width - 500) {
 				bullets.splice(j,1);
 				boss.HP--;
+				traci_zdrowie = true;
+				if(boss.alive) myDraw2(wisielec2Img,boss);
 			}
 		}
    	}
@@ -231,13 +275,14 @@ function level9(){
 	}
 	if(boss.HP <= 0) boss.alive = false;
 	if(boss.alive) {
-		myDraw(boss);
+		if(traci_zdrowie == false) myDraw(boss);
+		//myDraw2(wisielec2Img,boss);
 		kill(boss);
 		for(var j=0;j<fireballs.length;j++){ //tu są przesuwane bullety
 			fireballs[j].x -= 1;
 			fireballs[j].HBx -= 1;
-			console.log("Hitbox: ",fireballs[j].HBx);
-			console.log("X: ",fireballs[j].x);
+			//console.log("Hitbox: ",fireballs[j].HBx);
+			//console.log("X: ",fireballs[j].x);
 			if(fireballs[j].x <= 500) {
 				fireballs[j].x = fireballs[j].baseX;
 				fireballs[j].HBx = fireballs[j].baseX;

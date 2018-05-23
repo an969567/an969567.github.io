@@ -41,9 +41,13 @@ function loadSetup(){
 
 	//keys = [];//wciśnięte klawisze
 
+	skoczyl_juz = false; //do podwójnego skoku
+
 	friction = 0.9; //tym większe tym wolniej spowalnia (odwrotne niż w fizyce)
 	gravity = 0.6;
 	alive = true; //śmierć
+
+	hurting = false; //czy obrywa
 
 	shooting = false;
 

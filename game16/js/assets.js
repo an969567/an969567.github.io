@@ -4,7 +4,6 @@ var myLoadManager = new AssetManager();
 myLoadManager.setRoot('pics'); //hmmmmm??????? //to jest jakaś zmienna //musi być zadeklerowana w którymś z poprzednich plików
 		
 		// preload our images
-//myLoadManager.queueDownload('Idle (1).png');
 myLoadManager.queueDownload('Jump (2).png');
 myLoadManager.queueDownload('Jump (10).png');
 myLoadManager.queueDownload('spikes.png');
@@ -39,6 +38,18 @@ myLoadManager.queueDownload('coin.png');
 myLoadManager.queueDownload('mute.png');
 myLoadManager.queueDownload('background9.jpg');
 myLoadManager.queueDownload('wisielec.png');
+for (var i=1; i<= 10; i++){
+	myLoadManager.queueDownload("Idle" + i + "(2).png");
+}
+for (var i=1; i<= 8; i++){
+	myLoadManager.queueDownload("Run" + i + "(2).png");
+}
+for (var i=1; i<= 3; i++){
+	myLoadManager.queueDownload("Shoot" + i + "(2).png");
+}
+myLoadManager.queueDownload('Jump2(2).png');
+myLoadManager.queueDownload('Jump10(2).png');
+myLoadManager.queueDownload('wisielec(2).png');
 level0();
 //background7Img.onload = function(){console.log("background7 loaded");};
 var music = new Audio("music/music.mp3");

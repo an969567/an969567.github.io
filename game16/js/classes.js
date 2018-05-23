@@ -83,7 +83,6 @@ function drawLoadingBar() {
 }
 
 function przypisz() {
-	//idle1Img = myLoadManager.getAsset('Idle (1).png');
 	jumpImg = myLoadManager.getAsset('Jump (2).png');
 	fallImg = myLoadManager.getAsset('Jump (10).png');
 	spikesImg = myLoadManager.getAsset('spikes.png');
@@ -122,6 +121,21 @@ function przypisz() {
 	muteImg = myLoadManager.getAsset('mute.png');
 	background9Img = myLoadManager.getAsset('background9.jpg');
 	wisielecImg = myLoadManager.getAsset('wisielec.png');
+	idle2Img = [];
+	for (var i=0; i<= 9; i++){
+		idle2Img[i] = myLoadManager.getAsset("Idle" + (i + 1) + "(2).png");
+	}
+	run2Img = [];
+	for (var i=1; i<= 8; i++){
+		run2Img[i] = myLoadManager.getAsset("Run" + i + "(2).png");
+	}
+	shoot2Img = [];
+	for (var i=1; i<= 3; i++){
+		shoot2Img[i] = myLoadManager.getAsset("Shoot" + i + "(2).png");
+	}
+	jump2Img = myLoadManager.getAsset('Jump2(2).png');
+	fall2Img = myLoadManager.getAsset('Jump10(2).png');
+	wisielec2Img = myLoadManager.getAsset('wisielec(2).png');
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();
