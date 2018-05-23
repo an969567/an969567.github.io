@@ -43,7 +43,7 @@ function collision(shapeB) {
 		level++;
 		player.x = basePlayer.x;
 		player.y = basePlayer.y;
-		player.HBx = basePlayer.x + 35; //dziwna niespójność
+		player.HBx = basePlayer.x + 35; //dziwna niespójność //już nie
 		player.HBy = basePlayer.y + 10;
 	}
 }

@@ -2,11 +2,13 @@ function drawPlayer() {
 
 	ctx.font = "30px Titan one";
 	ctx.fillStyle = "red";
-	ctx.fillText("Welcome in Mental Asylum", 70, 70);
-	ctx.fillText("Score", 70, 100);
-	ctx.fillText(score, 250, 100);
-	ctx.fillText("Health", 70, 130);
-	ctx.fillText(HP, 250, 130);
+	ctx.fillText("Welcome in Mental Asylum", 50, 50);
+	ctx.fillText("Score", 50, 80);
+	ctx.fillText(score, 230, 80);
+	ctx.fillText("Health", 50, 110);
+	ctx.fillText(HP, 230, 110);
+	ctx.fillText("Level", canvas.width - 250, 50);
+	ctx.fillText(level, canvas.width - 130, 50);
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
 	if (hurting == false) {
 		if (!player.inAir && player.direction == "right" && !player.velX && !licznik && alive) {
@@ -296,7 +298,34 @@ function level9(){
 		wait = 100;
 	}
 	wait--;
-	if(wait == 0) level++;
+	if(wait == 0) {
+		level++;
+		player.x = basePlayer.x;
+		player.y = basePlayer.y;
+		player.HBx = basePlayer.x + 35;
+		player.HBy = basePlayer.y + 10;
+	}
+}
+
+function level10(){
+	myDraw(map[10]);
+	for (i of boxes10) {
+		myRect(i);
+		setDir(i);
+		for (var j=0;j<bullets.length;j++) {
+			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1);
+		}
+   	}
+	myDraw(spikes3);
+	myDraw(teleporter10);
+	kill(spikes3);
+	collision(teleporter10);
+	for (c of coins10) {
+		myDraw6(c);
+		collision2(c);
+	}
+	myDraw(spikes4);
+	kill(spikes4);
 }
 
 function myDraw(myObject){

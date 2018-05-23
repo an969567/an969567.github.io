@@ -108,7 +108,7 @@ function loadLevel8() {
 	coins8.push(coin);
 
 	coin = new Coin();
-	coin.x = map.width - 280;
+	coin.x = map[8].width - 280;
 	coin.y = map[8].height - 450;
 	coins8.push(coin)
 }

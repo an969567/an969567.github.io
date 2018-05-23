@@ -136,6 +136,7 @@ function przypisz() {
 	jump2Img = myLoadManager.getAsset('Jump2(2).png');
 	fall2Img = myLoadManager.getAsset('Jump10(2).png');
 	wisielec2Img = myLoadManager.getAsset('wisielec(2).png');
+	background10Img = myLoadManager.getAsset('background10.jpg');
 	/* tutaj wpiszemy*/
 	loadSetup();
 	loadLevel2();
@@ -146,6 +147,7 @@ function przypisz() {
 	loadLevel7();
 	loadLevel8();
 	loadLevel9();
+	loadLevel10();
 	update();
 }
 
