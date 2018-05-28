@@ -8,7 +8,8 @@ function drawPlayer() {
 	ctx.fillText("Health", 50, 110);
 	ctx.fillText(HP, 230, 110);
 	ctx.fillText("Level", canvas.width - 250, 50);
-	ctx.fillText(level, canvas.width - 130, 50);
+	if (level < map.length) ctx.fillText(level, canvas.width - 130, 50);
+	else ctx.fillText(map.length - 1, canvas.width - 130, 50); //żeby nie pokazywało większego levelu przy wygranej
 	if (Math.abs(player.velX) < 0.1) player.velX = 0;
 	if (hurting == false) {
 		if (!player.inAir && player.direction == "right" && !player.velX && !licznik && alive) {

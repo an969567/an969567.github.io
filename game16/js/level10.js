@@ -47,24 +47,24 @@ function loadLevel10() {
 		height: 300
 	});
 	spikes3 = {
-		x: 630,//map[10].width - 800,
+		x: 630,
 		y: map[10].height - 40,
 		width: 160,
 		height: 40,
-		HBx: 660, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy //o 30 później.
-		HBy: map[10].height - 25, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
-		HBwidth: 90, //Hit Box
+		HBx: 660,
+		HBy: map[10].height - 25,
+		HBwidth: 90,
 		HBheight: 25,
 		img: spikesImg
 	};
 	spikes4 = {
-		x: 830,//map[10].width - 800,
+		x: 1000,
 		y: map[10].height - 40,
 		width: 160,
 		height: 40,
-		HBx: 860, //chcemy, żeby zaczynał rysować się później. Czyli HBx musi być większy //o 30 później.
-		HBy: map[10].height - 25, //chcemy, żeby zaczynał rysować się później. Czyli HBy musi być większy. Czyli odejmowanie mniejsze.
-		HBwidth: 90, //Hit Box
+		HBx: 970,
+		HBy: map[10].height - 25,
+		HBwidth: 90,
 		HBheight: 25,
 		img: spikesImg
 	};
