@@ -41,21 +41,21 @@ function myDraw(myObject){
 	ctx.drawImage(myObject.img, myObject.x, myObject.y);
 }
 
-function getMousePos(canvas, event) {
-	rect = canvas.getBoundingClientRect();
+function getMousePos(event) {
+	var rect = canvas.getBoundingClientRect(); //jest w dokumentacji
 	return { //zwraca obiekt
-		x: event.clientX - rect.left, //czyli normalnie chyba zwraca względem ekranu, a nie canvasu
+		x: event.clientX /*jest w dokumentacji*/ - rect.left, //czyli normalnie chyba zwraca względem ekranu, a nie canvasu
 		y: event.clientY - rect.top
 	};
 }
 
-mousePos ={
-	x: canvas.width/2,
-	y: canvas.height/2
+mousePos = {
+	x: knight.x,
+	y: knight.y
 };
 
-canvas.addEventListener('click', function(evt) {
-	mousePos = getMousePos(canvas, evt);
+canvas.addEventListener('contextmenu', function(evt) {
+	if (remember) mousePos = getMousePos(evt);
 }, false);
 
 function divide(){
@@ -75,19 +75,63 @@ function colCheck3(shapeA, shapeB) { //generalna funkcja
 		hHeights = (shapeA.height / 2) + (shapeB.height / 2);
 
 	if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-		return true; //jest kolizja
+		return true;
 	}
-	return false; //else jest niepotrzebne
-} 
+	return false;
+}
+
+function drawRect(myObject/*knight*/){
+	ctx.beginPath();
+	ctx.strokeStyle="#00FF00";
+	ctx.rect(myObject.x, myObject.y , myObject.width, myObject.height);
+	ctx.stroke();
+}
+
+function isInside(pos, rect){
+	return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y
+}
+
+remember = false;
+
+function klikniety(){
+	if(isInside(mousePos2, knight)) {
+		remember = true;
+	}
+	else {
+		remember = false;
+	}
+}
+
+function getMousePos2(event) {
+	var rect = canvas.getBoundingClientRect(); //jest w dokumentacji
+	return { //zwraca obiekt
+		x: event.clientX /*jest w dokumentacji*/ - rect.left, //czyli normalnie chyba zwraca względem ekranu, a nie canvasu
+		y: event.clientY - rect.top
+	};
+}
+
+canvas.addEventListener('click', function(evt) { //do zielonego prostokątu
+	mousePos2 = getMousePos2(evt);
+	eventFired = true;
+	klikniety();
+}, false); //nie wiem co oznacza ten 'false'
+
+mousePos2 = {
+	x: canvas.width/2,
+	y: canvas.height/2
+};
 
 function petla(){
 	myRect();
 	divide();
-	knight.x += X;
-	knight.y += Y;
+	if(remember){
+		knight.x += X;
+		knight.y += Y;
+	}
 	myDraw(knight);
 	myDraw(monster);
 	if(colCheck3(knight, monster)) randomizeMonster();
+	if(remember) drawRect(knight); //rysuje prostokąt jeśli wtedy trafiliśmy na knight'a //na razie pojedyncze klikniecie bez odklikania
 	window.requestAnimationFrame(petla);
 }
 
