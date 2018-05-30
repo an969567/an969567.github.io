@@ -17,7 +17,7 @@ canvas.height = 600;
 knight = {
 	x: 100,
 	y: 100,
-	width: 96,
+	width: 96, //do zderzeń
 	height: 96,
 	img: knightImg
 };
@@ -30,26 +30,16 @@ monster = {
 	img: monsterImg
 }
 
-function myRect(){
-	ctx.fillStyle= "green"; /*"#00FF00"*/
+function myRect(){ //robi background
+	ctx.fillStyle= "green";
 	ctx.beginPath();
 	ctx.rect( 0, 0, canvas.width, canvas.height);
 	ctx.fill();
 }
 
-myRect();
-
 function myDraw(myObject){
 	ctx.drawImage(myObject.img, myObject.x, myObject.y);
 }
-
-function update(){
-	myDraw(knight);
-}
-
-window.addEventListener("load", function () {
-	update();
-});
 
 function getMousePos(canvas, event) {
 	rect = canvas.getBoundingClientRect();
@@ -78,10 +68,6 @@ function randomizeMonster(){
 	monster.y = (canvas.height-96) * Math.random();
 }
 
-function collisionCheck(){
-	/* return true or false */
-}
-
 function colCheck3(shapeA, shapeB) { //generalna funkcja
 	var vX = (shapeA.x + (shapeA.width / 2)) - (shapeB.x + (shapeB.width / 2)),
 		vY = (shapeA.y + (shapeA.height / 2)) - (shapeB.y + (shapeB.height / 2)),
@@ -106,7 +92,3 @@ function petla(){
 }
 
 petla();
-
-//teraz żeby ruszał się w kierunku kliknięcia
-//hmmm to niełatwe. Można zrobić, żeby 8 kieurnków było. Albo podzielimy na 10 kawałków odległość.
-//w końcu było nietrudne.
