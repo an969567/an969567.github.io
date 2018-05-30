@@ -74,8 +74,8 @@ function divide(){
 }
 
 function randomizeMonster(){
-	monster.x = canvas.width * Math.random();
-	monster.y = canvas.height * Math.random();
+	monster.x = (canvas.width-96) * Math.random(); //żeby nie wypadał poza krawędzie
+	monster.y = (canvas.height-96) * Math.random();
 }
 
 function collisionCheck(){
