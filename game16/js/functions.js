@@ -98,8 +98,8 @@ function drawPlayer() {
 function level1(){
 	myDraw(map[1]);
 	for (i of boxes) {
-		myRect(i);
-		setDir(i);
+		myRect(i); //draw
+		setDir(i); //collision
 		
 		for (var j=0;j<bullets.length;j++) {
 			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1); //to się pewnie da ulepszyć
@@ -343,13 +343,12 @@ function myDraw2(myImage, myObject) {
 	ctx.drawImage(myImage, myObject.x + viewport.x, myObject.y + viewport.y, myObject.width, myObject.height);
 }
 function setDir(myBox) {
-	//console.log("setDir");
 	var dir = colCheck(player, myBox);
-	if (dir === "l" || dir === "r") player.velX = 0;
-	else if (dir === "b") { 
-		player.inAir = false; //console.log("b");
+	/*if (dir === "l" || dir === "r") player.velX = 0; //!!
+	else*/ if (dir === "b") { 
+		player.inAir = false;
 		skoczyl_juz = false;
-	} else if (dir === "t")	player.velY *= -1; //odbija się od dołu platformy (uderzył topem charactera)
+	} else if (dir === "t")	player.velY *= -1;
 }
 function patrol(myMonster) {
 	if (myMonster.x < myMonster.maxX && myMonster.direction == "right") { myMonster.x++; myMonster.HBx++; }
