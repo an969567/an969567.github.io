@@ -95,11 +95,15 @@ function drawPlayer() {
 		else myDraw2(deadImg[7], player);
 	}
 }
+
+tylko_raz47 = false;
+//var odcinek_czasu
+
 function level1(){
 	myDraw(map[1]);
 	for (i of boxes) {
-		myRect(i); //draw
-		setDir(i); //collision
+		myRect(i);
+		setDir(i);
 		
 		for (var j=0;j<bullets.length;j++) {
 			if (colCheck3(i, bullets[j]) == true) bullets.splice(j,1); //to się pewnie da ulepszyć
@@ -111,7 +115,20 @@ function level1(){
 		myDraw6(c);
 		collision2(c);
 	}
+	if(tylko_raz47 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz47 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Collect coins and get to the teleporter!", 250, 250);
+	}
 }
+
+tylko_raz48 = false;
 
 function level2(){
 	myDraw(map[2]);
@@ -131,7 +148,20 @@ function level2(){
 		myDraw6(c);
 		collision2(c);
 	}
+	if(tylko_raz48 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz48 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Watch out for spikes!", 250, 250);
+	}
 }
+
+tylko_raz49 = false;
 
 function level3(){
 	myDraw(map[3]);
@@ -152,7 +182,20 @@ function level3(){
 		myDraw6(c);
 		collision2(c);
 	}
+	if(tylko_raz49 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz49 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Avoid the monster!", 250, 250);
+	}
 }
+
+tylko_raz50 = false;
 
 function level4(){
 	myDraw(map[4]);
@@ -171,7 +214,20 @@ function level4(){
 		myDraw6(c);
 		collision2(c);
 	}
+	if(tylko_raz50 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz50 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Jump on the monster", 250, 250);
+	}
 }
+
+tylko_raz51 = false;
 
 function level5(){
 	myDraw(map[5]);
@@ -193,7 +249,21 @@ function level5(){
 		myDraw6(c);
 		collision2(c);
 	}
+	if(tylko_raz51 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz51 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Jump on the monster", 250, 250);
+	}
 }
+
+tylko_raz52 = false;
+
 function level6(){
 	myDraw(map[6]);
 	for (i of boxes6) {
@@ -212,7 +282,20 @@ function level6(){
 		myDraw6(c);
 		collision2(c);
 	}
+	if(tylko_raz52 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz52 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Shoot the monster girl", 250, 250);
+	}
 }
+
+tylko_raz53 = false;
 
 function level7(){
 	myDraw(map[7]);
@@ -229,7 +312,20 @@ function level7(){
 		myDraw6(c);
 		collision2(c);
 	}
+	if(tylko_raz53 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz53 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Climb high", 250, 250);
+	}
 }
+
+tylko_raz54 = false;
 
 function level8(){
 	myDraw(map[8]);
@@ -251,10 +347,22 @@ function level8(){
 		myDraw6(c);
 		collision2(c);
 	}
+	if(tylko_raz54 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz54 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Jump across", 250, 250);
+	}
 }
 
 tylko_raz = true;
 wait = -1;
+tylko_raz55 = false;
 
 function level9(){
 	myDraw(map[9]);
@@ -306,7 +414,20 @@ function level9(){
 		player.HBx = basePlayer.x + 35;
 		player.HBy = basePlayer.y + 10;
 	}
+	if(tylko_raz55 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz55 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Kill the boss", 250, 250);
+	}
 }
+
+tylko_raz56 = false;
 
 function level10(){
 	myDraw(map[10]);
@@ -327,6 +448,17 @@ function level10(){
 	}
 	myDraw(spikes4);
 	kill(spikes4);
+	if(tylko_raz56 == false){
+		czas_rozpoczecia = new Date().getTime();
+		tylko_raz56 = true;
+	}
+	czas_teraz = new Date().getTime();
+	odcinek_czasu = czas_teraz - czas_rozpoczecia;
+	if(odcinek_czasu < 3000/*3sekundy*/){
+		ctx.font = "30px Gravity-Regular";
+		ctx.fillStyle = "red";
+		ctx.fillText("Double jump!", 250, 250);
+	}
 }
 
 function myDraw(myObject){
@@ -344,8 +476,7 @@ function myDraw2(myImage, myObject) {
 }
 function setDir(myBox) {
 	var dir = colCheck(player, myBox);
-	/*if (dir === "l" || dir === "r") player.velX = 0; //!!
-	else*/ if (dir === "b") { 
+	if (dir === "b") { 
 		player.inAir = false;
 		skoczyl_juz = false;
 	} else if (dir === "t")	player.velY *= -1;
