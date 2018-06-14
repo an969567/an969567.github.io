@@ -90,6 +90,7 @@ function update() {
 	if ((keys[38] || keys[87]) && !player.inAir /*&& (skoczyl_juz == 0 || skoczyl_juz == 1)*/) { //!player.inAir nie pozwala mu skoczyć znowu
 		// up arrow
 			player.velY = -player.speed * 1.5;
+			player.inAir = true;
 			//skoczyl_juz++;
 	}
 
@@ -99,7 +100,9 @@ function update() {
 			skoczyl_juz = true;
 	}
 
-	if(player.inAir) player.velY += gravity;	
+	if(player.inAir) player.velY += gravity;
+
+	if(!player.inAir) player.velY = gravity;	
 	
 	drawPlayer();
 	
