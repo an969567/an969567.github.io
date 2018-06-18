@@ -1,0 +1,2 @@
+tym razem z drugim rodzajem tilesu
+use sprite
