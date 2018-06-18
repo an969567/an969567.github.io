@@ -1,6 +1,6 @@
 function drawPlayer() {
 
-	ctx.font = "30px Titan one";
+	ctx.font = "30px Gravity-Regular";
 	ctx.fillStyle = "red";
 	ctx.fillText("Welcome in Mental Asylum", 50, 50);
 	ctx.fillText("Score", 50, 80);

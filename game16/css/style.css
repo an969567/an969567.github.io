@@ -8,14 +8,14 @@ html, body {
       /*font-family: 'Titan One', serif;
       font-size: 24px;*/
     }
-@font-face {
+/*@font-face {
     font-family: sinsofrh;
     src: url(sinsofrh.ttf);
-}
+}*/
 @font-face {
     font-family: Gravity-Regular;
     src: url(Gravity-Regular.otf);
 }
 div {
-    font-family: sinsofrh;
+    font-family: Gravity-Regular;
 }
